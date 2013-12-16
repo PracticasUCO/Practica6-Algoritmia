@@ -8,7 +8,7 @@ using namespace std;
 namespace algoritmia
 {
 
-	enum CLASE_FICHA {PEON, TORRE, ALFIL, CABALLO, REY, REINA};
+	enum CLASE_FICHA {PEON, TORRE, ALFIL, CABALLO, REY, REINA, EMPTY};
 
 	class FichaAjedrez
 	{
@@ -29,8 +29,6 @@ namespace algoritmia
 		string getNameType() const;
 
 		~FichaAjedrez();
-	
-		/* data */
 	};
 }
 
