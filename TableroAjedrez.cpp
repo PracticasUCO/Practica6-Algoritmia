@@ -47,7 +47,7 @@ namespace algoritmia
 		return this->getEnumFicha(row, col) != EMPTY;
 	}
 
-	bool TableroAjedrez::hayFicha(const Posicion &p) const
+	bool TableroAjedrez::hayFicha(const Punto &p) const
 	{
 		return this->getEnumFicha(p) != EMPTY;
 	}
@@ -57,7 +57,7 @@ namespace algoritmia
 		return this->getFicha(row, col).getType();
 	}
 
-	enum CLASE_FICHA TableroAjedrez::getEnumFicha(const Posicion &p) const
+	enum CLASE_FICHA TableroAjedrez::getEnumFicha(const Punto &p) const
 	{
 		return this->getFicha(p).getType();
 	}
@@ -70,7 +70,7 @@ namespace algoritmia
 		return _tablero[row][col];
 	}
 
-	FichaAjedrez TableroAjedrez::getFicha(const Posicion &p) const
+	FichaAjedrez TableroAjedrez::getFicha(const Punto &p) const
 	{
 		unsigned int row = p.getRow();
 		unsigned int col = p.getCol();
@@ -89,7 +89,7 @@ namespace algoritmia
 			{
 				if(this->getEnumFicha(i, j) != EMPTY)
 				{
-					cout << "Ficha: " << this->getFicha(i, j) << " Posicion: (" << i << ", " << j << ")" << endl; 
+					cout << "Ficha: " << this->getFicha(i, j) << " Punto: (" << i << ", " << j << ")" << endl; 
 				}
 			}
 		}
@@ -132,7 +132,7 @@ namespace algoritmia
 		}
 	}
 
-	void TableroAjedrez::setFicha(const Posicion &p, const FichaAjedrez &f)
+	void TableroAjedrez::setFicha(const Punto &p, const FichaAjedrez &f)
 	{
 		unsigned int row = p.getRow();
 		unsigned int col = p.getCol();
@@ -147,7 +147,7 @@ namespace algoritmia
 		this->setFicha(row, col, f);
 	}
 
-	void TableroAjedrez::setFicha(const Posicion &p, const enum CLASE_FICHA &e)
+	void TableroAjedrez::setFicha(const Punto &p, const enum CLASE_FICHA &e)
 	{
 		FichaAjedrez f(e);
 
@@ -170,7 +170,7 @@ namespace algoritmia
 		}
 	}
 
-	bool TableroAjedrez::borrarFicha(const Posicion &p)
+	bool TableroAjedrez::borrarFicha(const Punto &p)
 	{
 		unsigned int row = p.getRow();
 		unsigned int col = p.getCol();
