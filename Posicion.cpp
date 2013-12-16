@@ -31,4 +31,9 @@ namespace algoritmia
 	{
 		return _row;
 	}
+
+	unsigned int Posicion::getCol() const
+	{
+		return _col;
+	}
 }
