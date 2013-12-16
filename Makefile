@@ -11,14 +11,17 @@ practica6: main.o FichaAjedrez.o TableroAjedrez.o Punto.o
 FichaAjedrez.o: FichaAjedrez.hpp FichaAjedrez.cpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ FichaAjedrez.cpp
 
-TableroAjedrez.o: TableroAjedrez.cpp TableroAjedrez.hpp FichaAjedrez.o Punto.o
+TableroAjedrez.o: TableroAjedrez.cpp TableroAjedrez.hpp FichaAjedrez.o Recta.o
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ TableroAjedrez.cpp
 
 Punto.o: Punto.cpp Punto.hpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Punto.cpp
 
-Recta.o: Recta.hpp Recta.cpp
+Recta.o: Recta.hpp Recta.cpp Pendiente.o Punto.o
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Recta.o
+
+Pendiente.o: Pendiente.cpp Pendiente.hpp
+	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Pendiente.cpp
 
 clean-objects:
 	-rm *.o
