@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <list>
+#include "Posicion.hpp"
 #include "FichaAjedrez.hpp"
 
 using namespace std;
@@ -35,6 +36,11 @@ namespace algoritmia
 		    @return Un valor booleano indicando si esta (TRUE) o si no hay ficha (FALSE) **/
 	    bool hayFicha(const unsigned int &row, const unsigned int &col) const;
 
+	    /** @brief Consulta si hay alguna ficha en la posicion indicada
+	    	@param p Posicion donde se deseea buscar la ficha
+	    	@return Un valor booleano indicando si esta la ficha (TRUE) o ni no esta (FALSE) **/
+    	bool hayFicha(const Posicion &p) const;
+
 	    /** @brief Devuelve la ficha que se encuentra en la posicion elegida
 	    	@param row Indica la fila donde debe de estar la ficha (empezando por cero)
 	    	@param col Indica la columna donde debe de estar la ficha (empezando por cero)
@@ -42,16 +48,31 @@ namespace algoritmia
 	    enum CLASE_FICHA getEnumFicha(const unsigned int &row, const unsigned int &col) const;
 
 	    /** @brief Devuelve la ficha que se encuentra en la posicion elegida
+	    	@param p Posicion donde se debe encontrar la ficha
+	    	@return enum CLASE_FICHA  que representa dicha ficha **/
+    	enum CLASE_FICHA getEnumFicha(const Posicion &p) const;
+
+	    /** @brief Devuelve la ficha que se encuentra en la posicion elegida
 	        @param row Indica la fila donde debe de esta la ficha (empezando por cero)
 	        @param col Indica la columna donde debe de estar la ficha (empezando por cero)
 	        @return Una FichaAjedrez de la posicion adecuada **/
         FichaAjedrez getFicha(const unsigned int &row, const unsigned int &col) const;
+
+        /** @brief Devuelve la ficha que se encuentra en la posicion indicada
+        	@param p La posicion que deseas obtener la ficha
+        	@return Una FichaAjedrez de la posicion indicada **/
+    	FichaAjedrez getFicha(const Posicion &p) const;
 
         /** @brief Devuelve si la posicion elegida esta amenazada por otra ficha (De momento solo esta implementada la reina)
         	@param row Indica la fila a evaluar
         	@param col Indica la columna a evaluar
         	@return Un valor booleano que indica que dicha posicion esta amenazada por otra ficha (TRUE) o no (FALSE) **/
         bool ameanaza(const unsigned int &row, const unsigned int &col) const;
+
+        /** @brief Devuelve si la posicion elegida esta amenazada por otra ficha (De momento solo esta implementada la reina)
+        	@param p Posicion
+        	@return Un valor booleano que indica que dicha posicion esta amenazada por otra ficha (TRUE) o no (FALSE) **/
+    	bool amenaza(const Posicion &p) const;
 
         /** @brief Muestra por pantalla donde estan situadas cada una de las ficha del tablero **/
         void detail() const;
@@ -74,10 +95,20 @@ namespace algoritmia
  		void setFicha(const unsigned int &row, const unsigned int &col, const FichaAjedrez &f);
 
  		/** @brief Coloca una ficha en la posicion indicada
+ 			@param p Posicion donde deseas insertar la ficha
+ 			@param f Ficha de ajedrez a insertar **/
+		void setFicha(const Posicion &p, const FichaAjedrez &f);
+
+ 		/** @brief Coloca una ficha en la posicion indicada
  			@param row Fila donde establecer la ficha
  			@param col Columna donde establecer la ficha
  			@param e Enumeracion que representa la ficha a establecer **/
 		void setFicha(const unsigned int &row, const unsigned int &col, const enum CLASE_FICHA &e);
+
+		/** @brief Coloca una ficha en la posicion indicada
+			@param p Posicion donde deseas insertar la ficha
+			@param e Enumeracion que representa la ficha a establecer **/
+		void setFicha(const Posicion &p, const enum CLASE_FICHA &e);
 
 		/** @brief Borra una ficha del tablero
 			@param row Fila donde se encuentra la ficha a borrar
@@ -85,6 +116,12 @@ namespace algoritmia
 			@return Devuelve un valor booleano que indica que en la posicion indicada habia una ficha y fue borrada (TRUE) o que
 			no habia ninguna ficha y por tanto no se borro nada (FALSE) **/
 		bool borrarFicha(const unsigned int &row, const unsigned int &col);
+
+		/** @brief Borra una ficha del tablero
+			@param p Posicion de la que deseas borrar la ficha
+			@return Devuelve un valor booleano que indica que en la posicion indicada habia una ficha y fue borrada (TRUE) o que
+			no habia ninguna ficha y por tanto no se borro nada (FALSE) **/
+		bool borrarFicha(const Posicion &p);
 		~TableroAjedrez();
 	};
 }
