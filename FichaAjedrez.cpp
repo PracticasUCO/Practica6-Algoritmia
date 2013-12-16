@@ -44,9 +44,18 @@ namespace algoritmia
 		{
 			return "REY";
 		}
-		else
+		else if(type == REINA)
 		{
 			return "REINA";
 		}
+		else
+		{
+			return "EMPTY";
+		}
+	}
+
+	void FichaAjedrez::remove()
+	{
+		this->establecerTipoFicha(EMPTY);
 	}
 }

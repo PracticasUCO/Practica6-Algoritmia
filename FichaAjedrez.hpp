@@ -28,6 +28,9 @@ namespace algoritmia
 		/** @brief Devuelve el tipo de ficha que es, en forma de cadena **/
 		string getNameType() const;
 
+		/** @brief Borra la ficha **/
+		void remove();
+
 		~FichaAjedrez();
 	};
 }
