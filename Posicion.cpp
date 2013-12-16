@@ -136,4 +136,22 @@ namespace algoritmia
 		output << "(" << p.getRow() << ", " << p.getCol() << ")";
 		return output;
 	}
+
+	istream& operator>>(istream &input, Posicion &p)
+	{
+		unsigned int row;
+		unsigned int col;
+
+		cout << "Introduzca la fila: ";
+		input >> row;
+		cout << endl;
+
+		cout << "Introduzca la columna: ";
+		input >> col;
+		cout << endl;
+
+		p.setPosicion(row, col);
+
+		return input;
+	}
 }
