@@ -14,4 +14,9 @@ namespace algoritmia
 	{
 		this->setTablero(ROWS_DEFAULT, COLS_DEFAULT);
 	}
+
+	TableroAjedrez::TableroAjedrez(const unsigned int rows, const unsigned int cols)
+	{
+		this->setTablero(rows, cols);
+	}
 };
