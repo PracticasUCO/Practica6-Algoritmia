@@ -119,4 +119,21 @@ namespace algoritmia
 
 		return distanciaA > distanciaB;
 	}
+
+	bool Posicion::operator>=(const Posicion &p) const
+	{
+		unsigned int distanciaA;
+		unsigned int distanciaB;
+
+		distanciaA = this->getRow() + this->getCol();
+		distanciaB = p.getRow() + p.getCol();
+
+		return distanciaA >= distanciaB;
+	}
+
+	ostream& operator<<(ostream &output, const Posicion &p)
+	{
+		output << "(" << p.getRow() << ", " << p.getCol() << ")";
+		return output;
+	}
 }
