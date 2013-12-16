@@ -20,7 +20,7 @@ namespace algoritmia
 	public:
 		/** @brief Constructor de la clase FichaAjedrez
 		    @param CLASE_FICHA, indica el tipo de ficha que se esta construyendo **/
-		FichaAjedrez(const enum CLASE_FICHA &type);
+		FichaAjedrez(const enum CLASE_FICHA &type = EMPTY);
 
 		/** @brief Devuelve el tipo de ficha que es, en forma de enumerado **/
 		enum CLASE_FICHA getType() const;
