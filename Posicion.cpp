@@ -36,4 +36,12 @@ namespace algoritmia
 	{
 		return _col;
 	}
+
+	void Posicion::operator=(const Posicion &p)
+	{
+		unsigned int row = p.getRow();
+		unsigned int col = p.getCol();
+
+		this->setPosicion(row, col);
+	}
 }
