@@ -19,4 +19,25 @@ namespace algoritmia
 	{
 		this->setTablero(rows, cols);
 	}
+
+	TableroAjedrez::TableroAjedrez(const TableroAjedrez &table)
+	{
+		unsigned int rows = table.getRows();
+		unsigned int cols = table.getCols();
+
+		this->setTablero(rows, cols);
+
+		for(unsigned int i = 0; i < rows; i++)
+		{
+			for(unsigned int j = 0; j < cols; j++)
+			{
+				enum CLASE_FICHA type = table.getEnumFicha(i, j);
+				
+				if(type != EMPTY)
+				{
+					this->setFicha(i, j, type);
+				}
+			}
+		}
+	}
 };

@@ -56,10 +56,10 @@ namespace algoritmia
         void detail() const;
 
         /** @brief Devuelve el numero de filas del tablero **/
-        unsigned int getFilas() const;
+        unsigned int getRows() const;
 
         /** @brief Devuelve el numero de columnas del tablero **/
-        unsigned int getColumnas() const;
+        unsigned int getCols() const;
 
         /** @brief Establece el tamaño del tablero
          	@param rows Indica el numero de filas
