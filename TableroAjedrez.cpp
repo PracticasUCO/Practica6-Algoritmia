@@ -175,4 +175,12 @@ namespace algoritmia
 			return true;
 		}
 	}
+
+	bool TableroAjedrez::borrarFicha(const Posicion &p)
+	{
+		unsigned int row = p.getRow();
+		unsigned int col = p.getCol();
+
+		return this->borrarFicha(row, col);
+	}
 };
