@@ -44,4 +44,12 @@ namespace algoritmia
 
 		this->setPosicion(row, col);
 	}
+
+	void Posicion::operator+(const Posicion &p)
+	{
+		unsigned int row = this->getRow() + p.getRow();
+		unsigned int col = this->getCol() + p.getCol();
+
+		this->setPosicion(row, col);
+	}
 }
