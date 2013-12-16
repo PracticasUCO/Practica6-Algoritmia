@@ -2,15 +2,22 @@
 #define __RECTA_CPP
 
 #include "Punto.hpp"
+#include "Pendiente"
 
 namespace algoritmia
 {
 	class Recta
 	{
 	private:
-		double _coeficienteX;
-		double _coeficienteY;
-		double _coeficienteIndependiente;
+		Punto _inicio;
+		Pendiente _pendiente;
+
+		/** @brief Trata de mover un punto con una pendiente lo maximo posible hacia la
+			izquierda y lo maximo posible hacia arriba
+			@param punto El punto a mover
+			@param pendiente La pendiente de la recta a seguir
+			@return El nuevo punto al comienzo de la recta **/
+		Punto moverAlInicio(const Punto &punto, const Pendiente &pendiente) const;
 
 	public:
 		/** @brief Constructor vacio **/
@@ -37,14 +44,11 @@ namespace algoritmia
 			@return Un valor que indica el valor de la X **/
 		double getX(const double &Y) const;
 
-		/** @brief Devuelve el valor del coeficiente X **/
-		double getCoeficienteX() const;
+		/** @brief Devuelve el punto inicial almacenado por la recta **/
+		Punto getPuntoInicial() const;
 
-		/** @brief Devuelve el valor del coeficiente Y **/
-		double getCoeficienteY() const;
-
-		/** @brief Devuelve el valor del coeficiente independiente **/
-		double getCoeficienteIndependiente() const;
+		/** @brief Devuelve la pendiente de la recta **/
+		Pendiente getPendiente() const;
 
 		/** Copia la recta **/
 		void operator=(const Recta &r);
