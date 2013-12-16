@@ -70,6 +70,17 @@ namespace algoritmia
 		return _tablero[row][col];
 	}
 
+	FichaAjedrez TableroAjedrez::getFicha(const Posicion &p) const
+	{
+		unsigned int row = p.getRow();
+		unsigned int col = p.getCol();
+
+		assert(row < this->getRows());
+		assert(col < this->getCols());
+
+		return _tablero[row][col];
+	}
+
 	void TableroAjedrez::detail() const
 	{
 		for(unsigned int i = 0; i < this->getRows(); i++)
@@ -112,6 +123,20 @@ namespace algoritmia
 
 	void TableroAjedrez::setFicha(const unsigned int &row, const unsigned int &col, const FichaAjedrez &f)
 	{
+		assert(row < this->getRows());
+		assert(col < this->getCols());
+
+		if(this->getFicha(row, col) != f)
+		{
+			_tablero[row][col] = f;
+		}
+	}
+
+	void TableroAjedrez::setFicha(const Posicion &p, const FichaAjedrez &f)
+	{
+		unsigned int row = p.getRow();
+		unsigned int col = p.getCol();
+
 		assert(row < this->getRows());
 		assert(col < this->getCols());
 
