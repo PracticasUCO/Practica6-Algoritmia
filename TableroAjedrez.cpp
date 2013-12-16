@@ -137,13 +137,7 @@ namespace algoritmia
 		unsigned int row = p.getRow();
 		unsigned int col = p.getCol();
 
-		assert(row < this->getRows());
-		assert(col < this->getCols());
-
-		if(this->getFicha(row, col) != f)
-		{
-			_tablero[row][col] = f;
-		}
+		this->setFicha(row, col, f);
 	}
 
 	void TableroAjedrez::setFicha(const unsigned int &row, const unsigned int &col, const enum CLASE_FICHA &e)
