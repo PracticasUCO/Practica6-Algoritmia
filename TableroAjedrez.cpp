@@ -110,4 +110,11 @@ namespace algoritmia
 			_tablero[row][col] = f;
 		}
 	}
+
+	void TableroAjedrez::setFicha(const unsigned int &row, const unsigned int &col, const enum CLASE_FICHA &e)
+	{
+		FichaAjedrez f(e);
+
+		this->setFicha(row, col, f);
+	}
 };
