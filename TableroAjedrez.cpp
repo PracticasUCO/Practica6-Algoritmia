@@ -117,4 +117,20 @@ namespace algoritmia
 
 		this->setFicha(row, col, f);
 	}
+
+	bool TableroAjedrez::borrarFicha(const unsigned int &row, const unsigned int &col)
+	{
+		assert(row < this->getRows());
+		assert(col < this->getCols());
+
+		if(this->getEnumFicha(row, col) == EMPTY) //No hay nada que hacer
+		{
+			return false;
+		}
+		else
+		{
+			_tablero[row][col].establecerTipoFicha(EMPTY);
+			return true;
+		}
+	}
 };
