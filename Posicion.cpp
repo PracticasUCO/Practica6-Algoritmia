@@ -26,4 +26,9 @@ namespace algoritmia
 		_row = row;
 		_col = col;
 	}
+
+	unsigned int Posicion::getRow() const
+	{
+		return _row;
+	}
 }
