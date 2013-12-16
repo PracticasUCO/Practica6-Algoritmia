@@ -17,6 +17,9 @@ TableroAjedrez.o: TableroAjedrez.cpp TableroAjedrez.hpp FichaAjedrez.o Punto.o
 Punto.o: Punto.cpp Punto.hpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Punto.cpp
 
+Recta.o: Recta.hpp Recta.cpp
+	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Recta.o
+
 clean-objects:
 	-rm *.o
 
