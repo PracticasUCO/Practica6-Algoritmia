@@ -99,4 +99,15 @@ namespace algoritmia
 			_tablero[i].resize(cols);
 		}
 	}
+
+	void TableroAjedrez::setFicha(const unsigned int &row, const unsigned int &col, const FichaAjedrez &f)
+	{
+		assert(row < this->getRows());
+		assert(col < this->getCols());
+
+		if(this->getFicha(row, col) != f)
+		{
+			_tablero[row][col] = f;
+		}
+	}
 };
