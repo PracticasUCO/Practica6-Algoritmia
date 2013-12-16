@@ -153,6 +153,13 @@ namespace algoritmia
 		this->setFicha(row, col, f);
 	}
 
+	void TableroAjedrez::setFicha(const Posicion &p, const enum CLASE_FICHA &e)
+	{
+		FichaAjedrez f(e);
+
+		this->setFicha(p, f);
+	}
+
 	bool TableroAjedrez::borrarFicha(const unsigned int &row, const unsigned int &col)
 	{
 		assert(row < this->getRows());
