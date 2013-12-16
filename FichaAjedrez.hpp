@@ -2,6 +2,7 @@
 #define __FICHA_AJEDREZ_HPP
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -14,8 +15,6 @@ namespace algoritmia
 	{
 	private:
 		enum CLASE_FICHA _type; //!< Especifica el tipo de ficha que es
-
-		void establecerTipoFicha(const enum CLASE_FICHA &type);
 
 	public:
 		/** @brief Constructor de la clase FichaAjedrez
@@ -31,7 +30,16 @@ namespace algoritmia
 		/** @brief Borra la ficha **/
 		void remove();
 
+		void establecerTipoFicha(const enum CLASE_FICHA &type);
+
 		~FichaAjedrez();
+
+		/** Sobrecarga de operadores **/
+		void operator=(const FichaAjedrez &f);
+		bool operator==(const FichaAjedrez &f) const;
+		bool operator!=(const FichaAjedrez &f) const;
+		friend ostream& operator<<(ostream &output, const FichaAjedrez &f);
+		friend istream& operator>>(istream &input, FichaAjedrez &f); 
 	};
 }
 

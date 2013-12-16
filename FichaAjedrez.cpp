@@ -1,5 +1,6 @@
 #include <string>
 #include <cassert>
+#include <iostream>
 #include "FichaAjedrez.hpp"
 
 using namespace std;
@@ -58,5 +59,82 @@ namespace algoritmia
 	void FichaAjedrez::remove()
 	{
 		this->establecerTipoFicha(EMPTY);
+	}
+
+	void FichaAjedrez::operator=(const FichaAjedrez &f)
+	{
+		enum CLASE_FICHA type = f.getType();
+		this->establecerTipoFicha(type);
+	}
+
+	bool FichaAjedrez::operator==(const FichaAjedrez &f) const
+	{
+		return f.getType() == this->getType();
+	}
+
+	bool FichaAjedrez::operator!=(const FichaAjedrez &f) const
+	{
+		return f.getType() != this->getType();
+	}
+
+	ostream& operator<<(ostream &output, const FichaAjedrez &f)
+	{
+		output << f.getNameType();
+		return output;
+	}
+
+	istream& operator>>(istream &input, FichaAjedrez &f)
+	{
+		int opcion;
+		enum CLASE_FICHA type;
+
+		do
+		{
+			cout << "1- PEON" << endl;
+			cout << "2- TORRE" << endl;
+			cout << "3- ALFIL" << endl;
+			cout << "4- CABALLO" << endl;
+			cout << "5- REY" << endl;
+			cout << "6- REINA" << endl;
+			cout << "7- EMPTY" << endl;
+
+			cout << "Escoja el tipo de ficha: ";
+			input >> opcion;
+			cout << endl;
+		} while((opcion < 1) || (opcion > 7));
+
+		switch(opcion)
+		{
+			case 1:
+				type = PEON;
+				break;
+
+			case 2:
+				type = TORRE;
+				break;
+
+			case 3:
+				type = ALFIL;
+				break;
+
+			case 4:
+				type = CABALLO;
+				break;
+
+			case 5:
+				type = REY;
+				break;
+
+			case 6:
+				type = REINA;
+				break;
+
+			default:
+				type = EMPTY;
+		};
+
+		f.establecerTipoFicha(type);
+
+		return input;
 	}
 }
