@@ -73,4 +73,9 @@ namespace algoritmia
 			}
 		}
 	}
+
+	unsigned int TableroAjedrez::getRows() const
+	{
+		return _rows;
+	}
 };
