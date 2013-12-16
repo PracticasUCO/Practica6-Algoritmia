@@ -76,4 +76,9 @@ namespace algoritmia
 
 		this->setPosicion(row, col);
 	}
+
+	bool Posicion::operator==(const Posicion &p) const
+	{
+		return (this->getRow() == p.getRow()) && (this->getCol() && p.getCol());
+	}
 }
