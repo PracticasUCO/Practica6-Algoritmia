@@ -1,4 +1,5 @@
 #include <string>
+#include <cassert>
 #include "FichaAjedrez.hpp"
 
 using namespace std;
