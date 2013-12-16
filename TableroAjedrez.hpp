@@ -18,6 +18,17 @@ namespace algoritmia
 		unsigned int _cols;
 		vector<vector<FichaAjedrez> > _tablero;
 
+		/** @brief Devuelve la lista de movimientos posibles por una ficha determinada en una posicion del juego
+			@param p Posicion de inicio de la ficha
+			@param f Ficha a mover
+			@return Una lista en formato list<Posicion> que indica todas las posibles direcciones que puede tomar **/
+		list<Posicion> listaMovimientos(const Posicion &p, const FichaAjedrez &f) const;
+
+		/** @brief Devuelve la lista de todos los movimientos que puede hacer la reina
+			@param p Posicion de inicio de la reina
+			@return list<Posicion> con cada uno de los puntos a donde podria llegar la reina **/
+		list<Posicion> listaMovimientoReina(const Posicion &p) const;
+
 	public:
 		/** @brief Constructor por defecto, que inicializa el tablero en blanco con el tamaño
 		           actual del ajedrez **/
