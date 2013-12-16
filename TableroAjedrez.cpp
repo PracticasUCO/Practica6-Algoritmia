@@ -32,12 +32,17 @@ namespace algoritmia
 			for(unsigned int j = 0; j < cols; j++)
 			{
 				enum CLASE_FICHA type = table.getEnumFicha(i, j);
-				
+
 				if(type != EMPTY)
 				{
 					this->setFicha(i, j, type);
 				}
 			}
 		}
+	}
+
+	bool TableroAjedrez::hayFicha(const unsigned int &row, const unsigned int &col) const
+	{
+		return this->getEnumFicha(row, col) != EMPTY;
 	}
 };
