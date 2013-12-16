@@ -9,4 +9,15 @@ namespace algoritmia
 	{
 		this->setPosicion(row, col);
 	}
+
+	Posicion::Posicion(const Posicion &p)
+	{
+		unsigned int row;
+		unsigned int col;
+
+		row = p.getRow();
+		col = p.getCol();
+
+		this->setPosicion(row, col);
+	}
 }
