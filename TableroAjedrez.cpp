@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 #include "TableroAjedrez.hpp"
 #include "FichaAjedrez.hpp"
 
@@ -49,5 +50,13 @@ namespace algoritmia
 	enum CLASE_FICHA TableroAjedrez::getEnumFicha(const unsigned int &row, const unsigned int &col) const
 	{
 		return this->getFicha(row, col).getType();
+	}
+
+	FichaAjedrez TableroAjedrez::getFicha(const unsigned int &row, const unsigned int &col) const
+	{
+		assert(row < this->getRows());
+		assert(col < this->getCols());
+
+		return _tablero[row][col];
 	}
 };
