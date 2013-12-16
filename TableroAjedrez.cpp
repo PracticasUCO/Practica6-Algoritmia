@@ -72,8 +72,8 @@ namespace algoritmia
 
 	FichaAjedrez TableroAjedrez::getFicha(const Punto &p) const
 	{
-		unsigned int row = p.getRow();
-		unsigned int col = p.getCol();
+		unsigned int row = p.getX();
+		unsigned int col = p.getY();
 
 		assert(row < this->getRows());
 		assert(col < this->getCols());
@@ -134,8 +134,8 @@ namespace algoritmia
 
 	void TableroAjedrez::setFicha(const Punto &p, const FichaAjedrez &f)
 	{
-		unsigned int row = p.getRow();
-		unsigned int col = p.getCol();
+		unsigned int row = p.getX();
+		unsigned int col = p.getY();
 
 		this->setFicha(row, col, f);
 	}
@@ -172,8 +172,8 @@ namespace algoritmia
 
 	bool TableroAjedrez::borrarFicha(const Punto &p)
 	{
-		unsigned int row = p.getRow();
-		unsigned int col = p.getCol();
+		unsigned int row = p.getX();
+		unsigned int col = p.getY();
 
 		return this->borrarFicha(row, col);
 	}

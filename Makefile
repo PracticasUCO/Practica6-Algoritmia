@@ -11,7 +11,7 @@ practica6: main.o FichaAjedrez.o TableroAjedrez.o Punto.o
 FichaAjedrez.o: FichaAjedrez.hpp FichaAjedrez.cpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ FichaAjedrez.cpp
 
-TableroAjedrez.o: TableroAjedrez.cpp TableroAjedrez.hpp FichaAjedrez.o
+TableroAjedrez.o: TableroAjedrez.cpp TableroAjedrez.hpp FichaAjedrez.o Punto.o
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ TableroAjedrez.cpp
 
 Punto.o: Punto.cpp Punto.hpp
