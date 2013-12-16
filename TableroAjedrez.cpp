@@ -57,6 +57,11 @@ namespace algoritmia
 		return this->getFicha(row, col).getType();
 	}
 
+	enum CLASE_FICHA TableroAjedrez::getEnumFicha(const Posicion &p) const
+	{
+		return this->getFicha(p).getType();
+	}
+
 	FichaAjedrez TableroAjedrez::getFicha(const unsigned int &row, const unsigned int &col) const
 	{
 		assert(row < this->getRows());
