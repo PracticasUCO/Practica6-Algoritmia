@@ -20,4 +20,10 @@ namespace algoritmia
 
 		this->setPosicion(row, col);
 	}
+
+	void Posicion::setPosicion(const unsigned int &row, const unsigned int &col)
+	{
+		_row = row;
+		_col = col;
+	}
 }
