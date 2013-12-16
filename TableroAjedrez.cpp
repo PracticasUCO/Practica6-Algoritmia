@@ -83,4 +83,20 @@ namespace algoritmia
 	{
 		return _cols;
 	}
+
+	void TableroAjedrez::setTablero(const unsigned int &rows, const unsigned int &cols)
+	{
+		assert(rows > 0);
+		assert(cols > 0);
+
+		_rows = rows;
+		_cols = cols;
+
+		_tablero.resize(rows);
+
+		for(unsigned int i = 0; i < rows; i++)
+		{
+			_tablero[i].resize(cols);
+		}
+	}
 };
