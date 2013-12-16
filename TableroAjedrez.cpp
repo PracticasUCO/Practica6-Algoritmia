@@ -59,4 +59,18 @@ namespace algoritmia
 
 		return _tablero[row][col];
 	}
+
+	void TableroAjedrez::detail() const
+	{
+		for(unsigned int i = 0; i < this->getRows(); i++)
+		{
+			for(unsigned int j = 0; j < this->getCols(); j++)
+			{
+				if(this->getEnumFicha(i, j) != EMPTY)
+				{
+					cout << "Ficha: " << this->getFicha(i, j) << " Posicion: (" << i << ", " << j << ")" << endl; 
+				}
+			}
+		}
+	}
 };
