@@ -5,81 +5,81 @@ using namespace std;
 
 namespace algoritmia
 {
-	Punto::Punto(const unsigned int &row, const unsigned int &col)
+	Punto::Punto(const unsigned int &X, const unsigned int &Y)
 	{
-		this->setPunto(row, col);
+		this->setPunto(X, Y);
 	}
 
 	Punto::Punto(const Punto &p)
 	{
-		unsigned int row;
-		unsigned int col;
+		unsigned int X;
+		unsigned int Y;
 
-		row = p.getRow();
-		col = p.getCol();
+		X = p.getX();
+		Y = p.getY();
 
-		this->setPunto(row, col);
+		this->setPunto(X, Y);
 	}
 
-	void Punto::setPunto(const unsigned int &row, const unsigned int &col)
+	void Punto::setPunto(const unsigned int &X, const unsigned int &Y)
 	{
-		_row = row;
-		_col = col;
+		_X = X;
+		_Y = Y;
 	}
 
-	unsigned int Punto::getRow() const
+	unsigned int Punto::getX() const
 	{
-		return _row;
+		return _X;
 	}
 
-	unsigned int Punto::getCol() const
+	unsigned int Punto::getY() const
 	{
-		return _col;
+		return _Y;
 	}
 
 	void Punto::operator=(const Punto &p)
 	{
-		unsigned int row = p.getRow();
-		unsigned int col = p.getCol();
+		unsigned int X = p.getX();
+		unsigned int Y = p.getY();
 
-		this->setPunto(row, col);
+		this->setPunto(X, Y);
 	}
 
 	void Punto::operator+(const Punto &p)
 	{
-		unsigned int row = this->getRow() + p.getRow();
-		unsigned int col = this->getCol() + p.getCol();
+		unsigned int X = this->getX() + p.getX();
+		unsigned int Y = this->getY() + p.getY();
 
-		this->setPunto(row, col);
+		this->setPunto(X, Y);
 	}
 
 	void Punto::operator-(const Punto &p)
 	{
-		unsigned int row = this->getRow() - p.getRow();
-		unsigned int col = this->getCol() - p.getCol();
+		unsigned int X = this->getX() - p.getX();
+		unsigned int Y = this->getY() - p.getY();
 
-		this->setPunto(row, col);
+		this->setPunto(X, Y);
 	}
 
 	void Punto::operator*(const Punto &p)
 	{
-		unsigned int row = this->getRow() * p.getRow();
-		unsigned int col = this->getCol() * p.getCol();
+		unsigned int X = this->getX() * p.getX();
+		unsigned int Y = this->getY() * p.getY();
 
-		this->setPunto(row, col);
+		this->setPunto(X, Y);
 	}
 
 	void Punto::operator/(const Punto &p)
 	{
-		unsigned int row = this->getRow() / p.getRow();
-		unsigned int col = this->getCol() / p.getCol();
+		unsigned int X = this->getX() / p.getX();
+		unsigned int Y = this->getY() / p.getY();
 
-		this->setPunto(row, col);
+		this->setPunto(X, Y);
 	}
 
 	bool Punto::operator==(const Punto &p) const
 	{
-		return (this->getRow() == p.getRow()) && (this->getCol() && p.getCol());
+		return (this->getX() == p.getX()) && (this->getY() && p.getY());
 	}
 
 	bool Punto::operator!=(const Punto &p) const
@@ -92,8 +92,8 @@ namespace algoritmia
 		unsigned int distanciaA;
 		unsigned int distanciaB;
 
-		distanciaA = this->getRow() + this->getCol();
-		distanciaB = p.getRow() + p.getCol();
+		distanciaA = this->getX() + this->getY();
+		distanciaB = p.getX() + p.getY();
 
 		return distanciaA < distanciaB;
 	}
@@ -103,8 +103,8 @@ namespace algoritmia
 		unsigned int distanciaA;
 		unsigned int distanciaB;
 
-		distanciaA = this->getRow() + this->getCol();
-		distanciaB = p.getRow() + p.getCol();
+		distanciaA = this->getX() + this->getY();
+		distanciaB = p.getX() + p.getY();
 
 		return distanciaA <= distanciaB;
 	}
@@ -114,8 +114,8 @@ namespace algoritmia
 		unsigned int distanciaA;
 		unsigned int distanciaB;
 
-		distanciaA = this->getRow() + this->getCol();
-		distanciaB = p.getRow() + p.getCol();
+		distanciaA = this->getX() + this->getY();
+		distanciaB = p.getX() + p.getY();
 
 		return distanciaA > distanciaB;
 	}
@@ -125,32 +125,32 @@ namespace algoritmia
 		unsigned int distanciaA;
 		unsigned int distanciaB;
 
-		distanciaA = this->getRow() + this->getCol();
-		distanciaB = p.getRow() + p.getCol();
+		distanciaA = this->getX() + this->getY();
+		distanciaB = p.getX() + p.getY();
 
 		return distanciaA >= distanciaB;
 	}
 
 	ostream& operator<<(ostream &output, const Punto &p)
 	{
-		output << "(" << p.getRow() << ", " << p.getCol() << ")";
+		output << "(" << p.getX() << ", " << p.getY() << ")";
 		return output;
 	}
 
 	istream& operator>>(istream &input, Punto &p)
 	{
-		unsigned int row;
-		unsigned int col;
+		unsigned int X;
+		unsigned int Y;
 
 		cout << "Introduzca la fila: ";
-		input >> row;
+		input >> X;
 		cout << endl;
 
-		cout << "Introduzca la columna: ";
-		input >> col;
+		cout << "Introduzca la Yumna: ";
+		input >> Y;
 		cout << endl;
 
-		p.setPunto(row, col);
+		p.setPunto(X, Y);
 
 		return input;
 	}

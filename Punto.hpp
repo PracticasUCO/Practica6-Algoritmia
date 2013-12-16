@@ -10,26 +10,26 @@ namespace algoritmia
 	class Punto
 	{
 	private:
-		unsigned int _row;
-		unsigned int _col;
+		unsigned int _X;
+		unsigned int _Y;
 
 	public:
 		/** @brief Constructor de la clase Punto **/
-		Punto(const unsigned int &row = 0, const unsigned int &col = 0);
+		Punto(const unsigned int &X = 0, const unsigned int &Y = 0);
 
 		/** @brief Constructor de copia **/
 		Punto(const Punto &p);
 
 		/** @brief Establece la Punto en un punto determinado
-		 	@param row Indica la fila donde se situara
-		 	@param col Indica la columna donde se situara **/
-		void setPunto(const unsigned int &row = 0, const unsigned int &col = 0);
+		 	@param X Indica la posicion X
+		 	@param Y Indica la posicion Y **/
+		void setPunto(const unsigned int &X = 0, const unsigned int &Y = 0);
 
 		/** @brief Devuelve la fila almacenada **/
-		unsigned int getRow() const;
+		unsigned int getX() const;
 
-		/** @brief Devuelve la columna almacenada **/
-		unsigned int getCol() const;
+		/** @brief Devuelve la Yumna almacenada **/
+		unsigned int getY() const;
 
 		void operator=(const Punto &p);
 		void operator+(const Punto &p);
