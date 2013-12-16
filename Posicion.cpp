@@ -81,4 +81,31 @@ namespace algoritmia
 	{
 		return (this->getRow() == p.getRow()) && (this->getCol() && p.getCol());
 	}
+
+	bool Posicion::operator!=(const Posicion &p) const
+	{
+		return !(*this == p);
+	}
+
+	bool Posicion::operator<(const Posicion &p) const
+	{
+		unsigned int distanciaA;
+		unsigned int distanciaB;
+
+		distanciaA = this->getRow() + this->getCol();
+		distanciaB = p.getRow() + p.getCol();
+
+		return distanciaA < distanciaB;
+	}
+
+	bool Posicion::operator<=(const Posicion &p) const
+	{
+		unsigned int distanciaA;
+		unsigned int distanciaB;
+
+		distanciaA = this->getRow() + this->getCol();
+		distanciaB = p.getRow() + p.getCol();
+
+		return distanciaA <= distanciaB;
+	}
 }
