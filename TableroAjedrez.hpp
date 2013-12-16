@@ -67,7 +67,7 @@ namespace algoritmia
         	@param row Indica la fila a evaluar
         	@param col Indica la columna a evaluar
         	@return Un valor booleano que indica que dicha posicion esta amenazada por otra ficha (TRUE) o no (FALSE) **/
-        bool ameanaza(const unsigned int &row, const unsigned int &col) const;
+        bool amenaza(const unsigned int &row, const unsigned int &col) const;
 
         /** @brief Devuelve si la posicion elegida esta amenazada por otra ficha (De momento solo esta implementada la reina)
         	@param p Posicion
