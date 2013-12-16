@@ -78,4 +78,9 @@ namespace algoritmia
 	{
 		return _rows;
 	}
+
+	unsigned int TableroAjedrez::getCols() const
+	{
+		return _cols;
+	}
 };
