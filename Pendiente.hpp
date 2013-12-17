@@ -8,7 +8,7 @@ using namespace std;
 
 namespace algoritmia
 {
-	enum PENDIENTE { NUMERICA, INFINITA };
+	enum PENDIENTE { REAL, INF };
 
 	class Pendiente
 	{
@@ -33,7 +33,7 @@ namespace algoritmia
 		void establecerPendiente(const Punto &A, const Punto &B);
 
 		/** @brief Devuelve el tipo de pendiente de la que estamos tratando
-			@return INFINITA si se trata de una pendiente infinita y NUMERICA en cualquier otro caso **/
+			@return INF si se trata de una pendiente INF y REAL en cualquier otro caso **/
 		const enum PENDIENTE getType() const;
 
 		/** @brief Devuelve el valor de la pendiente

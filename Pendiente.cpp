@@ -38,15 +38,15 @@ namespace algoritmia
 		Ix = B.getX() - A.getX();
 		Iy = B.getY() - A.getY();
 
-		// Si Ix == 0 entonces la pendiente es infinita
+		// Si Ix == 0 entonces la pendiente es INF
 		if(Ix == 0)
 		{
-			_typeValue = INFINITA;
+			_typeValue = INF;
 			_value = 0;
 		}
 		else
 		{
-			_typeValue = NUMERICA;
+			_typeValue = REAL;
 			_value = Iy / Ix;
 		}
 	}
@@ -58,7 +58,7 @@ namespace algoritmia
 
 	double Pendiente::getValue() const
 	{
-		assert(this->getType() != INFINITA);
+		assert(this->getType() != INF);
 		return _value;
 	}
 
@@ -67,7 +67,7 @@ namespace algoritmia
 		Punto A;
 		Punto B;
 
-		if(p.getType() == INFINITA)
+		if(p.getType() == INF)
 		{
 			A.setPunto(0, 0);
 			B.setPunto(0, 1);
@@ -84,7 +84,7 @@ namespace algoritmia
 
 	bool Pendiente::operator==(const Pendiente &p) const
 	{
-		if((this->getType() == INFINITA) && (p.getType() == INFINITA))
+		if((this->getType() == INF) && (p.getType() == INF))
 		{
 			return true;
 		}
@@ -101,15 +101,15 @@ namespace algoritmia
 
 	bool Pendiente::operator<(const Pendiente &p) const
 	{
-		if((this->getType() == INFINITA) && (p.getType() != INFINITA))
+		if((this->getType() == INF) && (p.getType() != INF))
 		{
 			return false;
 		}
-		else if((this->getType() != INFINITA) && (p.getType() == INFINITA))
+		else if((this->getType() != INF) && (p.getType() == INF))
 		{
 			return true;
 		}
-		else if((this->getType() == INFINITA) && (p.getType() == INFINITA))
+		else if((this->getType() == INF) && (p.getType() == INF))
 		{
 			return false;
 		}
@@ -121,15 +121,15 @@ namespace algoritmia
 
 	bool Pendiente::operator<=(const Pendiente &p) const
 	{
-		if((this->getType() == INFINITA) && (p.getType() != INFINITA))
+		if((this->getType() == INF) && (p.getType() != INF))
 		{
 			return false;
 		}
-		else if((this->getType() != INFINITA) && (p.getType() == INFINITA))
+		else if((this->getType() != INF) && (p.getType() == INF))
 		{
 			return true;
 		}
-		else if((this->getType() == INFINITA) && (p.getType() == INFINITA))
+		else if((this->getType() == INF) && (p.getType() == INF))
 		{
 			return true;
 		}
@@ -141,15 +141,15 @@ namespace algoritmia
 
 	bool Pendiente::operator>(const Pendiente &p) const
 	{
-		if((this->getType() == INFINITA) && (p.getType() != INFINITA))
+		if((this->getType() == INF) && (p.getType() != INF))
 		{
 			return true;
 		}
-		else if((this->getType() != INFINITA) && (p.getType() == INFINITA))
+		else if((this->getType() != INF) && (p.getType() == INF))
 		{
 			return false;
 		}
-		else if((this->getType() == INFINITA) && (p.getType() == INFINITA))
+		else if((this->getType() == INF) && (p.getType() == INF))
 		{
 			return false;
 		}
@@ -161,15 +161,15 @@ namespace algoritmia
 
 	bool Pendiente::operator>=(const Pendiente &p) const
 	{
-		if((this->getType() == INFINITA) && (p.getType() != INFINITA))
+		if((this->getType() == INF) && (p.getType() != INF))
 		{
 			return true;
 		}
-		else if((this->getType() != INFINITA) && (p.getType() == INFINITA))
+		else if((this->getType() != INF) && (p.getType() == INF))
 		{
 			return false;
 		}
-		else if((this->getType() == INFINITA) && (p.getType() == INFINITA))
+		else if((this->getType() == INF) && (p.getType() == INF))
 		{
 			return true;
 		}
@@ -181,9 +181,9 @@ namespace algoritmia
 
 	ostream& operator<<(ostream &output, const Pendiente &p)
 	{
-		if(p.getType() == INFINITA)
+		if(p.getType() == INF)
 		{
-			output << "INFINITA";
+			output << "INF";
 		}
 		else
 		{
