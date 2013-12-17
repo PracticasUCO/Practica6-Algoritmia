@@ -23,6 +23,95 @@ namespace algoritmia
 		return movimientos;
 	}
 
+	list<Punto> TableroAjedrez::listaMovimientosReina(const Punto &p) const
+	{
+		const Punto horizontal(1, 0);
+		const Punto vertical(0, 1);
+		const Punto diagonalSuperior(1, 1);
+		const Punto diagonalInferior(1, -1);
+
+		Recta direccion;
+		Punto pDos = p;
+
+		list<Punto> movReina;
+
+		//Primero sacamos toda la recta horizontal
+		pDos = pDos + horizontal;
+		direccion.establecerRecta(p, pDos);
+
+		for(unsigned int i = 0; i < this->getDimension(); i++)
+		{
+			unsigned int x = i;
+			unsigned int y = direccion.getY(x);
+
+			// No hace falta comprobar si y es mayor que cero, debido a que estamos
+			// trabajando con enteros sin signo. Si el metodo Recta::getY o el metodo
+			// Recta::getX devolviera un numero negativo, este desbordaria y devolveria
+			// un numero muy grande
+			if(y < this->getDimension())
+			{
+				Punto mov(x, y);
+				movReina.push_back(mov);
+			}
+		}
+		pDos = p;
+
+		//Sacamos ahora el movimiento vertical
+		pDos = pDos + vertical;
+		direccion.establecerRecta(p, pDos);
+
+		for(unsigned int i = 0; i < this->getDimension(); i++)
+		{
+			unsigned int y = i;
+			unsigned int x = direccion.getX(y);
+
+			if(x < this->getDimension())
+			{
+				Punto mov(x, y);
+				movReina.push_back(mov);
+			}
+		}
+		pDos = p;
+
+		//Sacamos la direccion que sigue la primera diagonal
+		pDos = pDos + diagonalSuperior;
+		direccion.establecerRecta(p, pDos);
+
+		for(unsigned int i = 0; i < this->getDimension(); i++)
+		{
+			unsigned int x = i;
+			unsigned int y = direccion.getY(x);
+
+			if(y < this->getDimension())
+			{
+				Punto mov(x, y);
+				movReina.push_back(mov);
+			}
+		}
+		pDos = p;
+
+		//Sacamos la direccion de la ultima diagonal
+		pDos = pDos + diagonalInferior;
+		direccion.establecerRecta(p, pDos);
+
+		for(unsigned int i = 0; i < this->getDimension(); i++)
+		{
+			unsigned int x = i;
+			unsigned int y = direccion.getY(x);
+
+			if(y < this->getDimension())
+			{
+				Punto mov(x, y);
+				movReina.push_back(mov);
+			}
+		}
+
+		movReina.remove(p);
+		movReina.unique();
+
+		return movReina;
+	}
+
 	TableroAjedrez::TableroAjedrez()
 	{
 		this->setTablero(DIMENSION_DEFECTO_TABLERO_AJEDREZ);
