@@ -46,30 +46,7 @@ namespace algoritmia
 
 	Recta::Recta(const Recta &r)
 	{
-		Punto rInicio;
-		Pendiente rPendiente;
-		Punto final;
-
-		double xValue;
-		double yValue;
-
-		rInicio = r.getPuntoInicial();
-		rPendiente = r.getPendiente();
-
-		if(rPendiente.getType() != INF)
-		{
-			xValue = rInicio.getX() + 1;
-			yValue = rInicio.getY() + rPendiente.getValue();
-		}
-		else
-		{
-			xValue = rInicio.getX();
-			yValue = rInicio.getY() + 1;
-		}
-
-		final.setPunto(xValue, yValue);
-
-		this->establecerRecta(rInicio, final);
+		*this = r;
 	}
 
 	void Recta::establecerRecta(const Punto &A, const Punto &B)
@@ -146,5 +123,33 @@ namespace algoritmia
 		Pendiente m = this->getPendiente();
 
 		return ((m.getType() != INF) && (m.getValue() == 0));
+	}
+
+	void Recta::operator=(const Recta &r)
+	{
+		Punto rInicio;
+		Pendiente rPendiente;
+		Punto final;
+
+		double xValue;
+		double yValue;
+
+		rInicio = r.getPuntoInicial();
+		rPendiente = r.getPendiente();
+
+		if(rPendiente.getType() != INF)
+		{
+			xValue = rInicio.getX() + 1;
+			yValue = rInicio.getY() + rPendiente.getValue();
+		}
+		else
+		{
+			xValue = rInicio.getX();
+			yValue = rInicio.getY() + 1;
+		}
+
+		final.setPunto(xValue, yValue);
+
+		this->establecerRecta(rInicio, final);
 	}
 }
