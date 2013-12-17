@@ -16,8 +16,8 @@ namespace algoritmia
 		}
 		else
 		{
-			int Ix;
-			unsigned int y;
+			double Ix;
+			double y;
 
 			Ix = 0 - punto.getX();
 			y = punto.getY() + (pendiente.getValue() * Ix);
