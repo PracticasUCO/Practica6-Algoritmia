@@ -152,4 +152,9 @@ namespace algoritmia
 
 		this->establecerRecta(rInicio, final);
 	}
+
+	bool Recta::operator==(const Recta &r)
+	{
+		return ((r.getPuntoInicial() == this->getPuntoInicial()) && (r.getPendiente() == this->getPendiente()));
+	}
 }
