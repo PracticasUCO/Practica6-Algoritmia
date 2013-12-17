@@ -53,6 +53,14 @@ namespace algoritmia
 		/** @brief Devuelve la pendiente de la recta **/
 		Pendiente getPendiente() const;
 
+		/** @brief Comprueba si la recta almacenada es vertical
+			@return TRUE si la recta es vertical y FALSE en caso contrario **/
+		bool esVertical() const;
+
+		/** @brief Comprueba si la recta almacenada es horizontal
+			@return TRUE si la recta es horizontal y FALSE en caso contrario **/
+		bool esHorizontal() const;
+
 		/** Copia la recta **/
 		void operator=(const Recta &r);
 
