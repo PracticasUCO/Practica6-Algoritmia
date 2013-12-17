@@ -212,4 +212,22 @@ namespace algoritmia
 
 		return output;
 	}
+
+	istream& operator>>(istream& input, Recta &r)
+	{
+		Punto A;
+		Punto B;
+
+		cout << "Indique el primer punto por donde pasara la recta:";
+		input >> A;
+		cout << endl;
+
+		cout << "Indique el segundo punto por donde pasara la recta:";
+		input >> B;
+		cout << endl;
+
+		r.establecerRecta(A, B);
+
+		return input;
+	}
 }
