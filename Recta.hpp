@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "Punto.hpp"
-#include "Pendiente"
+#include "Pendiente.hpp"
 
 using namespace std;
 
@@ -29,13 +29,13 @@ namespace algoritmia
 		/** @brief Constructor de la recta que pasa por dos puntos
 			@param A Primer punto por el que debe de pasar la recta
 			@param B Segundo punto por el que debe pasar la recta **/
-		Recta(const Punto &A, const &Punto &B);
+		Recta(const Punto &A, const Punto &B);
 
 		/** @brief Constructor de copia **/
 		Recta(const Recta &r);
 
 		/** @brief Establece la recta que pasa por dos puntos dados **/
-		void establecerRecta(const Punto &A, const &Punto B);
+		void establecerRecta(const Punto &A, const Punto &B);
 
 		/** @brief Devuelve el valor que tendria Y al darle X a la recta
 			@param X el valor de la abscisa X

@@ -18,7 +18,7 @@ Punto.o: Punto.cpp Punto.hpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Punto.cpp
 
 Recta.o: Recta.hpp Recta.cpp Pendiente.o Punto.o
-	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Recta.o
+	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Recta.cpp
 
 Pendiente.o: Pendiente.cpp Pendiente.hpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Pendiente.cpp
