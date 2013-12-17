@@ -37,4 +37,9 @@ namespace algoritmia
 
 		this->establecerRecta(A, B);
 	}
+
+	Recta::Recta(const Punto &A, const Punto &B)
+	{
+		this->establecerRecta(A, B);
+	}
 }
