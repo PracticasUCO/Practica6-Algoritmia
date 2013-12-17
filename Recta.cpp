@@ -157,4 +157,9 @@ namespace algoritmia
 	{
 		return ((r.getPuntoInicial() == this->getPuntoInicial()) && (r.getPendiente() == this->getPendiente()));
 	}
+
+	bool Recta::operator!=(const Recta &r)
+	{
+		return !(*this == r);
+	}
 }
