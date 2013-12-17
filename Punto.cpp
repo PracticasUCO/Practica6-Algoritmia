@@ -5,15 +5,15 @@ using namespace std;
 
 namespace algoritmia
 {
-	Punto::Punto(const unsigned int &X, const unsigned int &Y)
+	Punto::Punto(const double &X, const double &Y)
 	{
 		this->setPunto(X, Y);
 	}
 
 	Punto::Punto(const Punto &p)
 	{
-		unsigned int X;
-		unsigned int Y;
+		double X;
+		double Y;
 
 		X = p.getX();
 		Y = p.getY();
@@ -21,58 +21,58 @@ namespace algoritmia
 		this->setPunto(X, Y);
 	}
 
-	void Punto::setPunto(const unsigned int &X, const unsigned int &Y)
+	void Punto::setPunto(const double &X, const double &Y)
 	{
 		_X = X;
 		_Y = Y;
 	}
 
-	unsigned int Punto::getX() const
+	double Punto::getX() const
 	{
 		return _X;
 	}
 
-	unsigned int Punto::getY() const
+	double Punto::getY() const
 	{
 		return _Y;
 	}
 
 	void Punto::operator=(const Punto &p)
 	{
-		unsigned int X = p.getX();
-		unsigned int Y = p.getY();
+		double X = p.getX();
+		double Y = p.getY();
 
 		this->setPunto(X, Y);
 	}
 
 	void Punto::operator+(const Punto &p)
 	{
-		unsigned int X = this->getX() + p.getX();
-		unsigned int Y = this->getY() + p.getY();
+		double X = this->getX() + p.getX();
+		double Y = this->getY() + p.getY();
 
 		this->setPunto(X, Y);
 	}
 
 	void Punto::operator-(const Punto &p)
 	{
-		unsigned int X = this->getX() - p.getX();
-		unsigned int Y = this->getY() - p.getY();
+		double X = this->getX() - p.getX();
+		double Y = this->getY() - p.getY();
 
 		this->setPunto(X, Y);
 	}
 
 	void Punto::operator*(const Punto &p)
 	{
-		unsigned int X = this->getX() * p.getX();
-		unsigned int Y = this->getY() * p.getY();
+		double X = this->getX() * p.getX();
+		double Y = this->getY() * p.getY();
 
 		this->setPunto(X, Y);
 	}
 
 	void Punto::operator/(const Punto &p)
 	{
-		unsigned int X = this->getX() / p.getX();
-		unsigned int Y = this->getY() / p.getY();
+		double X = this->getX() / p.getX();
+		double Y = this->getY() / p.getY();
 
 		this->setPunto(X, Y);
 	}
@@ -89,8 +89,8 @@ namespace algoritmia
 
 	bool Punto::operator<(const Punto &p) const
 	{
-		unsigned int distanciaA;
-		unsigned int distanciaB;
+		double distanciaA;
+		double distanciaB;
 
 		distanciaA = this->getX() + this->getY();
 		distanciaB = p.getX() + p.getY();
@@ -100,8 +100,8 @@ namespace algoritmia
 
 	bool Punto::operator<=(const Punto &p) const
 	{
-		unsigned int distanciaA;
-		unsigned int distanciaB;
+		double distanciaA;
+		double distanciaB;
 
 		distanciaA = this->getX() + this->getY();
 		distanciaB = p.getX() + p.getY();
@@ -111,8 +111,8 @@ namespace algoritmia
 
 	bool Punto::operator>(const Punto &p) const
 	{
-		unsigned int distanciaA;
-		unsigned int distanciaB;
+		double distanciaA;
+		double distanciaB;
 
 		distanciaA = this->getX() + this->getY();
 		distanciaB = p.getX() + p.getY();
@@ -122,8 +122,8 @@ namespace algoritmia
 
 	bool Punto::operator>=(const Punto &p) const
 	{
-		unsigned int distanciaA;
-		unsigned int distanciaB;
+		double distanciaA;
+		double distanciaB;
 
 		distanciaA = this->getX() + this->getY();
 		distanciaB = p.getX() + p.getY();
@@ -139,8 +139,8 @@ namespace algoritmia
 
 	istream& operator>>(istream &input, Punto &p)
 	{
-		unsigned int X;
-		unsigned int Y;
+		double X;
+		double Y;
 
 		cout << "Introduzca la fila: ";
 		input >> X;

@@ -10,12 +10,12 @@ namespace algoritmia
 	class Punto
 	{
 	private:
-		unsigned int _X;
-		unsigned int _Y;
+		double _X;
+		double _Y;
 
 	public:
 		/** @brief Constructor de la clase Punto **/
-		Punto(const unsigned int &X = 0, const unsigned int &Y = 0);
+		Punto(const double &X = 0, const double &Y = 0);
 
 		/** @brief Constructor de copia **/
 		Punto(const Punto &p);
@@ -23,13 +23,13 @@ namespace algoritmia
 		/** @brief Establece la Punto en un punto determinado
 		 	@param X Indica la posicion X
 		 	@param Y Indica la posicion Y **/
-		void setPunto(const unsigned int &X = 0, const unsigned int &Y = 0);
+		void setPunto(const double &X = 0, const double &Y = 0);
 
 		/** @brief Devuelve la coordenada X **/
-		unsigned int getX() const;
+		double getX() const;
 
 		/** @brief Devuelve la coordenada Y **/
-		unsigned int getY() const;
+		double getY() const;
 
 		void operator=(const Punto &p);
 		void operator+(const Punto &p);
