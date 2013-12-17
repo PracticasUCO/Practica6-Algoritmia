@@ -93,7 +93,26 @@ namespace algoritmia
 
 		double Ix = X - inicio.getX();
 		Y = inicio.getY() + (Ix * m.getValue());
-		
+
 		return Y;
+	}
+
+	double Recta::getX(const double &Y) const
+	{
+		assert(!(this->esHorizontal()));
+
+		if(this->esVertical())
+		{
+			return this->getPuntoInicial().getX();
+		}
+		else
+		{
+			Punto inicio = this->getPuntoInicial();
+			Pendiente m = this->getPendiente();
+			double Iy = Y - inicio.getY();
+
+			double X = inicio.getX() + (Iy * m.getValue());
+			return X;
+		}
 	}
 }
