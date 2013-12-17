@@ -123,4 +123,9 @@ namespace algoritmia
 			return X;
 		}
 	}
+
+	Punto Recta::getPuntoInicial() const
+	{
+		return _inicio;
+	}
 }
