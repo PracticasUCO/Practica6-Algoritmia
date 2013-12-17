@@ -32,10 +32,10 @@ namespace algoritmia
 		double getY() const;
 
 		void operator=(const Punto &p);
-		void operator+(const Punto &p);
-		void operator-(const Punto &p);
-		void operator*(const Punto &p);
-		void operator/(const Punto &p);
+		Punto operator+(const Punto &p) const;
+		Punto operator-(const Punto &p) const;
+		Punto operator*(const Punto &p) const;
+		Punto operator/(const Punto &p) const;
 
 		bool operator==(const Punto &p) const;
 		bool operator!=(const Punto &p) const;

@@ -45,36 +45,36 @@ namespace algoritmia
 		this->setPunto(X, Y);
 	}
 
-	void Punto::operator+(const Punto &p)
+	Punto Punto::operator+(const Punto &p) const
 	{
 		double X = this->getX() + p.getX();
 		double Y = this->getY() + p.getY();
 
-		this->setPunto(X, Y);
+		return Punto(X, Y);
 	}
 
-	void Punto::operator-(const Punto &p)
+	Punto Punto::operator-(const Punto &p) const
 	{
 		double X = this->getX() - p.getX();
 		double Y = this->getY() - p.getY();
 
-		this->setPunto(X, Y);
+		return Punto(X, Y);
 	}
 
-	void Punto::operator*(const Punto &p)
+	Punto Punto::operator*(const Punto &p) const
 	{
 		double X = this->getX() * p.getX();
 		double Y = this->getY() * p.getY();
 
-		this->setPunto(X, Y);
+		return Punto(X, Y);
 	}
 
-	void Punto::operator/(const Punto &p)
+	Punto Punto::operator/(const Punto &p) const
 	{
 		double X = this->getX() / p.getX();
 		double Y = this->getY() / p.getY();
 
-		this->setPunto(X, Y);
+		return Punto(X, Y);
 	}
 
 	bool Punto::operator==(const Punto &p) const
