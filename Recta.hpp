@@ -1,8 +1,11 @@
 #ifndef __RECTA_HPP
 #define __RECTA_CPP
 
+#include <iostream>
 #include "Punto.hpp"
 #include "Pendiente"
+
+using namespace std;
 
 namespace algoritmia
 {
@@ -60,6 +63,9 @@ namespace algoritmia
 		bool operator<=(const Recta &r);
 		bool operator>(const Recta &r);
 		bool operator>=(const Recta &r);
+
+		friend ostream& operator<<(ostream& output, const Recta &r);
+		friend istream& operator>>(istream& input, Recta &r);
 	};
 }
 
