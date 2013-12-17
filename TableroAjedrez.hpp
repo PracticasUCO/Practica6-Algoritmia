@@ -14,9 +14,8 @@ namespace algoritmia
 	class TableroAjedrez
 	{
 	private:
-		unsigned int _rows;
-		unsigned int _cols;
-		vector<vector<FichaAjedrez> > _tablero;
+		unsigned int _dimension; //!< Indica la dimension del tablero (que es de tamaño Dimension x Dimension)
+		vector<vector<FichaAjedrez> > _tablero; //!< El tablero en si de ajedrez
 
 		/** @brief Devuelve la lista de movimientos posibles por una ficha determinada en una Punto del juego
 			@param p Punto de inicio de la ficha
@@ -27,7 +26,7 @@ namespace algoritmia
 		/** @brief Devuelve la lista de todos los movimientos que puede hacer la reina
 			@param p Punto de inicio de la reina
 			@return list<Punto> con cada uno de los puntos a donde podria llegar la reina **/
-		list<Punto> listaMovimientoReina(const Punto &p) const;
+		list<Punto> listaMovimientosReina(const Punto &p) const;
 
 	public:
 		/** @brief Constructor por defecto, que inicializa el tablero en blanco con el tamaño
@@ -36,7 +35,7 @@ namespace algoritmia
 
 		/** @brief Constructor del tablero del ajedrez que inicializa a un tamaño predeterminado
 		           el tablero **/
-		TableroAjedrez(const unsigned int rows, const unsigned int cols);
+		TableroAjedrez(const unsigned int &dimension);
 
 		/** @brief Constructor de copia **/
 		TableroAjedrez(const TableroAjedrez &table);
@@ -88,16 +87,13 @@ namespace algoritmia
         /** @brief Muestra por pantalla donde estan situadas cada una de las ficha del tablero **/
         void detail() const;
 
-        /** @brief Devuelve el numero de filas del tablero **/
-        unsigned int getRows() const;
-
-        /** @brief Devuelve el numero de columnas del tablero **/
-        unsigned int getCols() const;
+        /** @brief Devuelve la dimension del tablero **/
+        unsigned int getDimension() const;
 
         /** @brief Establece el tamaño del tablero
          	@param rows Indica el numero de filas
          	@param cols Indica el numero de columnas **/
-     	void setTablero(const unsigned int &rows, const unsigned int &cols);
+     	void setTablero(const unsigned int &dimension);
 
      	/** @brief Coloca una ficha en la Punto indicada
      		@param row Fila donde establecer la ficha

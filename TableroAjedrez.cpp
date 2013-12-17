@@ -3,34 +3,45 @@
 #include <cassert>
 #include "TableroAjedrez.hpp"
 #include "FichaAjedrez.hpp"
+#include "Recta.hpp"
 
-#define ROWS_DEFAULT 8
-#define COLS_DEFAULT 8
+#define DIMENSION_DEFECTO_TABLERO_AJEDREZ 8
 
 using namespace std;
 
 namespace algoritmia
 {
-	TableroAjedrez::TableroAjedrez()
+	list<Punto> TableroAjedrez::listaMovimientos(const Punto &p, const FichaAjedrez &f) const
 	{
-		this->setTablero(ROWS_DEFAULT, COLS_DEFAULT);
+		list<Punto> movimientos;
+
+		if(f.getType() == REINA)
+		{
+			movimientos = this->listaMovimientosReina(p);
+		}
+
+		return movimientos;
 	}
 
-	TableroAjedrez::TableroAjedrez(const unsigned int rows, const unsigned int cols)
+	TableroAjedrez::TableroAjedrez()
 	{
-		this->setTablero(rows, cols);
+		this->setTablero(DIMENSION_DEFECTO_TABLERO_AJEDREZ);
+	}
+
+	TableroAjedrez::TableroAjedrez(const unsigned int &dimension)
+	{
+		this->setTablero(dimension);
 	}
 
 	TableroAjedrez::TableroAjedrez(const TableroAjedrez &table)
 	{
-		unsigned int rows = table.getRows();
-		unsigned int cols = table.getCols();
+		unsigned int dimension = table.getDimension();
 
-		this->setTablero(rows, cols);
+		this->setTablero(dimension);
 
-		for(unsigned int i = 0; i < rows; i++)
+		for(unsigned int i = 0; i < dimension; i++)
 		{
-			for(unsigned int j = 0; j < cols; j++)
+			for(unsigned int j = 0; j < dimension; j++)
 			{
 				enum CLASE_FICHA type = table.getEnumFicha(i, j);
 
@@ -44,6 +55,9 @@ namespace algoritmia
 
 	bool TableroAjedrez::hayFicha(const unsigned int &row, const unsigned int &col) const
 	{
+		assert(row < this->getDimension());
+		assert(col < this->getDimension());
+
 		return this->getEnumFicha(row, col) != EMPTY;
 	}
 
@@ -54,6 +68,9 @@ namespace algoritmia
 
 	enum CLASE_FICHA TableroAjedrez::getEnumFicha(const unsigned int &row, const unsigned int &col) const
 	{
+		assert(row < this->getDimension());
+		assert(col < this->getDimension());
+
 		return this->getFicha(row, col).getType();
 	}
 
@@ -64,8 +81,8 @@ namespace algoritmia
 
 	FichaAjedrez TableroAjedrez::getFicha(const unsigned int &row, const unsigned int &col) const
 	{
-		assert(row < this->getRows());
-		assert(col < this->getCols());
+		assert(row < this->getDimension());
+		assert(col < this->getDimension());
 
 		return _tablero[row][col];
 	}
@@ -75,56 +92,52 @@ namespace algoritmia
 		unsigned int row = p.getX();
 		unsigned int col = p.getY();
 
-		assert(row < this->getRows());
-		assert(col < this->getCols());
+		assert(row < this->getDimension());
+		assert(col < this->getDimension());
 
 		return _tablero[row][col];
 	}
 
 	void TableroAjedrez::detail() const
 	{
-		for(unsigned int i = 0; i < this->getRows(); i++)
+		for(unsigned int i = 0; i < this->getDimension(); i++)
 		{
-			for(unsigned int j = 0; j < this->getCols(); j++)
+			for(unsigned int j = 0; j < this->getDimension(); j++)
 			{
 				if(this->getEnumFicha(i, j) != EMPTY)
 				{
-					cout << "Ficha: " << this->getFicha(i, j) << " Punto: (" << i << ", " << j << ")" << endl; 
+					Punto posicion;
+					posicion.setPunto(static_cast<double>(i), static_cast<double>(j));
+
+					cout << "Ficha: " << this->getFicha(i, j) << " Punto: " << posicion << endl; 
 				}
 			}
 		}
 	}
 
-	unsigned int TableroAjedrez::getRows() const
+	unsigned int TableroAjedrez::getDimension() const
 	{
-		return _rows;
+		return _dimension;
 	}
 
-	unsigned int TableroAjedrez::getCols() const
+	void TableroAjedrez::setTablero(const unsigned int &dimension)
 	{
-		return _cols;
-	}
+		assert(dimension > 0);
 
-	void TableroAjedrez::setTablero(const unsigned int &rows, const unsigned int &cols)
-	{
-		assert(rows > 0);
-		assert(cols > 0);
+		_tablero.resize(dimension);
 
-		_rows = rows;
-		_cols = cols;
-
-		_tablero.resize(rows);
-
-		for(unsigned int i = 0; i < rows; i++)
+		for(unsigned int i = 0; i < dimension; i++)
 		{
-			_tablero[i].resize(cols);
+			_tablero[i].resize(dimension);
 		}
+
+		_dimension = dimension;
 	}
 
 	void TableroAjedrez::setFicha(const unsigned int &row, const unsigned int &col, const FichaAjedrez &f)
 	{
-		assert(row < this->getRows());
-		assert(col < this->getCols());
+		assert(row < this->getDimension());
+		assert(col < this->getDimension());
 
 		if(this->getFicha(row, col) != f)
 		{
@@ -142,6 +155,9 @@ namespace algoritmia
 
 	void TableroAjedrez::setFicha(const unsigned int &row, const unsigned int &col, const enum CLASE_FICHA &e)
 	{
+		assert(row < this->getDimension());
+		assert(col < this->getDimension());
+
 		FichaAjedrez f(e);
 
 		this->setFicha(row, col, f);
@@ -156,8 +172,8 @@ namespace algoritmia
 
 	bool TableroAjedrez::borrarFicha(const unsigned int &row, const unsigned int &col)
 	{
-		assert(row < this->getRows());
-		assert(col < this->getCols());
+		assert(row < this->getDimension());
+		assert(col < this->getDimension());
 
 		if(this->getEnumFicha(row, col) == EMPTY) //No hay nada que hacer
 		{
