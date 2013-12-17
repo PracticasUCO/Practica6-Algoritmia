@@ -191,4 +191,22 @@ namespace algoritmia
 		}
 		return output;
 	}
+
+	istream& operator>>(istream &input, Pendiente &p)
+	{
+		Punto A;
+		Punto B;
+
+		cout << "Estableciendo el punto A" << endl;
+		input >> A;
+		cout << endl;
+
+		cout << "Estableciendo el punto B" << endl;
+		input >> B;
+		cout << endl;
+
+		p.establecerPendiente(A, B);
+
+		return input;
+	}
 }
