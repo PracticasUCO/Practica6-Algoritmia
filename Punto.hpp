@@ -25,10 +25,10 @@ namespace algoritmia
 		 	@param Y Indica la posicion Y **/
 		void setPunto(const unsigned int &X = 0, const unsigned int &Y = 0);
 
-		/** @brief Devuelve la fila almacenada **/
+		/** @brief Devuelve la coordenada X **/
 		unsigned int getX() const;
 
-		/** @brief Devuelve la Yumna almacenada **/
+		/** @brief Devuelve la coordenada Y **/
 		unsigned int getY() const;
 
 		void operator=(const Punto &p);
