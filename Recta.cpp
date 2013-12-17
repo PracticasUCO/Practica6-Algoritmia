@@ -209,12 +209,15 @@ namespace algoritmia
 
 			output << "x ";
 
-			if(independiente >= 0)
+			if(independiente > 0)
 			{
 				output << "+ ";
 			}
 
-			output << independiente;
+			if(independiente != 0)
+			{
+				output << independiente;
+			}
 		}
 
 		return output;
