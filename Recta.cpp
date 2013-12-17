@@ -128,4 +128,9 @@ namespace algoritmia
 	{
 		return _inicio;
 	}
+
+	Pendiente Recta::getPendiente() const
+	{
+		return _pendiente;
+	}
 }
