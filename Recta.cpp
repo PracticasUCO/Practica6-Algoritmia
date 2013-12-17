@@ -86,20 +86,14 @@ namespace algoritmia
 
 	double Recta::getY(const double &X) const
 	{
+		assert(!(this->esVertical()));
 		Punto inicio = this->getPuntoInicial();
 		Pendiente m = this->getPendiente();
 		double Y;
 
-		if(m.getType() != INF)
-		{
-			double Ix = X - inicio.getX();
-			Y = inicio.getY() + (Ix * m.getValue());
-		}
-		else
-		{
-			assert(inicio.getX() == X);
-			return 0;
-		}
+		double Ix = X - inicio.getX();
+		Y = inicio.getY() + (Ix * m.getValue());
+		
 		return Y;
 	}
 }
