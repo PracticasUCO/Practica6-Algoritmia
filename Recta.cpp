@@ -13,7 +13,7 @@ namespace algoritmia
 		Punto solution;
 		if(pendiente.getType() == INF)
 		{
-			solution.setPunto(0, punto.getY());
+			solution.setPunto(punto.getX(), 0);
 		}
 		else
 		{
@@ -181,5 +181,35 @@ namespace algoritmia
 	bool Recta::operator>=(const Recta &r)
 	{
 		return this->getPendiente() >= r.getPendiente();
+	}
+
+	ostream& operator<<(ostream& output, const Recta &r)
+	{
+		Pendiente m = r.getPendiente();
+		Punto inicio = r.getPuntoInicial();
+
+		if(r.esVertical())
+		{
+			output << "X = " << inicio.getX();
+		}
+		else if(r.esHorizontal())
+		{
+			output << "Y = " << inicio.getY();
+		}
+		else
+		{
+			double independiente = (-1 * m.getValue() * inicio.getX()) + inicio.getY();
+
+			output << "Y = " << m.getValue() << "* X ";
+
+			if(independiente >= 0)
+			{
+				output << "+ ";
+			}
+
+			output << independiente;
+		}
+
+		return output;
 	}
 }
