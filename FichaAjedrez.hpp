@@ -32,8 +32,6 @@ namespace algoritmia
 
 		void establecerTipoFicha(const enum CLASE_FICHA &type);
 
-		~FichaAjedrez();
-
 		/** Sobrecarga de operadores **/
 		void operator=(const FichaAjedrez &f);
 		bool operator==(const FichaAjedrez &f) const;

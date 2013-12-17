@@ -79,7 +79,14 @@ namespace algoritmia
 
 	bool Punto::operator==(const Punto &p) const
 	{
-		return (this->getX() == p.getX()) && (this->getY() && p.getY());
+		if((this->getX() == p.getX()) && (this->getY() == p.getY()))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	bool Punto::operator!=(const Punto &p) const

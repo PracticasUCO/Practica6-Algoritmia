@@ -106,8 +106,8 @@ namespace algoritmia
 			}
 		}
 
-		movReina.remove(p);
 		movReina.unique();
+		movReina.remove(p);
 
 		return movReina;
 	}
