@@ -17,10 +17,10 @@ TableroAjedrez.o: TableroAjedrez.cpp TableroAjedrez.hpp FichaAjedrez.o Recta.o
 Punto.o: Punto.cpp Punto.hpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Punto.cpp
 
-Recta.o: Recta.hpp Recta.cpp Pendiente.o Punto.o
+Recta.o: Recta.hpp Recta.cpp Pendiente.o
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Recta.cpp
 
-Pendiente.o: Pendiente.cpp Pendiente.hpp
+Pendiente.o: Pendiente.cpp Pendiente.hpp Punto.o
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Pendiente.cpp
 
 clean-objects:
