@@ -190,17 +190,24 @@ namespace algoritmia
 
 		if(r.esVertical())
 		{
-			output << "X = " << inicio.getX();
+			output << "x = " << inicio.getX();
 		}
 		else if(r.esHorizontal())
 		{
-			output << "Y = " << inicio.getY();
+			output << "y = " << inicio.getY();
 		}
 		else
 		{
 			double independiente = (-1 * m.getValue() * inicio.getX()) + inicio.getY();
 
-			output << "Y = " << m.getValue() << "* X ";
+			output << "y = ";
+
+			if(m.getValue() != 1)
+			{
+				output << m.getValue();
+			}
+
+			output << "x ";
 
 			if(independiente >= 0)
 			{
