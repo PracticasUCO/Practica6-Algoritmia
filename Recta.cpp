@@ -26,4 +26,15 @@ namespace algoritmia
 		}
 		return solution;
 	}
+
+	Recta::Recta()
+	{
+		Punto A;
+		Punto B;
+
+		A.setPunto(0, 0);
+		B.setPunto(1, 0);
+
+		this->establecerRecta(A, B);
+	}
 }
