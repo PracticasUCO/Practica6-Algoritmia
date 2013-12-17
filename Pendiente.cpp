@@ -118,4 +118,24 @@ namespace algoritmia
 			return this->getValue() < p.getValue();
 		}
 	}
+
+	bool Pendiente::operator<=(const Pendiente &p) const
+	{
+		if((this->getType() == INFINITA) && (p.getType() != INFINITA))
+		{
+			return false;
+		}
+		else if((this->getType() != INFINITA) && (p.getType() == INFINITA))
+		{
+			return true;
+		}
+		else if((this->getType() == INFINITA) && (p.getType() == INFINITA))
+		{
+			return true;
+		}
+		else
+		{
+			return this->getValue() <= p.getValue();
+		}
+	}
 }
