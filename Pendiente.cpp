@@ -178,4 +178,17 @@ namespace algoritmia
 			return this->getValue() >= p.getValue();
 		}
 	}
+
+	ostream& operator<<(ostream &output, const Pendiente &p)
+	{
+		if(p.getType() == INFINITA)
+		{
+			output << "INFINITA";
+		}
+		else
+		{
+			output << p.getValue();
+		}
+		return output;
+	}
 }
