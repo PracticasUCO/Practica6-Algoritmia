@@ -15,4 +15,9 @@ namespace algoritmia
 
 		this->establecerPendiente(x0, x1);
 	}
+
+	Pendiente::Pendiente(const Punto &A, const Punto &B)
+	{
+		this->establecerPendiente(A, B);
+	}
 }
