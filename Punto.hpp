@@ -46,8 +46,6 @@ namespace algoritmia
 
 		friend ostream& operator<<(ostream &output, const Punto &p);
 		friend istream& operator>>(istream &input, Punto &p); 
-
-		~Punto();
 	};
 }
 

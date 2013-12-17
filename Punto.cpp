@@ -142,11 +142,11 @@ namespace algoritmia
 		double X;
 		double Y;
 
-		cout << "Introduzca la fila: ";
+		cout << "Introduzca la coordenada X: ";
 		input >> X;
 		cout << endl;
 
-		cout << "Introduzca la Yumna: ";
+		cout << "Introduzca la coordenada Y: ";
 		input >> Y;
 		cout << endl;
 
