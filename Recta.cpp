@@ -172,4 +172,9 @@ namespace algoritmia
 	{
 		return this->getPendiente() <= r.getPendiente();
 	}
+
+	bool Recta::operator>(const Recta &r)
+	{
+		return this->getPendiente() > r.getPendiente();
+	}
 }
