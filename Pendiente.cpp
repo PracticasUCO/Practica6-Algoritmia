@@ -61,4 +61,24 @@ namespace algoritmia
 		assert(this->getType() != INFINITA);
 		return _value;
 	}
+
+	void Pendiente::operator=(const Pendiente &p)
+	{
+		Punto A;
+		Punto B;
+
+		if(p.getType() == INFINITA)
+		{
+			A.setPunto(0, 0);
+			B.setPunto(0, 1);
+		}
+		else
+		{
+			double m = p.getValue(); //Pendiente de p
+			A.setPunto(0, 0);
+			B.setPunto(1, m);
+		}
+
+		this->establecerPendiente(A, B);
+	}
 }
