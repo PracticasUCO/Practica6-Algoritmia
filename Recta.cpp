@@ -70,4 +70,16 @@ namespace algoritmia
 
 		this->establecerRecta(rInicio, final);
 	}
+
+	void Recta::establecerRecta(const Punto &A, const Punto &B)
+	{
+		Pendiente m; //Pendiente de la recta
+		Punto inicio; //Punto de inicio de la recta
+
+		m.establecerPendiente(A, B);
+		inicio = this->moverAlInicio(A, m);
+
+		_inicio = inicio;
+		_pendiente = m;
+	}
 }
