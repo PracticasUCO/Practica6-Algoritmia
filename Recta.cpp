@@ -133,4 +133,18 @@ namespace algoritmia
 	{
 		return _pendiente;
 	}
+
+	bool Recta::esVertical() const
+	{
+		Pendiente m = this->getPendiente();
+
+		return m.getType() == INF;
+	}
+
+	bool Recta::esHorizontal() const
+	{
+		Pendiente m = this->getPendiente();
+
+		return ((m.getType() != INF) && (m.getValue() == 0));
+	}
 }
