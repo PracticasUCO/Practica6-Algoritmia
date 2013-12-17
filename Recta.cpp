@@ -218,11 +218,11 @@ namespace algoritmia
 		Punto A;
 		Punto B;
 
-		cout << "Indique el primer punto por donde pasara la recta:";
+		cout << "Primer punto por donde pasara la recta." << endl;
 		input >> A;
 		cout << endl;
 
-		cout << "Indique el segundo punto por donde pasara la recta:";
+		cout << "Segundo punto por donde pasara la recta." << endl;
 		input >> B;
 		cout << endl;
 

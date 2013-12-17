@@ -30,5 +30,5 @@ clean-all: clean-objects
 	-rm practica6
 
 ## For test only purpose
-test: test.cpp Punto.o Pendiente.o
+test: test.cpp Punto.o Pendiente.o Recta.o
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -o $@ $^
