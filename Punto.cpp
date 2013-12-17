@@ -142,12 +142,8 @@ namespace algoritmia
 		double X;
 		double Y;
 
-		cout << "Introduzca la coordenada X: ";
-		input >> X;
-		cout << endl;
-
-		cout << "Introduzca la coordenada Y: ";
-		input >> Y;
+		cout << "Introduzca las coordenadas del punto (x, y): ";
+		input >> X >> Y;
 		cout << endl;
 
 		p.setPunto(X, Y);
