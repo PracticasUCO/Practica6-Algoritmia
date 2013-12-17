@@ -49,4 +49,9 @@ namespace algoritmia
 			_value = Iy / Ix;
 		}
 	}
+
+	const enum PENDIENTE Pendiente::getType() const
+	{
+		return _typeValue;
+	}
 }
