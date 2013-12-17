@@ -93,4 +93,9 @@ namespace algoritmia
 			return this->getValue() == p.getValue();
 		}
 	}
+
+	bool Pendiente::operator!=(const Pendiente &p) const
+	{
+		return !(*this == p);
+	}
 }
