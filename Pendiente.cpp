@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "Pendiente.hpp"
 
 using namespace std;
@@ -53,5 +54,11 @@ namespace algoritmia
 	const enum PENDIENTE Pendiente::getType() const
 	{
 		return _typeValue;
+	}
+
+	double Pendiente::getValue() const
+	{
+		assert(this->getType() != INFINITA);
+		return _value;
 	}
 }
