@@ -39,11 +39,13 @@ namespace algoritmia
 
 		/** @brief Devuelve el valor que tendria Y al darle X a la recta
 			@param X el valor de la abscisa X
+			@warning La recta no puede ser vertical cuando se usa este metodo
 			@return Un valor que indica el valor de Y **/
 		double getY(const double &X) const;
 
 		/** @brief Devuelve el valor que tendria X al darle Y a la recta
 			@param Y el valor del eje Y
+			@warning La recta no puede ser horizontal cuando se usa este metodo
 			@return Un valor que indica el valor de la X **/
 		double getX(const double &Y) const;
 
