@@ -20,4 +20,9 @@ namespace algoritmia
 	{
 		this->establecerPendiente(A, B);
 	}
+
+	Pendiente::Pendiente(const Pendiente &p)
+	{
+		*this = p;
+	}
 }
