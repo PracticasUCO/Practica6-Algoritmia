@@ -81,4 +81,16 @@ namespace algoritmia
 
 		this->establecerPendiente(A, B);
 	}
+
+	bool Pendiente::operator==(const Pendiente &p) const
+	{
+		if((this->getType() == INFINITA) && (p.getType() == INFINITA))
+		{
+			return true;
+		}
+		else
+		{
+			return this->getValue() == p.getValue();
+		}
+	}
 }

@@ -43,12 +43,12 @@ namespace algoritmia
 
 		/** Sobrecarga de operadores **/
 		void operator=(const Pendiente &p);
-		bool operator==(const Pendiente &p);
-		bool operator!=(const Pendiente &p);
-		bool operator<(const Pendiente &p);
-		bool operator<=(const Pendiente &p);
-		bool operator>(const Pendiente &p);
-		bool operator>=(const Pendiente &p);
+		bool operator==(const Pendiente &p) const;
+		bool operator!=(const Pendiente &p) const;
+		bool operator<(const Pendiente &p) const;
+		bool operator<=(const Pendiente &p) const;
+		bool operator>(const Pendiente &p) const;
+		bool operator>=(const Pendiente &p) const;
 
 		friend ostream& operator<<(ostream &output, const Pendiente &p);
 		friend istream& operator>>(istream &input, Pendiente &p);
