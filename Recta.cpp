@@ -42,4 +42,32 @@ namespace algoritmia
 	{
 		this->establecerRecta(A, B);
 	}
+
+	Recta::Recta(const Recta &r)
+	{
+		Punto rInicio;
+		Pendiente rPendiente;
+		Punto final;
+
+		double xValue;
+		double yValue;
+
+		rInicio = r.getPuntoInicial();
+		rPendiente = r.getPendiente();
+
+		if(rPendiente.getType() != INF)
+		{
+			xValue = rInicio.getX() + 1;
+			yValue = rInicio.getY() + rPendiente.getValue();
+		}
+		else
+		{
+			xValue = rInicio.getX();
+			yValue = rInicio.getY() + 1;
+		}
+
+		final.setPunto(xValue, yValue);
+
+		this->establecerRecta(rInicio, final);
+	}
 }
