@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "Punto.hpp"
 #include "Pendiente.hpp"
 #include "Recta.hpp"
@@ -81,5 +82,24 @@ namespace algoritmia
 
 		_inicio = inicio;
 		_pendiente = m;
+	}
+
+	double Recta::getY(const double &X) const
+	{
+		Punto inicio = this->getPuntoInicial();
+		Pendiente m = this->getPendiente();
+		double Y;
+
+		if(m.getType() != INF)
+		{
+			double Ix = X - inicio.getX();
+			Y = inicio.getY() + (Ix * m.getValue());
+		}
+		else
+		{
+			assert(inicio.getX() == X);
+			return 0;
+		}
+		return Y;
 	}
 }
