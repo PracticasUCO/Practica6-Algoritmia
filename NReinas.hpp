@@ -15,6 +15,15 @@ namespace algoritmia
 	private:
 		unsigned int _dim; //!< Dimension de los tableros de la solucion NReinas
 
+		/** @brief Devuelve la posicion donde se encuentra una Reina, dandole solo
+			la fila
+			@param t Tablero de ajedrez donde buscar a la reina
+			@param p Punto de inicio donde se buscara a la reina, tenga en cuenta que
+			solo se tiene en cuenta la fila, y se modificara el punto para que concuerde
+			con la columna tambien
+			@return Un valor boolean TRUE si encontro a la reina y FALSE en caso contrario **/
+		bool buscarReina(const TableroAjedrez &t, Punto &p);
+
 	public:
 		/** @brief Constructor por defecto del tablero de las N-Reinas, este tablero
 			se dimensiona a un tablero de ajedrez por defecto (8 columnas x 8 filas) **/
