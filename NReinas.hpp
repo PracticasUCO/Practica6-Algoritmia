@@ -31,12 +31,12 @@ namespace algoritmia
 
 		/** @brief Rellena el tablero con una solucion del problema, y lo deja almacenado
 			@return Un tablero de ajedrez con la solucion deseada **/
-		TableroAjedrez singleSolution();
+		TableroAjedrez singleSolution() const;
 
 		/** @brief Devuelve una lista con todos las soluciones posibles al problema de
 			las ocho reinas
 			@return Una lista con todas las soluciones encontradas **/
-		list<TableroAjedrez> allSolutions();
+		list<TableroAjedrez> allSolutions() const;
 
 		/** @brief Establece la nueva dimension que deberan de seguir los tableros **/
 		void setDimension(const unsigned int &dim);
