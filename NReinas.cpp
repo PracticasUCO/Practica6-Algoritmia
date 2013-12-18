@@ -1,4 +1,5 @@
 #include <cassert>
+#include <random>
 #include "TableroAjedrez.hpp"
 #include "FichaAjedrez.hpp"
 #include "Punto.hpp"
@@ -148,6 +149,47 @@ namespace algoritmia
 		}
 
 		return lista;
+	}
+
+	bool NReinas::vegas(TableroAjedrez &table, const unsigned int &nIntentos) const
+	{
+		random_device rd;
+		unsigned int reinas = 0;
+		table.clear();
+		unsigned int intentos = 0;
+
+		for(unsigned int i = 0; i < table.getDimension(); i++)
+		{
+			while(intentos < nIntentos)
+			{
+				unsigned int j = rd() % table.getDimension();
+				Punto p(i, j);
+
+				if(table.amenaza(p))
+				{
+					intentos++;
+				}
+				else
+				{
+					table.setFicha(p, REINA);
+					reinas++;
+				}
+			}
+
+			if(intentos >= nIntentos)
+			{
+				break;
+			}
+		}
+
+		if(reinas == table.getDimension())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	bool NReinas::buscarReina(const TableroAjedrez &t, Punto &p) const

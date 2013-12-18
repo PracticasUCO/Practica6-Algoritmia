@@ -47,6 +47,10 @@ namespace algoritmia
 			@return Una lista con todas las soluciones encontradas **/
 		list<TableroAjedrez> allSolutions() const;
 
+		/** @brief Devuelve una solucion por el algoritmo de las vegas
+			@return True si acerto en la solucion **/
+		bool vegas(TableroAjedrez &table, const unsigned int &nIntentos) const;
+
 		/** @brief Establece la nueva dimension que deberan de seguir los tableros **/
 		void setDimension(const unsigned int &dim);
 
