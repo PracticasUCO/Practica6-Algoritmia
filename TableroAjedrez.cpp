@@ -294,6 +294,14 @@ namespace algoritmia
 		this->setFicha(p, f);
 	}
 
+	bool TableroAjedrez::moverFicha(const unsigned int &rowSource, const unsigned int &colSource, 
+						const unsigned int &rowDest, const unsigned int &colDest)
+	{
+		Punto source(rowSource, colSource);
+		Punto dest(rowDest, colDest);
+		return this->moverFicha(source, dest);
+	}
+
 	bool TableroAjedrez::borrarFicha(const unsigned int &row, const unsigned int &col)
 	{
 		assert(row < this->getDimension());
