@@ -171,7 +171,7 @@ namespace algoritmia
 
 	void NReinas::setDimension(const unsigned int &dim)
 	{
-		assert(dim > 0);
+		assert(dim > 3);
 		_dim = dim;
 	}
 
