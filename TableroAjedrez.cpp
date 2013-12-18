@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cassert>
+#include <algorithm>
 #include "TableroAjedrez.hpp"
 #include "FichaAjedrez.hpp"
 #include "Recta.hpp"
@@ -300,6 +301,24 @@ namespace algoritmia
 		Punto source(rowSource, colSource);
 		Punto dest(rowDest, colDest);
 		return this->moverFicha(source, dest);
+	}
+
+	bool TableroAjedrez::moverFicha(const Punto &source, const Punto &dest)
+	{
+		bool resultado = false;
+		if(this->getEnumFicha(source) != EMPTY)
+		{
+			list<Punto> movimientosPosibles = this->listaMovimientos(source);
+			list<Punto>::const_iterator it = find(movimientosPosibles.begin(), movimientosPosibles.end(), dest);
+
+			if(it != movimientosPosibles.end())
+			{
+				resultado = true;
+				this->setFicha(dest, this->getEnumFicha(source));
+				this->setFicha(source, EMPTY);
+			}
+		}
+		return resultado;
 	}
 
 	bool TableroAjedrez::borrarFicha(const unsigned int &row, const unsigned int &col)
