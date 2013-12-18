@@ -39,4 +39,9 @@ namespace algoritmia
 		unsigned int dimension = nr.getDimension();
 		this->setDimension(dimension);
 	}
+
+	NReinas::~NReinas()
+	{
+		//Empty
+	}
 }
