@@ -33,4 +33,10 @@ namespace algoritmia
 	{
 		return _dim;
 	}
+
+	void NReinas::operator=(const NReinas &nr)
+	{
+		unsigned int dimension = nr.getDimension();
+		this->setDimension(dimension);
+	}
 }
