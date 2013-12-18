@@ -41,6 +41,9 @@ namespace algoritmia
 		/** @brief Establece la nueva dimension que deberan de seguir los tableros **/
 		void setDimension(const unsigned int &dim);
 
+		/** @brief Devuelve la dimension en la cual se establecio la clase **/
+		unsigned int getDimension() const;
+
 		/** @brief Destructor de la clase NReinas **/
 		~NReinas();
 	};
