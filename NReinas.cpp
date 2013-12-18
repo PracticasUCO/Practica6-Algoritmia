@@ -79,26 +79,33 @@ namespace algoritmia
 		TableroAjedrez tablero = this->singleSolution();
 		Punto posicion;
 		Punto busqueda;
+		Punto limite(0, tablero.getDimension());
 
 		lista.push_back(tablero);
 
 		this->buscarReina(tablero, posicion);
 
 		busqueda = posicion;
-		
 
-		while(busqueda.getY() < this->getDimension() - 1)
+		while(busqueda.getY() < tablero.getDimension() - 1)
 		{
+			unsigned int reinas = 0;
 			posicion.setPunto(busqueda.getX(), busqueda.getY() + 1);
 			busqueda = posicion;
 			tablero.clear();
 
+
 			while(posicion.getX() < tablero.getDimension())
 			{
-				if(!tablero.amenaza(posicion))
+				if(posicion == limite)
+				{
+					break;
+				}
+				else if(!tablero.amenaza(posicion))
 				{
 					tablero.setFicha(posicion, REINA);
 					posicion.setPunto(posicion.getX() + 1, 0);
+					reinas++;
 				}
 				else
 				{
@@ -112,6 +119,7 @@ namespace algoritmia
 						{
 							tablero.borrarFicha(posicion);
 							posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+							reinas--;
 
 							if(posicion.getY() >= tablero.getDimension()) //No creo que deba de pasar nunca
 							{
@@ -121,6 +129,7 @@ namespace algoritmia
 									this->buscarReina(tablero, posicion);
 									tablero.borrarFicha(posicion);
 									posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+									reinas--;
 								}
 							}
 						}
@@ -132,7 +141,10 @@ namespace algoritmia
 				}
 			}
 
-			lista.push_back(tablero);
+			if(reinas == this->getDimension())
+			{
+				lista.push_back(tablero);
+			}
 		}
 
 		return lista;
