@@ -150,6 +150,9 @@ namespace algoritmia
 			no habia ninguna ficha y por tanto no se borro nada (FALSE) **/
 		bool borrarFicha(const Punto &p);
 
+		/** @brief Borra el tablero completamente, eliminando todas las fichas **/
+		void clear();
+
 		/** @brief Sobrecarga del operador = **/
 		void operator=(const TableroAjedrez &t);
 
