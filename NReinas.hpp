@@ -22,7 +22,7 @@ namespace algoritmia
 			solo se tiene en cuenta la fila, y se modificara el punto para que concuerde
 			con la columna tambien
 			@return Un valor boolean TRUE si encontro a la reina y FALSE en caso contrario **/
-		bool buscarReina(const TableroAjedrez &t, Punto &p);
+		bool buscarReina(const TableroAjedrez &t, Punto &p) const;
 
 	public:
 		/** @brief Constructor por defecto del tablero de las N-Reinas, este tablero

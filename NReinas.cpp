@@ -44,7 +44,28 @@ namespace algoritmia
 
 				if(posicion.getY() >= tablero.getDimension()) //Hay que retroceder
 				{
-					posicion.setPunto(posicion.getX() + 1, 0);
+					posicion.setPunto(posicion.getX() - 1, 0);
+
+					if(this->buscarReina(tablero, posicion))
+					{
+						tablero.borrarFicha(posicion);
+						posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+
+						if(posicion.getY() >= tablero.getDimension()) //No creo que deba de pasar nunca
+						{
+							if(posicion.getX() != 0)
+							{
+								posicion.setPunto(posicion.getX() - 1 , 0);
+								this->buscarReina(tablero, posicion);
+								tablero.borrarFicha(posicion);
+								posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+							}
+						}
+					}
+					else //No creo que deba de pasar nunca
+					{
+						posicion.setPunto(posicion.getX() + 2, 0);
+					}
 				}
 			}
 		}
@@ -52,18 +73,17 @@ namespace algoritmia
 		return tablero;
 	}
 
-	bool NReinas::buscarReina(const TableroAjedrez &t, Punto &p)
+	bool NReinas::buscarReina(const TableroAjedrez &t, Punto &p) const
 	{
 		assert(p.getX() < t.getDimension());
 		
-		unsigned int col;
 		bool resultado = false;
 
 		for(unsigned int j = 0; j < t.getDimension(); j++)
 		{
-			if(t.getEnumFicha(Punto(row, j)) == REINA)
+			if(t.getEnumFicha(Punto(p.getX(), j)) == REINA)
 			{
-				p.setPunto(row, j);
+				p.setPunto(p.getX(), j);
 				resultado = true;
 				break;
 			}
