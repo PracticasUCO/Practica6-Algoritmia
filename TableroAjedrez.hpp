@@ -17,12 +17,6 @@ namespace algoritmia
 		unsigned int _dimension; //!< Indica la dimension del tablero (que es de tamaño Dimension x Dimension)
 		vector<vector<FichaAjedrez> > _tablero; //!< El tablero en si de ajedrez
 
-		/** @brief Devuelve la lista de movimientos posibles por una ficha determinada en una Punto del juego
-			@param p Punto de inicio de la ficha
-			@param f Ficha a mover
-			@return Una lista en formato list<Punto> que indica todas las posibles direcciones que puede tomar **/
-		list<Punto> listaMovimientos(const Punto &p, const FichaAjedrez &f) const;
-
 		/** @brief Devuelve la lista de todos los movimientos que puede hacer la reina
 			@param p Punto de inicio de la reina
 			@return list<Punto> con cada uno de los puntos a donde podria llegar la reina **/
@@ -116,6 +110,32 @@ namespace algoritmia
 			@param p Punto donde deseas insertar la ficha
 			@param e Enumeracion que representa la ficha a establecer **/
 		void setFicha(const Punto &p, const enum CLASE_FICHA &e);
+
+		/** @brief Mueve una ficha del tablero a otra posicion. Si en la posicion de destino hay otra ficha
+			esta desaparecera del tablero
+			@param rowSource Indica la fila de origen
+			@param colSource Indica la columna de origen
+			@param rowDest Indica la fila de destino
+			@param colDest Indica la columna de destino
+			@warning Si la posicion de origen no tiene fichas, no se hace nada
+			@return Un valor booleano indicando que se realizo el movimiento (TRUE) o que no se hizo nada (FALSE) **/
+		bool moverFicha(const unsigned int &rowSource, const unsigned int &colSource, 
+						const unsigned int &rowDest, const unsigned int &colDest);
+
+		/** @brief Mueve una ficha del tablero a otra posicion. Si en la posicion de destino hay otra ficha
+			esta desaparecera del tablero
+			@param source Origen del movimiento
+			@param dest Posicion a la que se movera la ficha
+			@warning Si la posicion de origen no tiene fichas, no se hace nada
+			@warning Si el movimiento no esta permitido, no se hara nada
+			@return Un valor booleano indicando que se realizo el movimiento (TRUE) o que no se hizo nada (FALSE) **/
+		bool moverFicha(const Punto &source, const Punto &dest);
+
+		/** @brief Devuelve la lista de movimientos posibles por una ficha determinada en una Punto del juego
+			@param p Punto de inicio de la ficha
+			@param f Ficha a mover
+			@return Una lista en formato list<Punto> que indica todas las posibles direcciones que puede tomar **/
+		list<Punto> listaMovimientos(const Punto &p, const FichaAjedrez &f) const;
 
 		/** @brief Borra una ficha del tablero
 			@param row Fila donde se encuentra la ficha a borrar
