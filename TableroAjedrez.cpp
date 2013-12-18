@@ -190,7 +190,37 @@ namespace algoritmia
 	bool TableroAjedrez::amenaza(const unsigned int &row, const unsigned int &col) const
 	{
 		Punto p(row, col);
-		this->amenaza(p);
+		return this->amenaza(p);
+	}
+
+	bool TableroAjedrez::amenaza(const Punto &p) const
+	{
+		bool deteccion = false;
+		for(unsigned int i = 0; ((i < this->getDimension()) && (deteccion == false)); i++)
+		{
+			for(unsigned int j = 0; ((j < this->getDimension()) && (deteccion == false)); j++)
+			{
+				Punto busqueda(i, j);
+
+				if(busqueda != p)
+				{
+					list<Punto> movimientos;
+					FichaAjedrez ficha = this->getFicha(busqueda);
+					movimientos = this->listaMovimientos(busqueda, ficha);
+
+					for(list<Punto>::const_iterator it = movimientos.begin(); it != movimientos.end(); it++)
+					{
+						if(*it == p)
+						{
+							deteccion = true;
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		return deteccion;
 	}
 
 	void TableroAjedrez::detail() const
