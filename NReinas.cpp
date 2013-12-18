@@ -18,6 +18,11 @@ namespace algoritmia
 		this->setDimension(dim);
 	}
 
+	NReinas::NReinas(const NReinas &nr)
+	{
+		*this = nr;
+	}
+
 	void NReinas::setDimension(const unsigned int &dim)
 	{
 		assert(dim > 0);
