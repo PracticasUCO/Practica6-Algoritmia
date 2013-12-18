@@ -73,6 +73,71 @@ namespace algoritmia
 		return tablero;
 	}
 
+	list<TableroAjedrez> NReinas::allSolutions() const
+	{
+		list<TableroAjedrez> lista;
+		TableroAjedrez tablero = this->singleSolution();
+		Punto posicion;
+		Punto busqueda;
+
+		lista.push_back(tablero);
+
+		this->buscarReina(tablero, posicion);
+
+		busqueda = posicion;
+		
+
+		while(busqueda.getY() < this->getDimension() - 1)
+		{
+			posicion.setPunto(busqueda.getX(), busqueda.getY() + 1);
+			busqueda = posicion;
+			tablero.clear();
+
+			while(posicion.getX() < tablero.getDimension())
+			{
+				if(!tablero.amenaza(posicion))
+				{
+					tablero.setFicha(posicion, REINA);
+					posicion.setPunto(posicion.getX() + 1, 0);
+				}
+				else
+				{
+					posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+
+					if(posicion.getY() >= tablero.getDimension()) //Hay que retroceder
+					{
+						posicion.setPunto(posicion.getX() - 1, 0);
+
+						if(this->buscarReina(tablero, posicion))
+						{
+							tablero.borrarFicha(posicion);
+							posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+
+							if(posicion.getY() >= tablero.getDimension()) //No creo que deba de pasar nunca
+							{
+								if(posicion.getX() != 0)
+								{
+									posicion.setPunto(posicion.getX() - 1 , 0);
+									this->buscarReina(tablero, posicion);
+									tablero.borrarFicha(posicion);
+									posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+								}
+							}
+						}
+						else //No creo que deba de pasar nunca
+						{
+							posicion.setPunto(posicion.getX() + 2, 0);
+						}
+					}
+				}
+			}
+
+			lista.push_back(tablero);
+		}
+
+		return lista;
+	}
+
 	bool NReinas::buscarReina(const TableroAjedrez &t, Punto &p) const
 	{
 		assert(p.getX() < t.getDimension());

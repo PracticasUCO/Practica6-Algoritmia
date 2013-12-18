@@ -196,6 +196,9 @@ namespace algoritmia
 
 	bool TableroAjedrez::amenaza(const Punto &p) const
 	{
+		assert(p.getX() < this->getDimension());
+		assert(p.getY() < this->getDimension());
+		
 		bool deteccion = false;
 		for(unsigned int i = 0; ((i < this->getDimension()) && (deteccion == false)); i++)
 		{
