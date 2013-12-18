@@ -26,8 +26,10 @@ namespace algoritmia
 
 	TableroAjedrez NReinas::singleSolution() const
 	{
-		TableroAjedrez tablero(this->getDimension());
+		TableroAjedrez tablero;
 		Punto posicion(0, 0);
+
+		tablero.setTablero(this->getDimension());
 
 		while(posicion.getX() < tablero.getDimension())
 		{
@@ -40,7 +42,7 @@ namespace algoritmia
 			{
 				posicion.setPunto(posicion.getX(), posicion.getY() + 1);
 
-				if(posicion.getY() > tablero.getDimension())
+				if(posicion.getY() >= tablero.getDimension())
 				{
 					break;
 				}

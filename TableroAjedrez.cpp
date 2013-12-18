@@ -347,6 +347,25 @@ namespace algoritmia
 		return this->borrarFicha(row, col);
 	}
 
+	void TableroAjedrez::operator=(const TableroAjedrez &t)
+	{
+		unsigned int dimension = t.getDimension();
+		this->setTablero(dimension);
+
+		for(unsigned int i = 0; i < this->getDimension(); i++)
+		{
+			for(unsigned int j = 0; j < this->getDimension(); j++)
+			{
+				Punto p(i, j);
+				if(t.getEnumFicha(p) != EMPTY)
+				{
+					enum CLASE_FICHA e = t.getEnumFicha(p);
+					this->setFicha(p, e);
+				}
+			}
+		}
+	}
+
 	TableroAjedrez::~TableroAjedrez()
 	{
 		//Empty
