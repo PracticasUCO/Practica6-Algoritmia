@@ -187,6 +187,12 @@ namespace algoritmia
 		return _tablero[row][col];
 	}
 
+	bool TableroAjedrez::amenaza(const unsigned int &row, const unsigned int &col) const
+	{
+		Punto p(row, col);
+		this->amenaza(p);
+	}
+
 	void TableroAjedrez::detail() const
 	{
 		for(unsigned int i = 0; i < this->getDimension(); i++)
