@@ -44,7 +44,7 @@ namespace algoritmia
 
 				if(posicion.getY() >= tablero.getDimension())
 				{
-					break;
+					posicion.setPunto(posicion.getX() + 1, 0);
 				}
 			}
 		}
