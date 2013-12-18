@@ -29,9 +29,6 @@ namespace algoritmia
 			@param nr Tablero a copiar **/
 		NReinas(const NReinas &nr);
 
-		/** @brief Vacia el tablero completamente. Eliminando todas las piezas **/
-		void clear();
-
 		/** @brief Rellena el tablero con una solucion del problema, y lo deja almacenado
 			@return Un tablero de ajedrez con la solucion deseada **/
 		TableroAjedrez singleSolution();
