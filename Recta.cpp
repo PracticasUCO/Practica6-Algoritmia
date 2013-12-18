@@ -240,4 +240,9 @@ namespace algoritmia
 
 		return input;
 	}
+
+	Recta::~Recta()
+	{
+		//Empty
+	}
 }

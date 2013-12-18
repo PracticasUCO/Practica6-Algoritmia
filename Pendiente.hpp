@@ -41,6 +41,9 @@ namespace algoritmia
 			@return El valor de la pendiente **/
 		double getValue() const;
 
+		/** @brief Destructor de la clase **/
+		~Pendiente();
+
 		/** Sobrecarga de operadores **/
 		void operator=(const Pendiente &p);
 		bool operator==(const Pendiente &p) const;

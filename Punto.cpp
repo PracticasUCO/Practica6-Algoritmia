@@ -157,4 +157,9 @@ namespace algoritmia
 
 		return input;
 	}
+
+	Punto::~Punto()
+	{
+		//Empty
+	}
 }

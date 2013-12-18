@@ -129,6 +129,9 @@ namespace algoritmia
 			@return Devuelve un valor booleano que indica que en la Punto indicada habia una ficha y fue borrada (TRUE) o que
 			no habia ninguna ficha y por tanto no se borro nada (FALSE) **/
 		bool borrarFicha(const Punto &p);
+
+		/** @brief Destructor **/
+		~TableroAjedrez();
 	};
 }
 

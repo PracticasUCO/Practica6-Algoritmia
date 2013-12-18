@@ -209,4 +209,9 @@ namespace algoritmia
 
 		return input;
 	}
+
+	Pendiente::~Pendiente()
+	{
+		//Empty
+	}
 }

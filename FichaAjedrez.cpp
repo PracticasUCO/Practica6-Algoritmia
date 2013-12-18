@@ -137,4 +137,9 @@ namespace algoritmia
 
 		return input;
 	}
+
+	FichaAjedrez::~FichaAjedrez()
+	{
+		//Empty
+	}
 }

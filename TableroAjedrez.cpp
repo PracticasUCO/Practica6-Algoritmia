@@ -318,4 +318,9 @@ namespace algoritmia
 
 		return this->borrarFicha(row, col);
 	}
+
+	TableroAjedrez::~TableroAjedrez()
+	{
+		//Empty
+	}
 };

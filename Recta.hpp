@@ -76,6 +76,9 @@ namespace algoritmia
 
 		friend ostream& operator<<(ostream& output, const Recta &r);
 		friend istream& operator>>(istream& input, Recta &r);
+
+		/** @brief Destructor **/
+		~Recta();
 	};
 }
 
