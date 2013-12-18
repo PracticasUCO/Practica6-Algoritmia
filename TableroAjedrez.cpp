@@ -11,11 +11,11 @@ using namespace std;
 
 namespace algoritmia
 {
-	list<Punto> TableroAjedrez::listaMovimientos(const Punto &p, const FichaAjedrez &f) const
+	list<Punto> TableroAjedrez::listaMovimientos(const Punto &p) const
 	{
 		list<Punto> movimientos;
 
-		if(f.getType() == REINA)
+		if(this->getEnumFicha(p) == REINA)
 		{
 			movimientos = this->listaMovimientosReina(p);
 		}
@@ -205,8 +205,7 @@ namespace algoritmia
 				if(busqueda != p)
 				{
 					list<Punto> movimientos;
-					FichaAjedrez ficha = this->getFicha(busqueda);
-					movimientos = this->listaMovimientos(busqueda, ficha);
+					movimientos = this->listaMovimientos(busqueda);
 
 					for(list<Punto>::const_iterator it = movimientos.begin(); it != movimientos.end(); it++)
 					{

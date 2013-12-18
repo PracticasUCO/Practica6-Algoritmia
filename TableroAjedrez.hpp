@@ -135,7 +135,7 @@ namespace algoritmia
 			@param p Punto de inicio de la ficha
 			@param f Ficha a mover
 			@return Una lista en formato list<Punto> que indica todas las posibles direcciones que puede tomar **/
-		list<Punto> listaMovimientos(const Punto &p, const FichaAjedrez &f) const;
+		list<Punto> listaMovimientos(const Punto &p) const;
 
 		/** @brief Borra una ficha del tablero
 			@param row Fila donde se encuentra la ficha a borrar
