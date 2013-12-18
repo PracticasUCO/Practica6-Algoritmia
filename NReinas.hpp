@@ -46,6 +46,8 @@ namespace algoritmia
 
 		/** @brief Destructor de la clase NReinas **/
 		~NReinas();
+
+		void operator=(const NReinas &nr);
 	};
 }
 
