@@ -28,4 +28,9 @@ namespace algoritmia
 		assert(dim > 0);
 		_dim = dim;
 	}
+
+	unsigned int NReinas::getDimension() const
+	{
+		return _dim;
+	}
 }
