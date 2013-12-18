@@ -306,18 +306,20 @@ namespace algoritmia
 	bool TableroAjedrez::moverFicha(const Punto &source, const Punto &dest)
 	{
 		bool resultado = false;
-		if(this->getEnumFicha(source) != EMPTY)
-		{
-			list<Punto> movimientosPosibles = this->listaMovimientos(source);
-			list<Punto>::const_iterator it = find(movimientosPosibles.begin(), movimientosPosibles.end(), dest);
 
-			if(it != movimientosPosibles.end())
-			{
-				resultado = true;
-				this->setFicha(dest, this->getEnumFicha(source));
-				this->setFicha(source, EMPTY);
-			}
+		//Una posicion marcada como empty siempre dara una lista de movimientos
+		//vacia, por lo que si la posicion origen que tratamos de mover es EMPTY
+		//no afectara al algoritmo
+		list<Punto> movimientosPosibles = this->listaMovimientos(source);
+		list<Punto>::const_iterator it = find(movimientosPosibles.begin(), movimientosPosibles.end(), dest);
+
+		if(it != movimientosPosibles.end())
+		{
+			resultado = true;
+			this->setFicha(dest, this->getEnumFicha(source));
+			this->setFicha(source, EMPTY);
 		}
+
 		return resultado;
 	}
 
