@@ -1,7 +1,7 @@
 .PHONY: clean-objects clean-all
 
 CXX = g++
-CXXFLAGS = -Wall $(INCLUDE) $(LIBRARY) -ggdb3
+CXXFLAGS = -Wall $(INCLUDE) $(LIBRARY) -std=c++11 -ggdb3
 INCLUDE = -I.
 LIBRARY = -L.
 OBJECTS = FichaAjedrez.o TableroAjedrez.o Punto.o NReinas.o Recta.o Pendiente.o
