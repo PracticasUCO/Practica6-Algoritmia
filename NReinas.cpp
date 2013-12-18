@@ -9,4 +9,9 @@ namespace algoritmia
 		const unsigned int defaultDimension = 8;
 		this->setDimension(defaultDimension);
 	}
+
+	NReinas::NReinas(const unsigned int &dim)
+	{
+		this->setDimension(dim);
+	}
 }
