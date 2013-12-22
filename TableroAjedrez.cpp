@@ -367,6 +367,8 @@ namespace algoritmia
 		unsigned int dimension = t.getDimension();
 		this->setTablero(dimension);
 
+		this->clear();
+
 		for(unsigned int i = 0; i < this->getDimension(); i++)
 		{
 			for(unsigned int j = 0; j < this->getDimension(); j++)
