@@ -152,7 +152,7 @@ namespace algoritmia
 					lista.push_back(*it);
 				}
 
-				//lista.unique();
+				lista.unique();
 			}
 		}
 
