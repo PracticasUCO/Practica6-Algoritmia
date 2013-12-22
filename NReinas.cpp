@@ -151,7 +151,17 @@ namespace algoritmia
 		return lista;
 	}
 
-	bool NReinas::vegas(TableroAjedrez &table, const unsigned int &nIntentos) const
+	void NReinas::setIntentosVegas(const unsigned int &intentos)
+	{
+		_intentosVegas = intentos;
+	}
+
+	unsigned int NReinas::getIntentosVegas() const
+	{
+		return _intentosVegas;
+	}
+
+	bool NReinas::vegas(TableroAjedrez &table, const unsigned int &nIntentos)
 	{
 		random_device rd;
 		unsigned int reinas = 0;
@@ -173,14 +183,17 @@ namespace algoritmia
 				{
 					table.setFicha(p, REINA);
 					reinas++;
+					break;
+				}
+
+				if(intentos >= nIntentos)
+				{
+					break;
 				}
 			}
-
-			if(intentos >= nIntentos)
-			{
-				break;
-			}
 		}
+
+		this->setIntentosVegas(intentos);
 
 		if(reinas == table.getDimension())
 		{
