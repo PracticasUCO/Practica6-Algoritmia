@@ -144,7 +144,15 @@ namespace algoritmia
 
 			if(reinas == this->getDimension())
 			{
+				list<TableroAjedrez> per = this->getPermutaciones(tablero);
 				lista.push_back(tablero);
+
+				for(list<TableroAjedrez>::const_iterator it = per.begin(); it != per.end(); it++)
+				{
+					lista.push_back(*it);
+				}
+
+				//lista.unique();
 			}
 		}
 
