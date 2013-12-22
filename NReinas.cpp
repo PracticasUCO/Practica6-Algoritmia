@@ -171,7 +171,6 @@ namespace algoritmia
 					break;
 				}
 
-				tabla.clear();
 				tabla = t;
 
 				Punto start;
