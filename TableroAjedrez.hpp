@@ -156,6 +156,12 @@ namespace algoritmia
 		/** @brief Sobrecarga del operador = **/
 		void operator=(const TableroAjedrez &t);
 
+		/** @brief Sobrecarga del operador == **/
+		bool operator==(const TableroAjedrez &t) const;
+
+		/** @brief Sobrecarga del operador != **/
+		bool operator!=(const TableroAjedrez &t) const;
+
 		/** @brief Destructor **/
 		~TableroAjedrez();
 	};

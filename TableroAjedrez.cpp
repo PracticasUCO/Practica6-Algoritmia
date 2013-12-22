@@ -383,6 +383,39 @@ namespace algoritmia
 		}
 	}
 
+	bool TableroAjedrez::operator==(const TableroAjedrez &t) const
+	{
+		if(this->getDimension() != t.getDimension())
+		{
+			return false;
+		}
+		else
+		{
+			bool resultado;
+			for(unsigned int i = 0; i < this->getDimension(); i++)
+			{
+				for(unsigned int j = 0; j < this->getDimension(); j++)
+				{
+					Punto p(i, j);
+
+					resultado = this->getFicha(p) == t.getFicha(p);
+
+					if(!resultado)
+					{
+						break;
+					}
+				}
+			}
+
+			return resultado;
+		}
+	}
+
+	bool TableroAjedrez::operator!=(const TableroAjedrez &t) const
+	{
+		return !(*this == t);
+	}
+
 	TableroAjedrez::~TableroAjedrez()
 	{
 		//Empty
