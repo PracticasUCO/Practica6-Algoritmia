@@ -183,8 +183,23 @@ namespace algoritmia
 				tabla.borrarFicha(*it);
 				tabla.borrarFicha(*sig);
 
-				tabla.setFicha(start, REINA);
-				tabla.setFicha(end, REINA);
+				if(!tabla.amenaza(start))
+				{
+					tabla.setFicha(start, REINA);
+				}
+				else
+				{
+					break;
+				}
+
+				if(!tabla.amenaza(end))
+				{
+					tabla.setFicha(end, REINA);
+				}
+				else
+				{
+					break;
+				}
 
 				lista.push_back(tabla);
 			}
