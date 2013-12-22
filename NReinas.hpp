@@ -55,6 +55,9 @@ namespace algoritmia
 		/** @brief Lista todas las posiciones de las reinas en el tablero **/
 		list<Punto> searchQueens(const TableroAjedrez &t) const;
 
+		/** @brief Obtiene todas las permutaciones posibles validas de un tablero dado **/
+		list<TableroAjedrez> getPermutaciones(const TableroAjedrez &t) const;
+
 		/** @brief Devuelve una solucion por el algoritmo de las vegas
 			@warning No se tiene en cuenta el valor de la dimension establecida
 			@return True si acerto en la solucion **/

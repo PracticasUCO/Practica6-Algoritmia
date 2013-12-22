@@ -151,6 +151,50 @@ namespace algoritmia
 		return lista;
 	}
 
+	list<TableroAjedrez> NReinas::getPermutaciones(const TableroAjedrez &t) const
+	{
+		list<TableroAjedrez> lista;
+		TableroAjedrez tabla;
+		list<Punto> posicionesReinas = this->searchQueens(t);
+
+		for(list<Punto>::const_iterator it = posicionesReinas.begin(); it != posicionesReinas.end(); it++)
+		{
+			for(list<Punto>::const_iterator sig = next(it, 1); sig != it; sig++)
+			{
+				if(sig == posicionesReinas.end())
+				{
+					sig = posicionesReinas.begin();
+				}
+
+				if(distance(it, sig) == 0)
+				{
+					break;
+				}
+
+				tabla.clear();
+				tabla = t;
+
+				Punto start;
+				Punto end;
+
+				start.setPunto(sig->getX(), it->getY());
+				end.setPunto(it->getX(), sig->getY());
+
+
+				tabla.borrarFicha(*it);
+				tabla.borrarFicha(*sig);
+
+				tabla.setFicha(start, REINA);
+				tabla.setFicha(end, REINA);
+
+				lista.push_back(tabla);
+			}
+
+		}
+
+		return lista;
+	}
+
 	void NReinas::setIntentosVegas(const unsigned int &intentos)
 	{
 		_intentosVegas = intentos;
