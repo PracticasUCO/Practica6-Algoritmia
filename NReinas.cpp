@@ -224,6 +224,26 @@ namespace algoritmia
 		return resultado;
 	}
 
+	list<Punto> NReinas::searchQueens(const TableroAjedrez &t) const
+	{
+		list<Punto> l;
+
+		for(unsigned int i = 0; i < t.getDimension(); i++)
+		{
+			for(unsigned int j = 0; j < t.getDimension(); j++)
+			{
+				Punto p(i, j);
+
+				if((t.hayFicha(p)) && (t.getEnumFicha(p) == REINA))
+				{
+					l.push_back(p);
+				}
+			}
+		}
+
+		return l;
+	}
+
 	void NReinas::setDimension(const unsigned int &dim)
 	{
 		assert(dim > 3);
