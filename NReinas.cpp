@@ -275,7 +275,15 @@ namespace algoritmia
 
 	unsigned int NReinas::countQueens(const TableroAjedrez &table) const
 	{
-		list<Punto> queens = this->searchQueens(table);
+		list<Punto> queens = table.listarFichas();
+
+		for(list<Punto>::const_iterator it = queens.begin(); it != queens.end(); it++)
+		{
+			if(table.getEnumFicha(*it) != REINA)
+			{
+				queens.remove(*it);
+			}
+		}
 
 		return static_cast<unsigned int>(queens.size());
 	}
