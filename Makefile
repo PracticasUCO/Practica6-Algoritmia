@@ -4,7 +4,7 @@ CXX = g++
 CXXFLAGS = -Wall $(INCLUDE) $(LIBRARY) -std=c++11 -ggdb3
 INCLUDE = -I.
 LIBRARY = -L.
-OBJECTS = FichaAjedrez.o TableroAjedrez.o Punto.o NReinas.o Recta.o Pendiente.o
+OBJECTS = FichaAjedrez.o TableroAjedrez.o Punto.o NReinas.o Recta.o Pendiente.o funcionesAltoNivel.o
 
 practica6: main.o $(OBJECTS)
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -o $@ $^
@@ -26,6 +26,8 @@ Pendiente.o: Pendiente.cpp Pendiente.hpp Punto.o
 
 NReinas.o: TableroAjedrez.o NReinas.cpp NReinas.hpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ NReinas.cpp
+
+funcionesAltoNivel.o: funcionesAltoNivel.hpp funcionesAltoNivel.cpp Punto.o
 
 clean-objects:
 	-rm *.o
