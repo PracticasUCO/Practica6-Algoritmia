@@ -80,6 +80,9 @@ namespace algoritmia
 		/** @brief Devuelve la dimension en la cual se establecio la clase **/
 		unsigned int getDimension() const;
 
+		/** @brief Devuelve el numero de reinas presentes en un tablero **/
+		unsigned int countQueens(const TableroAjedrez &table) const;
+
 		/** @brief Destructor de la clase NReinas **/
 		~NReinas();
 

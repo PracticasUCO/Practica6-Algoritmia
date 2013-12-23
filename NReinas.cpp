@@ -273,6 +273,13 @@ namespace algoritmia
 		return _dim;
 	}
 
+	unsigned int NReinas::countQueens(const TableroAjedrez &table) const
+	{
+		list<Punto> queens = this->searchQueens(table);
+
+		return static_cast<unsigned int>(queens.size());
+	}
+
 	void NReinas::operator=(const NReinas &nr)
 	{
 		unsigned int dimension = nr.getDimension();
