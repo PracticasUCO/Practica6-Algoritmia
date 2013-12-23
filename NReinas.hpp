@@ -29,6 +29,14 @@ namespace algoritmia
 		/** @brief Establece el ultimo valor de intentos de las vegas **/
 		void setIntentosVegas(const unsigned int &intentos);
 
+
+		/** @brief Busca las reinas de forma recursiva (todas las soluciones)
+			@param lista Lista de tableros de ajedrez, la cual se ira modificando
+			a lo largo de la ejecucion
+			@param Tablero a ser evaluado (inicialmente debe de estar vacio)
+			@param k Numero inicial de las nreinas **/
+		void search(list<TableroAjedrez> &lista, TableroAjedrez &table, const unsigned int k = 0) const;
+
 	public:
 		/** @brief Constructor por defecto del tablero de las N-Reinas, este tablero
 			se dimensiona a un tablero de ajedrez por defecto (8 columnas x 8 filas) **/

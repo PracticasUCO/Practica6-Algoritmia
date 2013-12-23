@@ -77,86 +77,38 @@ namespace algoritmia
 	list<TableroAjedrez> NReinas::allSolutions() const
 	{
 		list<TableroAjedrez> lista;
-		TableroAjedrez tablero = this->singleSolution();
-		Punto posicion;
-		Punto busqueda;
-		Punto limite(0, tablero.getDimension());
+		TableroAjedrez tablero;
 
-		lista.push_back(tablero);
+		this->search(lista, tablero);
 
-		this->buscarReina(tablero, posicion);
-
-		busqueda = posicion;
-
-		while(busqueda.getY() < tablero.getDimension() - 1)
-		{
-			unsigned int reinas = 0;
-			posicion.setPunto(busqueda.getX(), busqueda.getY() + 1);
-			busqueda = posicion;
-			tablero.clear();
-
-
-			while(posicion.getX() < tablero.getDimension())
-			{
-				if(posicion == limite)
-				{
-					break;
-				}
-				else if(!tablero.amenaza(posicion))
-				{
-					tablero.setFicha(posicion, REINA);
-					posicion.setPunto(posicion.getX() + 1, 0);
-					reinas++;
-				}
-				else
-				{
-					posicion.setPunto(posicion.getX(), posicion.getY() + 1);
-
-					if(posicion.getY() >= tablero.getDimension()) //Hay que retroceder
-					{
-						posicion.setPunto(posicion.getX() - 1, 0);
-
-						if(this->buscarReina(tablero, posicion))
-						{
-							tablero.borrarFicha(posicion);
-							posicion.setPunto(posicion.getX(), posicion.getY() + 1);
-							reinas--;
-
-							if(posicion.getY() >= tablero.getDimension()) //No creo que deba de pasar nunca
-							{
-								if(posicion.getX() != 0)
-								{
-									posicion.setPunto(posicion.getX() - 1 , 0);
-									this->buscarReina(tablero, posicion);
-									tablero.borrarFicha(posicion);
-									posicion.setPunto(posicion.getX(), posicion.getY() + 1);
-									reinas--;
-								}
-							}
-						}
-						else //No creo que deba de pasar nunca
-						{
-							posicion.setPunto(posicion.getX() + 2, 0);
-						}
-					}
-				}
-			}
-
-			if(reinas == this->getDimension())
-			{
-				list<TableroAjedrez> per = this->getPermutaciones(tablero);
-				lista.push_back(tablero);
-
-				for(list<TableroAjedrez>::const_iterator it = per.begin(); it != per.end(); it++)
-				{
-					lista.push_back(*it);
-				}
-
-				lista.unique();
-			}
-		}
 
 		return lista;
+	}
+
+
+	void NReinas::search(list<TableroAjedrez> &lista, TableroAjedrez &table, const unsigned int k) const
+	{
+		if(k == this->getDimension())
+		{
+			lista.push_back(table);
+		}
+		else
+		{
+
+			for(unsigned int i = 0; i < this->getDimension(); i++)
+			{
+				if((!table.amenaza(Punto(k, i))) && (!table.hayFicha(Punto(k, i))))
+				{
+					table.setFicha(Punto(k, i), REINA);
+				
+					cerr << endl;
+
+					search(lista, table, k+1);
+
+					table.borrarFicha(Punto(k, i));
+				}
+			}
+		}
 	}
 
 	list<TableroAjedrez> NReinas::getPermutaciones(const TableroAjedrez &t) const
@@ -197,7 +149,7 @@ namespace algoritmia
 				}
 				else
 				{
-					break;
+					continue;
 				}
 
 				if(!tabla.amenaza(end))
@@ -206,7 +158,7 @@ namespace algoritmia
 				}
 				else
 				{
-					break;
+					continue;
 				}
 
 				lista.push_back(tabla);
