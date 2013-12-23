@@ -153,6 +153,9 @@ namespace algoritmia
 		/** @brief Borra el tablero completamente, eliminando todas las fichas **/
 		void clear();
 
+		/** @brief Devuelve una lista con todas las posiciones donde hay fichas **/
+		list<Punto> listarFichas() const;
+
 		/** @brief Sobrecarga del operador = **/
 		void operator=(const TableroAjedrez &t);
 

@@ -362,6 +362,25 @@ namespace algoritmia
 		}
 	}
 
+	list<Punto> TableroAjedrez::listarFichas() const
+	{
+		list<Punto> lista;
+
+		for(unsigned int i = 0; i < this->getDimension(); i++)
+		{
+			for(unsigned int j = 0; j < this->getDimension(); j++)
+			{
+				Punto p(i, j);
+				if(this->hayFicha(p))
+				{
+					lista.push_back(p);
+				}
+			}
+		}
+
+		return lista;
+	}
+
 	void TableroAjedrez::operator=(const TableroAjedrez &t)
 	{
 		unsigned int dimension = t.getDimension();
