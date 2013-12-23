@@ -277,11 +277,11 @@ namespace algoritmia
 	{
 		list<Punto> queens = table.listarFichas();
 
-		for(list<Punto>::const_iterator it = queens.begin(); it != queens.end(); it++)
+		for(auto point : queens)
 		{
-			if(table.getEnumFicha(*it) != REINA)
+			if(table.getEnumFicha(point) != REINA)
 			{
-				queens.remove(*it);
+				queens.remove(point);
 			}
 		}
 
