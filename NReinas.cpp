@@ -79,6 +79,8 @@ namespace algoritmia
 		list<TableroAjedrez> lista;
 		TableroAjedrez tablero;
 
+		tablero.setTablero(this->getDimension());
+
 		this->search(lista, tablero);
 
 
