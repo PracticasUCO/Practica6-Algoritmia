@@ -30,7 +30,7 @@ namespace algoritmia
 		TableroAjedrez tablero;
 		Punto posicion(0, 0);
 
-		tablero.setTablero(this->getDimension());
+		tablero.setDimension(this->getDimension());
 
 		while(posicion.getX() < tablero.getDimension())
 		{
@@ -79,7 +79,7 @@ namespace algoritmia
 		list<TableroAjedrez> lista;
 		TableroAjedrez tablero;
 
-		tablero.setTablero(this->getDimension());
+		tablero.setDimension(this->getDimension());
 
 		this->search(lista, tablero);
 
