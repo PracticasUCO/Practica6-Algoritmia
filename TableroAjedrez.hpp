@@ -84,10 +84,10 @@ namespace algoritmia
         /** @brief Devuelve la dimension del tablero **/
         unsigned int getDimension() const;
 
-        /** @brief Establece el tamaño del tablero
+        /** @brief Establece la dimension del tablero
          	@param rows Indica el numero de filas
          	@param cols Indica el numero de columnas **/
-     	void setTablero(const unsigned int &dimension);
+     	void setDimension(const unsigned int &dimension);
 
      	/** @brief Coloca una ficha en la Punto indicada
      		@param row Fila donde establecer la ficha

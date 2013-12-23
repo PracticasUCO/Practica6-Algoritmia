@@ -115,19 +115,19 @@ namespace algoritmia
 
 	TableroAjedrez::TableroAjedrez()
 	{
-		this->setTablero(DIMENSION_DEFECTO_TABLERO_AJEDREZ);
+		this->setDimension(DIMENSION_DEFECTO_TABLERO_AJEDREZ);
 	}
 
 	TableroAjedrez::TableroAjedrez(const unsigned int &dimension)
 	{
-		this->setTablero(dimension);
+		this->setDimension(dimension);
 	}
 
 	TableroAjedrez::TableroAjedrez(const TableroAjedrez &table)
 	{
 		unsigned int dimension = table.getDimension();
 
-		this->setTablero(dimension);
+		this->setDimension(dimension);
 
 		for(unsigned int i = 0; i < dimension; i++)
 		{
@@ -248,7 +248,7 @@ namespace algoritmia
 		return _dimension;
 	}
 
-	void TableroAjedrez::setTablero(const unsigned int &dimension)
+	void TableroAjedrez::setDimension(const unsigned int &dimension)
 	{
 		assert(dimension > 0);
 
@@ -384,7 +384,7 @@ namespace algoritmia
 	void TableroAjedrez::operator=(const TableroAjedrez &t)
 	{
 		unsigned int dimension = t.getDimension();
-		this->setTablero(dimension);
+		this->setDimension(dimension);
 
 		this->clear();
 
