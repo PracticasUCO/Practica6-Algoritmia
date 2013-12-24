@@ -60,5 +60,12 @@ namespace numbers
 		}
 	}
 
-
+	void Combinatorio::setDown(const unsigned long long int &down)
+	{
+		if(this->getDown() != down)
+		{
+			this->setUpdate(true);
+			_down = down;
+		}
+	}
 }
