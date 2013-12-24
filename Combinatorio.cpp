@@ -124,4 +124,19 @@ namespace numbers
 	{
 		return !(*this == c);
 	}
+
+	bool Combinatorio::operator<(const Combinatorio &c) const
+	{
+		Combinatorio auxiliarA = static_cast<Combinatorio>(*this);
+		Combinatorio auxiliarB = static_cast<Combinatorio>(c);
+
+		if(auxiliarA.getResult() < auxiliarB.getResult())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
