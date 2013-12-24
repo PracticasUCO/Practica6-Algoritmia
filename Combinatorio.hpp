@@ -96,6 +96,10 @@ namespace numbers
 		long double operator*(const long double &d) const;
 		long double operator*(const Combinatorio &d) const;
 
+		/** @brief Sobrecarga del operador / **/
+		long double operator/(const long double &d) const;
+		long double operator/(const Combinatorio &d) const;
+
 		/** @brief Destructor de clase **/
 		~Combinatorio();
 	};
