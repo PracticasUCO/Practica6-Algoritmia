@@ -184,4 +184,9 @@ namespace numbers
 
 		return input;
 	}
+
+	Combinatorio::~Combinatorio()
+	{
+		//Empty
+	}
 }
