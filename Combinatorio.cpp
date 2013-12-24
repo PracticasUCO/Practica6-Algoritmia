@@ -107,4 +107,16 @@ namespace numbers
 	{
 		this->clone(c);
 	}
+
+	bool Combinatorio::operator==(const Combinatorio &c) const
+	{
+		if((this->getUpper() == c.getUpper()) && (this->getDown() == c.getDown()))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
