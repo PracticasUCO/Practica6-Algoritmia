@@ -245,6 +245,46 @@ namespace numbers
 		return this->getResult() - c.getResult();
 	}
 
+	long double Combinatorio::operator-(const int &i) const
+	{
+		return this->getResult() - static_cast<long double>(i);
+	}
+
+	long double Combinatorio::operator-(const long int &i) const
+	{
+		return this->getResult() - static_cast<long double>(i);
+	}
+
+	long double Combinatorio::operator-(const long long int &i) const
+	{
+		return this->getResult() - static_cast<long double>(i);
+	}
+
+	long double Combinatorio::operator-(const unsigned int &ui) const
+	{
+		return this->getResult() - static_cast<long double>(ui);
+	}
+
+	long double Combinatorio::operator-(const unsigned long int &ui) const
+	{
+		return this->getResult() - static_cast<long double>(ui);
+	}
+
+	long double Combinatorio::operator-(const unsigned long long int &ui) const
+	{
+		return this->getResult() - static_cast<long double>(ui);
+	}
+
+	long double Combinatorio::operator-(const float &f) const
+	{
+		return this->getResult() - static_cast<long double>(f);
+	}
+
+	long double Combinatorio::operator-(const double &f) const
+	{
+		return this->getResult() - static_cast<long double>(f);
+	}
+
 	long double Combinatorio::operator*(const long double &d) const
 	{
 		return this->getResult() * d;
