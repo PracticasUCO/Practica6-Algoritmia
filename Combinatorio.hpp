@@ -48,11 +48,8 @@ namespace numbers
 		/** @brief Checkea si el numero necesita ser recalculado (por un cambio de parametros) **/
 		bool checkUpdate() const;
 
-		/** @brief Establece el valor de m, siendo este el numero combinatorio C(m sobre n) **/
-		void setUpper(const unsigned long long int &upper);
-
-		/** @brief Establece el valor de n, siendo este el numero combinatorio C(m sobre n) **/
-		void setDown(const unsigned long long int &down);
+		/** @brief Establece el upper y el down de un numero combinatorio, siendo estos C(upper under down) **/
+		void set(const unsigned long long int &upper, const unsigned long long &down);
 
 		/** @brief Actualiza el valor del resultado **/
 		void update();

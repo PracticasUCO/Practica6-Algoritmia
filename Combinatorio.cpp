@@ -25,15 +25,13 @@ namespace numbers
 
 	Combinatorio::Combinatorio()
 	{
-		this->setUpper(0);
-		this->setDown(0);
+		this->set(0 , 0);
 		this->update();
 	}
 
 	Combinatorio::Combinatorio(const unsigned long long int &upper, const unsigned long long int &down)
 	{
-		this->setUpper(upper);
-		this->setDown(down);
+		this->set(upper, down);
 		this->update();
 	}
 
@@ -63,21 +61,15 @@ namespace numbers
 		return _needUpdate;
 	}
 
-	void Combinatorio::setUpper(const unsigned long long int &upper)
+	void Combinatorio::set(const unsigned long long int &upper, const unsigned long long &down)
 	{
-		if(this->getUpper() != upper)
-		{
-			this->setUpdate(true);
-			_upper = upper;
-		}
-	}
+		assert(upper >= down);
 
-	void Combinatorio::setDown(const unsigned long long int &down)
-	{
-		if(this->getDown() != down)
+		if((upper != this->getUpper()) || (down != this->getDown()))
 		{
-			this->setUpdate(true);
+			_upper = upper;
 			_down = down;
+			this->setUpdate(true);
 		}
 	}
 
