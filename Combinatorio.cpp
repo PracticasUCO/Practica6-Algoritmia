@@ -23,4 +23,9 @@ namespace numbers
 		this->setDown(down);
 		this->update();
 	}
+
+	Combinatorio::Combinatorio(const Combinatorio &c)
+	{
+		this->clone(c);
+	}
 }
