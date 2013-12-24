@@ -147,11 +147,6 @@ namespace algoritmia
 					reinas++;
 					break;
 				}
-
-				if(intentos >= nIntentos)
-				{
-					break;
-				}
 			}
 		}
 

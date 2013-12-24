@@ -27,7 +27,7 @@ Pendiente.o: Pendiente.cpp Pendiente.hpp Punto.o
 NReinas.o: TableroAjedrez.o NReinas.cpp NReinas.hpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ NReinas.cpp
 
-funcionesAltoNivel.o: funcionesAltoNivel.hpp funcionesAltoNivel.cpp Punto.o
+funcionesAltoNivel.o: funcionesAltoNivel.hpp funcionesAltoNivel.cpp Punto.o TableroAjedrez.o NReinas.o
 
 clean-objects:
 	-rm *.o
