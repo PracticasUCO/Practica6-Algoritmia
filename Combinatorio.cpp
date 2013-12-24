@@ -255,6 +255,12 @@ namespace numbers
 		return this->getResult() == static_cast<long double>(t);
 	}
 
+	template <class T>
+	bool Combinatorio::operator!=(const T &t) const
+	{
+		return !(*this == t);
+	}
+
 	Combinatorio::~Combinatorio()
 	{
 		//Empty
