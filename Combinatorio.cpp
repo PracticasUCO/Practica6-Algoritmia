@@ -164,4 +164,10 @@ namespace numbers
 	{
 		return !(*this < c);
 	}
+
+	ostream& operator<<(ostream &output, const Combinatorio &c)
+	{
+		output << "C(" << c.getUpper() << ", " << c.getDown() << ") = " << c.getResult();
+		return output;
+	}
 }
