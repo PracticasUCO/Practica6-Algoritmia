@@ -80,4 +80,21 @@ namespace numbers
 			_down = down;
 		}
 	}
+
+	void Combinatorio::update()
+	{
+		if(this->checkUpdate())
+		{
+			long double resultado;
+			unsigned long long int upper;
+			unsigned long long int down;
+
+			upper = this->getUpper();
+			down = this->getDown();
+
+			resultado = this->factorial(upper) / (this->factorial(down) * this->factorial(upper - down));
+			_result = resultado;
+			this->setUpdate(false);
+		}
+	}
 }
