@@ -87,6 +87,12 @@ namespace numbers
 		/** @brief Sobrecarga del operador + **/
 		long double operator+(const long double &d) const;
 		long double operator+(const Combinatorio &c) const;
+		long double operator+(const int &i) const;
+		long double operator+(const long int &i) const;
+		long double operator+(const long long int &i) const;
+		long double operator+(const unsigned int &ui) const;
+		long double operator+(const unsigned long int &ui) const;
+		long double operator+(const unsigned long long int &ui) const;
 
 		/** @brief Sobrecarga del operador - **/
 		long double operator-(const long double &d) const;
