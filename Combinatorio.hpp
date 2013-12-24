@@ -44,10 +44,10 @@ namespace numbers
 		bool checkUpdate() const;
 
 		/** @brief Establece el valor de m, siendo este el numero combinatorio C(m sobre n) **/
-		void setUpper();
+		void setUpper(const unsigned long long int &upper);
 
 		/** @brief Establece el valor de n, siendo este el numero combinatorio C(m sobre n) **/
-		void setDown();
+		void setDown(const unsigned long long int &down);
 
 		/** @brief Actualiza el valor del resultado **/
 		void update();
