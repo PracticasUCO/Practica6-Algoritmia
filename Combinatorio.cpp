@@ -33,4 +33,9 @@ namespace numbers
 	{
 		return _upper;
 	}
+
+	unsigned long long int Combinatorio::getDown() const
+	{
+		return _down;
+	}
 }
