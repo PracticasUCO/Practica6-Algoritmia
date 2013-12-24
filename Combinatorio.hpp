@@ -63,20 +63,38 @@ namespace numbers
 		/** @brief Sobrecarga del operador == **/
 		bool operator==(const Combinatorio &c) const;
 
+		template <class T>
+		bool operator==(const T &t) const;
+
 		/** @brief Sobrecarga del operador != **/
 		bool operator!=(const Combinatorio &c) const;
+
+		template <class T>
+		bool operator!=(const T &t) const;
 
 		/** @brief Sobrecarga del operador < **/
 		bool operator<(const Combinatorio &c) const;
 
+		template <class T>
+		bool operator<(const T &t) const;
+
 		/** @brief Sobrecarga del operador <= **/
 		bool operator<=(const Combinatorio &c) const;
+
+		template <class T>
+		bool operator<=(const T &t) const;
 
 		/** @brief Sobrecarga del operador > **/
 		bool operator>(const Combinatorio &c) const;
 
+		template <class T>
+		bool operator>(const T &t) const;
+
 		/** @brief Sobrecarga del operador >= **/
 		bool operator>=(const Combinatorio &c) const;
+
+		template <class T>
+		bool operator>=(const T &t) const;
 
 		/** @brief Sobrecarga del operador << **/
 		friend ostream& operator<<(ostream &output, const Combinatorio &c);

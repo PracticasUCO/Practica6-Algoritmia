@@ -249,6 +249,12 @@ namespace numbers
 		return this->getResult() / static_cast<long double>(type);
 	}
 
+	template <class T>
+	bool Combinatorio::operator==(const T &t) const
+	{
+		return this->getResult() == static_cast<long double>(t);
+	}
+
 	Combinatorio::~Combinatorio()
 	{
 		//Empty
