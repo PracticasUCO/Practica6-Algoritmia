@@ -154,4 +154,9 @@ namespace numbers
 			return false;
 		}
 	}
+
+	bool Combinatorio::operator>(const Combinatorio &c) const
+	{
+		return !(*this <= c);
+	}
 }
