@@ -15,7 +15,7 @@ namespace numbers
 	{
 		long double resultado = 1;
 
-		for(unsigned long long int i = 2; i < f; i++)
+		for(unsigned long long int i = 2; i <= f; i++)
 		{
 			resultado *= i;
 		}
