@@ -11,6 +11,18 @@ namespace numbers
 		_needUpdate = b;
 	}
 
+	long double Combinatorio::factorial(const unsigned long long int &f)
+	{
+		long double resultado = 1;
+
+		for(unsigned long long int i = 2; i < f; i++)
+		{
+			resultado *= i;
+		}
+
+		return resultado;
+	}
+
 	Combinatorio::Combinatorio()
 	{
 		this->setUpper(0);
