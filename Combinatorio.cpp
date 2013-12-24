@@ -273,6 +273,12 @@ namespace numbers
 		return this->getResult() <= t;
 	}
 
+	template <class T>
+	bool Combinatorio::operator>(const T &t) const
+	{
+		return !(*this <= t);
+	}
+
 	Combinatorio::~Combinatorio()
 	{
 		//Empty
