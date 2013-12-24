@@ -159,4 +159,9 @@ namespace numbers
 	{
 		return !(*this <= c);
 	}
+
+	bool Combinatorio::operator>=(const Combinatorio &c) const
+	{
+		return !(*this < c);
+	}
 }
