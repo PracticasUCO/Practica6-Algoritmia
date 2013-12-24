@@ -102,4 +102,9 @@ namespace numbers
 
 		this->update();
 	}
+
+	void Combinatorio::operator=(const Combinatorio &c)
+	{
+		this->clone(c);
+	}
 }
