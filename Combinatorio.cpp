@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "Combinatorio.hpp"
 
 using namespace std;
@@ -37,5 +38,11 @@ namespace numbers
 	unsigned long long int Combinatorio::getDown() const
 	{
 		return _down;
+	}
+
+	long double Combinatorio::getResult() const
+	{
+		assert(!this->checkUpdate());
+		return _result;
 	}
 }
