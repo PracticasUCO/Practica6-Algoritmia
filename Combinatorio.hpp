@@ -63,38 +63,20 @@ namespace numbers
 		/** @brief Sobrecarga del operador == **/
 		bool operator==(const Combinatorio &c) const;
 
-		template <class T>
-		bool operator==(const T &t) const;
-
 		/** @brief Sobrecarga del operador != **/
 		bool operator!=(const Combinatorio &c) const;
-
-		template <class T>
-		bool operator!=(const T &t) const;
 
 		/** @brief Sobrecarga del operador < **/
 		bool operator<(const Combinatorio &c) const;
 
-		template <class T>
-		bool operator<(const T &t) const;
-
 		/** @brief Sobrecarga del operador <= **/
 		bool operator<=(const Combinatorio &c) const;
-
-		template <class T>
-		bool operator<=(const T &t) const;
 
 		/** @brief Sobrecarga del operador > **/
 		bool operator>(const Combinatorio &c) const;
 
-		template <class T>
-		bool operator>(const T &t) const;
-
 		/** @brief Sobrecarga del operador >= **/
 		bool operator>=(const Combinatorio &c) const;
-
-		template <class T>
-		bool operator>=(const T &t) const;
 
 		/** @brief Sobrecarga del operador << **/
 		friend ostream& operator<<(ostream &output, const Combinatorio &c);
@@ -105,30 +87,50 @@ namespace numbers
 		/** @brief Sobrecarga del operador + **/
 		long double operator+(const long double &d) const;
 		long double operator+(const Combinatorio &c) const;
-		
-		template <class T>
-		long double operator+(const T &type) const;
+		long double operator+(const int &i) const;
+		long double operator+(const long int &i) const;
+		long double operator+(const long long int &i) const;
+		long double operator+(const unsigned int &ui) const;
+		long double operator+(const unsigned long int &ui) const;
+		long double operator+(const unsigned long long int &ui) const;
+		long double operator+(const float &f) const;
+		long double operator+(const double &d) const;
 
 		/** @brief Sobrecarga del operador - **/
 		long double operator-(const long double &d) const;
 		long double operator-(const Combinatorio &c) const;
-		
-		template <class T>
-		long double operator-(const T &type) const;
+		long double operator-(const int &i) const;
+		long double operator-(const long int &i) const;
+		long double operator-(const long long int &i) const;
+		long double operator-(const unsigned int &ui) const;
+		long double operator-(const unsigned long int &ui) const;
+		long double operator-(const unsigned long long int &ui) const;
+		long double operator-(const float &f) const;
+		long double operator-(const double &f) const;
 
 		/** @brief Sobrecarga del operador * **/
 		long double operator*(const long double &d) const;
 		long double operator*(const Combinatorio &d) const;
-		
-		template <class T>
-		long double operator*(const T &type) const;
+		long double operator*(const int &i) const;
+		long double operator*(const long int &i) const;
+		long double operator*(const long long int &i) const;
+		long double operator*(const unsigned int &ui) const;
+		long double operator*(const unsigned long int &ui) const;
+		long double operator*(const unsigned long long int &ui) const;
+		long double operator*(const float &f) const;
+		long double operator*(const double &f) const;
 
 		/** @brief Sobrecarga del operador / **/
 		long double operator/(const long double &d) const;
 		long double operator/(const Combinatorio &d) const;
-		
-		template <class T>
-		long double operator/(const T &type) const;
+		long double operator/(const int &i) const;
+		long double operator/(const long int &i) const;
+		long double operator/(const long long int &i) const;
+		long double operator/(const unsigned int &ui) const;
+		long double operator/(const unsigned long int &ui) const;
+		long double operator/(const unsigned long long int &ui) const;
+		long double operator/(const float &f) const;
+		long double operator/(const double &f) const;
 
 		/** @brief Destructor de clase **/
 		~Combinatorio();
