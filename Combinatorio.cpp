@@ -28,4 +28,9 @@ namespace numbers
 	{
 		this->clone(c);
 	}
+
+	unsigned long long int Combinatorio::getUpper() const
+	{
+		return _upper;
+	}
 }
