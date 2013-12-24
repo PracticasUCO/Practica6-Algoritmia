@@ -9,4 +9,11 @@ namespace numbers
 	{
 		_needUpdate = b;
 	}
+
+	Combinatorio::Combinatorio()
+	{
+		this->setUpper(0);
+		this->setDown(0);
+		this->update();
+	}
 }
