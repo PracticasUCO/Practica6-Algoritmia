@@ -16,4 +16,11 @@ namespace numbers
 		this->setDown(0);
 		this->update();
 	}
+
+	Combinatorio::Combinatorio(const unsigned long long int &upper, const unsigned long long int &down)
+	{
+		this->setUpper(upper);
+		this->setDown(down);
+		this->update();
+	}
 }
