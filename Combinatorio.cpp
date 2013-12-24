@@ -195,6 +195,16 @@ namespace numbers
 		return this->getResult() + c.getResult();
 	}
 
+	long double Combinatorio::operator-(const long double &d) const
+	{
+		return this->getResult() - d;
+	}
+
+	long double Combinatorio::operator-(const Combinatorio &c) const
+	{
+		return this->getResult() - c.getResult();
+	}
+
 	Combinatorio::~Combinatorio()
 	{
 		//Empty
