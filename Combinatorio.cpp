@@ -45,4 +45,9 @@ namespace numbers
 		assert(!this->checkUpdate());
 		return _result;
 	}
+
+	bool Combinatorio::checkUpdate() const
+	{
+		return _needUpdate;
+	}
 }
