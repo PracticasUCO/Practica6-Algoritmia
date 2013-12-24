@@ -102,7 +102,7 @@ namespace algoritmia
 		distanciaA = this->getX() + this->getY();
 		distanciaB = p.getX() + p.getY();
 
-		return distanciaA < distanciaB;
+		return distanciaA > distanciaB;
 	}
 
 	bool Punto::operator<=(const Punto &p) const
@@ -113,7 +113,7 @@ namespace algoritmia
 		distanciaA = this->getX() + this->getY();
 		distanciaB = p.getX() + p.getY();
 
-		return distanciaA <= distanciaB;
+		return distanciaA >= distanciaB;
 	}
 
 	bool Punto::operator>(const Punto &p) const
@@ -124,7 +124,7 @@ namespace algoritmia
 		distanciaA = this->getX() + this->getY();
 		distanciaB = p.getX() + p.getY();
 
-		return distanciaA > distanciaB;
+		return distanciaA < distanciaB;
 	}
 
 	bool Punto::operator>=(const Punto &p) const
@@ -135,7 +135,7 @@ namespace algoritmia
 		distanciaA = this->getX() + this->getY();
 		distanciaB = p.getX() + p.getY();
 
-		return distanciaA >= distanciaB;
+		return distanciaA <= distanciaB;
 	}
 
 	ostream& operator<<(ostream &output, const Punto &p)

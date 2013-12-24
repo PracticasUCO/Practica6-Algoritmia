@@ -411,20 +411,31 @@ namespace algoritmia
 		else
 		{
 			bool resultado;
-			for(unsigned int i = 0; i < this->getDimension(); i++)
+			list<Punto> listaFichasA;
+			list<Punto> listaFichasB;
+
+			listaFichasA = this->listarFichas();
+			listaFichasB = t.listarFichas();
+
+			if(listaFichasA.size() != listaFichasB.size())
 			{
-				for(unsigned int j = 0; j < this->getDimension(); j++)
-				{
-					Punto p(i, j);
-
-					resultado = this->getFicha(p) == t.getFicha(p);
-
-					if(!resultado)
-					{
-						break;
-					}
-				}
+				return false;
 			}
+
+			listaFichasA.sort();
+			listaFichasB.sort();
+
+			list<Punto>::const_iterator iteratorA;
+			list<Punto>::const_iterator iteratorB;
+
+			for(iteratorA = listaFichasA.begin(), iteratorB = listaFichasB.begin(); iteratorA != listaFichasA.end(); iteratorA++, iteratorB++)
+			{
+				resultado = *iteratorA == *iteratorB;
+				if(!resultado)
+				{
+					break;
+				}
+			} 
 
 			return resultado;
 		}
@@ -433,6 +444,100 @@ namespace algoritmia
 	bool TableroAjedrez::operator!=(const TableroAjedrez &t) const
 	{
 		return !(*this == t);
+	}
+
+	bool TableroAjedrez::operator<(const TableroAjedrez &t) const
+	{
+		assert(this->getDimension() == t.getDimension());
+
+		list<Punto> fichasA = this->listarFichas();
+		list<Punto> fichasB = t.listarFichas();
+
+		if(fichasA.size() < fichasB.size())
+		{
+			return true;
+		}
+		else if(fichasA.size() > fichasB.size())
+		{
+			return false;
+		}
+		else
+		{
+			bool resultado = false;
+			fichasA.sort();
+			fichasB.sort();
+
+			list<Punto>::const_iterator iteradorA = fichasA.begin();
+			list<Punto>::const_iterator iteradorB = fichasB.begin();
+
+			while(iteradorA != fichasA.end())
+			{
+				if(*iteradorA == *iteradorB)
+				{
+					iteradorA++;
+					iteradorB++;
+				}
+				else
+				{
+					resultado = *iteradorA < *iteradorB;
+					break;
+				}
+			}
+
+			return resultado;
+		}
+	}
+
+	bool TableroAjedrez::operator<=(const TableroAjedrez &t) const
+	{
+		assert(this->getDimension() == t.getDimension());
+
+		list<Punto> fichasA = this->listarFichas();
+		list<Punto> fichasB = t.listarFichas();
+
+		if(fichasA.size() < fichasB.size())
+		{
+			return true;
+		}
+		else if(fichasA.size() > fichasB.size())
+		{
+			return false;
+		}
+		else
+		{
+			bool resultado = true;
+			fichasA.sort();
+			fichasB.sort();
+
+			list<Punto>::const_iterator iteradorA = fichasA.begin();
+			list<Punto>::const_iterator iteradorB = fichasB.begin();
+
+			while(iteradorA != fichasA.end())
+			{
+				if(*iteradorA == *iteradorB)
+				{
+					iteradorA++;
+					iteradorB++;
+				}
+				else
+				{
+					resultado = *iteradorA < *iteradorB;
+					break;
+				}
+			}
+
+			return resultado;
+		}
+	}
+
+	bool TableroAjedrez::operator>(const TableroAjedrez &t) const
+	{
+		return !(*this <= t);
+	}
+
+	bool TableroAjedrez::operator>=(const TableroAjedrez &t) const
+	{
+		return !(*this < t);
 	}
 
 	TableroAjedrez::~TableroAjedrez()
