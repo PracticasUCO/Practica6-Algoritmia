@@ -51,7 +51,7 @@ namespace numbers
 		return _needUpdate;
 	}
 
-	void setUpper(const unsigned long long int &upper)
+	void Combinatorio::setUpper(const unsigned long long int &upper)
 	{
 		if(this->getUpper() != upper)
 		{
@@ -59,4 +59,6 @@ namespace numbers
 			_upper = upper;
 		}
 	}
+
+
 }
