@@ -18,6 +18,9 @@ namespace numbers
 		/** @brief Establece una valor a la bandera _needUpdate **/
 		void setUpdate(const bool &b);
 
+		/** @brief Devuelve el factorial del numero que le pases **/
+		long double factorial(const unsigned long long int &f);
+
 	public:
 		/** @brief Constructor vacio, que identifica el valor del numero combinatorio a 0 **/
 		Combinatorio();
