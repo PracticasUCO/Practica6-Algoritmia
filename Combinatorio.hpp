@@ -52,6 +52,9 @@ namespace numbers
 		/** @brief Actualiza el valor del resultado **/
 		void update();
 
+		/** @brief Hace una copia del numero combinatorio c a si mismo **/
+		void clone(const Combinatorio &c);
+
 		/** @brief Sobrecarga del operador = **/
 		void operator=(const Combinatorio &c);
 
