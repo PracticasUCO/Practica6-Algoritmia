@@ -164,4 +164,24 @@ namespace numbers
 		output << "C(" << c.getUpper() << ", " << c.getDown() << ") = " << c.getResult();
 		return output;
 	}
+
+	istream& operator>>(istream &input, Combinatorio &c)
+	{
+		unsigned long long int upper;
+		unsigned long long int down;
+
+		cout << "Introducciendo en numero combinatorio C(upper, down)" << endl;
+		cout << "Introduzca el valor de upper: ";
+		input >> upper;
+		cout << endl;
+
+		cout << "Introduzca el valor de down: ";
+		input >> down;
+		cout << endl;
+
+		c.set(upper, down);
+		c.update();
+
+		return input;
+	}
 }
