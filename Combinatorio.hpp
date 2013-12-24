@@ -37,7 +37,9 @@ namespace numbers
 		/** @brief Devuelve el valor n, siendo este el valor del numero combinatorio C(m sobre n) **/
 		unsigned long long int getDown() const;
 
-		/** @brief Devuelve el resultado de la operacion C(m under n) **/
+		/** @brief Devuelve el resultado de la operacion C(m under n) 
+			@warning La bandera update debe ser false para que el metodo no falle, si cambio el upper
+			o el down del numero, asegurese de realizar antes un Combinatorio::update **/
 		long double getResult() const;
 
 		/** @brief Checkea si el numero necesita ser recalculado (por un cambio de parametros) **/
