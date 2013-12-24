@@ -89,4 +89,17 @@ namespace numbers
 			this->setUpdate(false);
 		}
 	}
+
+	void Combinatorio::clone(const Combinatorio &c)
+	{
+		unsigned long long int upper;
+		unsigned long long int down;
+
+		upper = c.getUpper();
+		down = c.getDown();
+
+		this->set(upper, down);
+
+		this->update();
+	}
 }
