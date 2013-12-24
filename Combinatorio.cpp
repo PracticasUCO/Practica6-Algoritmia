@@ -127,10 +127,7 @@ namespace numbers
 
 	bool Combinatorio::operator<(const Combinatorio &c) const
 	{
-		Combinatorio auxiliarA = static_cast<Combinatorio>(*this);
-		Combinatorio auxiliarB = static_cast<Combinatorio>(c);
-
-		if(auxiliarA.getResult() < auxiliarB.getResult())
+		if(this->getResult() < c.getResult())
 		{
 			return true;
 		}
@@ -142,10 +139,7 @@ namespace numbers
 
 	bool Combinatorio::operator<=(const Combinatorio &c) const
 	{
-		Combinatorio auxiliarA = static_cast<Combinatorio>(*this);
-		Combinatorio auxiliarB = static_cast<Combinatorio>(c);
-
-		if(auxiliarA.getResult() <= auxiliarB.getResult())
+		if(this->getResult() <= c.getResult())
 		{
 			return true;
 		}
