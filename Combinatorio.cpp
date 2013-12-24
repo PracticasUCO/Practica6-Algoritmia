@@ -196,9 +196,9 @@ namespace numbers
 	}
 
 	template <class T>
-	long double Combinatorio::operator-(const T &type) const
+	long double Combinatorio::operator+(const T &type) const
 	{
-		return this->getResult() - static_cast<long double>(type);
+		return this->getResult() + static_cast<long double>(type);
 	}
 
 	long double Combinatorio::operator-(const long double &d) const
@@ -211,6 +211,12 @@ namespace numbers
 		return this->getResult() - c.getResult();
 	}
 
+	template <class T>
+	long double Combinatorio::operator-(const T &type) const
+	{
+		return this->getResult() - static_cast<long double>(type);
+	}
+
 	long double Combinatorio::operator*(const long double &d) const
 	{
 		return this->getResult() * d;
@@ -221,6 +227,12 @@ namespace numbers
 		return this->getResult() * d.getResult();
 	}
 
+	template <class T>
+	long double Combinatorio::operator*(const T &type) const
+	{
+		return this->getResult() * static_cast<long double>(type);
+	}
+
 	long double Combinatorio::operator/(const long double &d) const
 	{
 		return this->getResult() / d;
@@ -229,6 +241,12 @@ namespace numbers
 	long double Combinatorio::operator/(const Combinatorio &d) const
 	{
 		return this->getResult() / d.getResult();
+	}
+
+	template <class T>
+	long double Combinatorio::operator/(const T &type) const
+	{
+		return this->getResult() / static_cast<long double>(type);
 	}
 
 	Combinatorio::~Combinatorio()
