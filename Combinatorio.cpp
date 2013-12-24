@@ -50,4 +50,13 @@ namespace numbers
 	{
 		return _needUpdate;
 	}
+
+	void setUpper(const unsigned long long int &upper)
+	{
+		if(this->getUpper() != upper)
+		{
+			this->setUpdate(true);
+			_upper = upper;
+		}
+	}
 }
