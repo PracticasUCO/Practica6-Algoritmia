@@ -1,16 +1,16 @@
 #include <iostream>
-#include "Punto.hpp"
+#include "Coordenada2D.hpp"
 
 using namespace std;
 
 namespace algoritmia
 {
-	Punto::Punto(const double &X, const double &Y)
+	Coordenada2D::Coordenada2D(const double &X, const double &Y)
 	{
-		this->setPunto(X, Y);
+		this->setCoordenada2D(X, Y);
 	}
 
-	Punto::Punto(const Punto &p)
+	Coordenada2D::Coordenada2D(const Coordenada2D &p)
 	{
 		double X;
 		double Y;
@@ -18,66 +18,66 @@ namespace algoritmia
 		X = p.getX();
 		Y = p.getY();
 
-		this->setPunto(X, Y);
+		this->setCoordenada2D(X, Y);
 	}
 
-	void Punto::setPunto(const double &X, const double &Y)
+	void Coordenada2D::setCoordenada2D(const double &X, const double &Y)
 	{
 		_X = X;
 		_Y = Y;
 	}
 
-	double Punto::getX() const
+	double Coordenada2D::getX() const
 	{
 		return _X;
 	}
 
-	double Punto::getY() const
+	double Coordenada2D::getY() const
 	{
 		return _Y;
 	}
 
-	void Punto::operator=(const Punto &p)
+	void Coordenada2D::operator=(const Coordenada2D &p)
 	{
 		double X = p.getX();
 		double Y = p.getY();
 
-		this->setPunto(X, Y);
+		this->setCoordenada2D(X, Y);
 	}
 
-	Punto Punto::operator+(const Punto &p) const
+	Coordenada2D Coordenada2D::operator+(const Coordenada2D &p) const
 	{
 		double X = this->getX() + p.getX();
 		double Y = this->getY() + p.getY();
 
-		return Punto(X, Y);
+		return Coordenada2D(X, Y);
 	}
 
-	Punto Punto::operator-(const Punto &p) const
+	Coordenada2D Coordenada2D::operator-(const Coordenada2D &p) const
 	{
 		double X = this->getX() - p.getX();
 		double Y = this->getY() - p.getY();
 
-		return Punto(X, Y);
+		return Coordenada2D(X, Y);
 	}
 
-	Punto Punto::operator*(const Punto &p) const
+	Coordenada2D Coordenada2D::operator*(const Coordenada2D &p) const
 	{
 		double X = this->getX() * p.getX();
 		double Y = this->getY() * p.getY();
 
-		return Punto(X, Y);
+		return Coordenada2D(X, Y);
 	}
 
-	Punto Punto::operator/(const Punto &p) const
+	Coordenada2D Coordenada2D::operator/(const Coordenada2D &p) const
 	{
 		double X = this->getX() / p.getX();
 		double Y = this->getY() / p.getY();
 
-		return Punto(X, Y);
+		return Coordenada2D(X, Y);
 	}
 
-	bool Punto::operator==(const Punto &p) const
+	bool Coordenada2D::operator==(const Coordenada2D &p) const
 	{
 		if((this->getX() == p.getX()) && (this->getY() == p.getY()))
 		{
@@ -89,12 +89,12 @@ namespace algoritmia
 		}
 	}
 
-	bool Punto::operator!=(const Punto &p) const
+	bool Coordenada2D::operator!=(const Coordenada2D &p) const
 	{
 		return !(*this == p);
 	}
 
-	bool Punto::operator<(const Punto &p) const
+	bool Coordenada2D::operator<(const Coordenada2D &p) const
 	{
 		double distanciaA;
 		double distanciaB;
@@ -105,7 +105,7 @@ namespace algoritmia
 		return distanciaA > distanciaB;
 	}
 
-	bool Punto::operator<=(const Punto &p) const
+	bool Coordenada2D::operator<=(const Coordenada2D &p) const
 	{
 		double distanciaA;
 		double distanciaB;
@@ -116,7 +116,7 @@ namespace algoritmia
 		return distanciaA >= distanciaB;
 	}
 
-	bool Punto::operator>(const Punto &p) const
+	bool Coordenada2D::operator>(const Coordenada2D &p) const
 	{
 		double distanciaA;
 		double distanciaB;
@@ -127,7 +127,7 @@ namespace algoritmia
 		return distanciaA < distanciaB;
 	}
 
-	bool Punto::operator>=(const Punto &p) const
+	bool Coordenada2D::operator>=(const Coordenada2D &p) const
 	{
 		double distanciaA;
 		double distanciaB;
@@ -138,27 +138,27 @@ namespace algoritmia
 		return distanciaA <= distanciaB;
 	}
 
-	ostream& operator<<(ostream &output, const Punto &p)
+	ostream& operator<<(ostream &output, const Coordenada2D &p)
 	{
 		output << "(" << p.getX() << ", " << p.getY() << ")";
 		return output;
 	}
 
-	istream& operator>>(istream &input, Punto &p)
+	istream& operator>>(istream &input, Coordenada2D &p)
 	{
 		double X;
 		double Y;
 
-		cout << "Introduzca las coordenadas del punto (x, y): ";
+		cout << "Introduzca las Coordenada2Ds del Coordenada2D (x, y): ";
 		input >> X >> Y;
 		cout << endl;
 
-		p.setPunto(X, Y);
+		p.setCoordenada2D(X, Y);
 
 		return input;
 	}
 
-	Punto::~Punto()
+	Coordenada2D::~Coordenada2D()
 	{
 		//Empty
 	}

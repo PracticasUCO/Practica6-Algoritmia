@@ -2,7 +2,7 @@
 #include <string>
 #include <list>
 #include <limits>
-#include "Punto.hpp"
+#include "Coordenada2D.hpp"
 #include "NReinas.hpp"
 #include "TableroAjedrez.hpp"
 
@@ -30,7 +30,7 @@ namespace algoritmia
 		return opcion;
 	}
 
-	void showPuntos(const list<Punto> &l, const string &nombre)
+	void showCoordenada2Ds(const list<Coordenada2D> &l, const string &nombre)
 	{
 		for(auto point : l)
 		{

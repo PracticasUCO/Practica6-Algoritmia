@@ -4,7 +4,7 @@ CXX = g++
 CXXFLAGS = -Wall $(INCLUDE) $(LIBRARY) -std=c++11 -ggdb3
 INCLUDE = -I.
 LIBRARY = -L.
-OBJECTS = FichaAjedrez.o TableroAjedrez.o Punto.o NReinas.o Recta.o Pendiente.o funcionesAltoNivel.o Combinatorio.o
+OBJECTS = FichaAjedrez.o TableroAjedrez.o Coordenada2D.o NReinas.o Recta.o Pendiente.o funcionesAltoNivel.o Combinatorio.o
 
 practica6: main.o $(OBJECTS)
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -o $@ $^
@@ -15,13 +15,13 @@ FichaAjedrez.o: FichaAjedrez.hpp FichaAjedrez.cpp
 TableroAjedrez.o: TableroAjedrez.cpp TableroAjedrez.hpp FichaAjedrez.o Recta.o
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ TableroAjedrez.cpp
 
-Punto.o: Punto.cpp Punto.hpp
-	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Punto.cpp
+Coordenada2D.o: Coordenada2D.cpp Coordenada2D.hpp
+	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Coordenada2D.cpp
 
 Recta.o: Recta.hpp Recta.cpp Pendiente.o
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Recta.cpp
 
-Pendiente.o: Pendiente.cpp Pendiente.hpp Punto.o
+Pendiente.o: Pendiente.cpp Pendiente.hpp Coordenada2D.o
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Pendiente.cpp
 
 NReinas.o: TableroAjedrez.o NReinas.cpp NReinas.hpp
@@ -30,7 +30,7 @@ NReinas.o: TableroAjedrez.o NReinas.cpp NReinas.hpp
 Combinatorio.o: Combinatorio.hpp Combinatorio.cpp
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -c -o $@ Combinatorio.cpp
 
-funcionesAltoNivel.o: funcionesAltoNivel.hpp funcionesAltoNivel.cpp Punto.o TableroAjedrez.o NReinas.o
+funcionesAltoNivel.o: funcionesAltoNivel.hpp funcionesAltoNivel.cpp Coordenada2D.o TableroAjedrez.o NReinas.o
 
 clean-objects:
 	-rm *.o

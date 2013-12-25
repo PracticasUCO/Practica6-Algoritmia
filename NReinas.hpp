@@ -20,11 +20,11 @@ namespace algoritmia
 		/** @brief Devuelve la posicion donde se encuentra una Reina, dandole solo
 			la fila
 			@param t Tablero de ajedrez donde buscar a la reina
-			@param p Punto de inicio donde se buscara a la reina, tenga en cuenta que
-			solo se tiene en cuenta la fila, y se modificara el punto para que concuerde
+			@param p Coordenada2D de inicio donde se buscara a la reina, tenga en cuenta que
+			solo se tiene en cuenta la fila, y se modificara el Coordenada2D para que concuerde
 			con la columna tambien
 			@return Un valor boolean TRUE si encontro a la reina y FALSE en caso contrario **/
-		bool buscarReina(const TableroAjedrez &t, Punto &p) const;
+		bool buscarReina(const TableroAjedrez &t, Coordenada2D &p) const;
 
 		/** @brief Establece el ultimo valor de intentos de las vegas **/
 		void setIntentosVegas(const unsigned int &intentos);
@@ -61,7 +61,7 @@ namespace algoritmia
 		list<TableroAjedrez> allSolutions() const;
 
 		/** @brief Lista todas las posiciones de las reinas en el tablero **/
-		list<Punto> searchQueens(const TableroAjedrez &t) const;
+		list<Coordenada2D> searchQueens(const TableroAjedrez &t) const;
 
 		/** @brief Devuelve una solucion por el algoritmo de las vegas
 			@warning No se tiene en cuenta el valor de la dimension establecida

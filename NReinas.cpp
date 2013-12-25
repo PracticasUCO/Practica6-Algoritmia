@@ -2,7 +2,7 @@
 #include <random>
 #include "TableroAjedrez.hpp"
 #include "FichaAjedrez.hpp"
-#include "Punto.hpp"
+#include "Coordenada2D.hpp"
 #include "NReinas.hpp"
 
 using namespace std;
@@ -28,7 +28,7 @@ namespace algoritmia
 	TableroAjedrez NReinas::singleSolution() const
 	{
 		TableroAjedrez tablero;
-		Punto posicion(0, 0);
+		Coordenada2D posicion(0, 0);
 
 		tablero.setDimension(this->getDimension());
 
@@ -37,35 +37,35 @@ namespace algoritmia
 			if(!tablero.amenaza(posicion))
 			{
 				tablero.setFicha(posicion, REINA);
-				posicion.setPunto(posicion.getX() + 1, 0);
+				posicion.setCoordenada2D(posicion.getX() + 1, 0);
 			}
 			else
 			{
-				posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+				posicion.setCoordenada2D(posicion.getX(), posicion.getY() + 1);
 
 				if(posicion.getY() >= tablero.getDimension()) //Hay que retroceder
 				{
-					posicion.setPunto(posicion.getX() - 1, 0);
+					posicion.setCoordenada2D(posicion.getX() - 1, 0);
 
 					if(this->buscarReina(tablero, posicion))
 					{
 						tablero.borrarFicha(posicion);
-						posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+						posicion.setCoordenada2D(posicion.getX(), posicion.getY() + 1);
 
 						if(posicion.getY() >= tablero.getDimension()) //No creo que deba de pasar nunca
 						{
 							if(posicion.getX() != 0)
 							{
-								posicion.setPunto(posicion.getX() - 1 , 0);
+								posicion.setCoordenada2D(posicion.getX() - 1 , 0);
 								this->buscarReina(tablero, posicion);
 								tablero.borrarFicha(posicion);
-								posicion.setPunto(posicion.getX(), posicion.getY() + 1);
+								posicion.setCoordenada2D(posicion.getX(), posicion.getY() + 1);
 							}
 						}
 					}
 					else //No creo que deba de pasar nunca
 					{
-						posicion.setPunto(posicion.getX() + 2, 0);
+						posicion.setCoordenada2D(posicion.getX() + 2, 0);
 					}
 				}
 			}
@@ -99,15 +99,15 @@ namespace algoritmia
 
 			for(unsigned int i = 0; i < this->getDimension(); i++)
 			{
-				if((!table.amenaza(Punto(k, i))) && (!table.hayFicha(Punto(k, i))))
+				if((!table.amenaza(Coordenada2D(k, i))) && (!table.hayFicha(Coordenada2D(k, i))))
 				{
-					table.setFicha(Punto(k, i), REINA);
+					table.setFicha(Coordenada2D(k, i), REINA);
 				
 					cerr << endl;
 
 					search(lista, table, k+1);
 
-					table.borrarFicha(Punto(k, i));
+					table.borrarFicha(Coordenada2D(k, i));
 				}
 			}
 		}
@@ -135,7 +135,7 @@ namespace algoritmia
 			while(intentos < nIntentos)
 			{
 				unsigned int j = rd() % table.getDimension();
-				Punto p(i, j);
+				Coordenada2D p(i, j);
 
 				if(table.amenaza(p))
 				{
@@ -162,7 +162,7 @@ namespace algoritmia
 		}
 	}
 
-	bool NReinas::buscarReina(const TableroAjedrez &t, Punto &p) const
+	bool NReinas::buscarReina(const TableroAjedrez &t, Coordenada2D &p) const
 	{
 		assert(p.getX() < t.getDimension());
 		
@@ -170,9 +170,9 @@ namespace algoritmia
 
 		for(unsigned int j = 0; j < t.getDimension(); j++)
 		{
-			if(t.getEnumFicha(Punto(p.getX(), j)) == REINA)
+			if(t.getEnumFicha(Coordenada2D(p.getX(), j)) == REINA)
 			{
-				p.setPunto(p.getX(), j);
+				p.setCoordenada2D(p.getX(), j);
 				resultado = true;
 				break;
 			}
@@ -181,15 +181,15 @@ namespace algoritmia
 		return resultado;
 	}
 
-	list<Punto> NReinas::searchQueens(const TableroAjedrez &t) const
+	list<Coordenada2D> NReinas::searchQueens(const TableroAjedrez &t) const
 	{
-		list<Punto> l;
+		list<Coordenada2D> l;
 
 		for(unsigned int i = 0; i < t.getDimension(); i++)
 		{
 			for(unsigned int j = 0; j < t.getDimension(); j++)
 			{
-				Punto p(i, j);
+				Coordenada2D p(i, j);
 
 				if((t.hayFicha(p)) && (t.getEnumFicha(p) == REINA))
 				{
@@ -214,7 +214,7 @@ namespace algoritmia
 
 	unsigned int NReinas::countQueens(const TableroAjedrez &table) const
 	{
-		list<Punto> queens = table.listarFichas();
+		list<Coordenada2D> queens = table.listarFichas();
 
 		for(auto point : queens)
 		{

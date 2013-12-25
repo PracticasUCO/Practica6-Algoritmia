@@ -2,7 +2,7 @@
 #define __RECTA_CPP
 
 #include <iostream>
-#include "Punto.hpp"
+#include "Coordenada2D.hpp"
 #include "Pendiente.hpp"
 
 using namespace std;
@@ -12,30 +12,30 @@ namespace algoritmia
 	class Recta
 	{
 	private:
-		Punto _inicio;
+		Coordenada2D _inicio;
 		Pendiente _pendiente;
 
-		/** @brief Trata de mover un punto con una pendiente lo maximo posible hacia la
+		/** @brief Trata de mover un Coordenada2D con una pendiente lo maximo posible hacia la
 			izquierda y lo maximo posible hacia arriba
-			@param punto El punto a mover
+			@param Coordenada2D El Coordenada2D a mover
 			@param pendiente La pendiente de la recta a seguir
-			@return El nuevo punto al comienzo de la recta **/
-		Punto moverAlInicio(const Punto &punto, const Pendiente &pendiente) const;
+			@return El nuevo Coordenada2D al comienzo de la recta **/
+		Coordenada2D moverAlInicio(const Coordenada2D &Coordenada2D, const Pendiente &pendiente) const;
 
 	public:
 		/** @brief Constructor vacio **/
 		Recta();
 
-		/** @brief Constructor de la recta que pasa por dos puntos
-			@param A Primer punto por el que debe de pasar la recta
-			@param B Segundo punto por el que debe pasar la recta **/
-		Recta(const Punto &A, const Punto &B);
+		/** @brief Constructor de la recta que pasa por dos Coordenada2Ds
+			@param A Primer Coordenada2D por el que debe de pasar la recta
+			@param B Segundo Coordenada2D por el que debe pasar la recta **/
+		Recta(const Coordenada2D &A, const Coordenada2D &B);
 
 		/** @brief Constructor de copia **/
 		Recta(const Recta &r);
 
-		/** @brief Establece la recta que pasa por dos puntos dados **/
-		void establecerRecta(const Punto &A, const Punto &B);
+		/** @brief Establece la recta que pasa por dos Coordenada2Ds dados **/
+		void establecerRecta(const Coordenada2D &A, const Coordenada2D &B);
 
 		/** @brief Devuelve el valor que tendria Y al darle X a la recta
 			@param X el valor de la abscisa X
@@ -49,8 +49,8 @@ namespace algoritmia
 			@return Un valor que indica el valor de la X **/
 		double getX(const double &Y) const;
 
-		/** @brief Devuelve el punto inicial almacenado por la recta **/
-		Punto getPuntoInicial() const;
+		/** @brief Devuelve el Coordenada2D inicial almacenado por la recta **/
+		Coordenada2D getCoordenada2DInicial() const;
 
 		/** @brief Devuelve la pendiente de la recta **/
 		Pendiente getPendiente() const;

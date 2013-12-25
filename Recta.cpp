@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "Punto.hpp"
+#include "Coordenada2D.hpp"
 #include "Pendiente.hpp"
 #include "Recta.hpp"
 
@@ -8,38 +8,38 @@ using namespace std;
 
 namespace algoritmia
 {
-	Punto Recta::moverAlInicio(const Punto &punto, const Pendiente &pendiente) const
+	Coordenada2D Recta::moverAlInicio(const Coordenada2D &c, const Pendiente &pendiente) const
 	{
-		Punto solution;
+		Coordenada2D solution;
 		if(pendiente.getType() == INF)
 		{
-			solution.setPunto(punto.getX(), 0);
+			solution.setCoordenada2D(c.getX(), 0);
 		}
 		else
 		{
 			double Ix;
 			double y;
 
-			Ix = 0 - punto.getX();
-			y = punto.getY() + (pendiente.getValue() * Ix);
+			Ix = 0 - c.getX();
+			y = c.getY() + (pendiente.getValue() * Ix);
 
-			solution.setPunto(0, y);
+			solution.setCoordenada2D(0, y);
 		}
 		return solution;
 	}
 
 	Recta::Recta()
 	{
-		Punto A;
-		Punto B;
+		Coordenada2D A;
+		Coordenada2D B;
 
-		A.setPunto(0, 0);
-		B.setPunto(1, 0);
+		A.setCoordenada2D(0, 0);
+		B.setCoordenada2D(1, 0);
 
 		this->establecerRecta(A, B);
 	}
 
-	Recta::Recta(const Punto &A, const Punto &B)
+	Recta::Recta(const Coordenada2D &A, const Coordenada2D &B)
 	{
 		this->establecerRecta(A, B);
 	}
@@ -49,10 +49,10 @@ namespace algoritmia
 		*this = r;
 	}
 
-	void Recta::establecerRecta(const Punto &A, const Punto &B)
+	void Recta::establecerRecta(const Coordenada2D &A, const Coordenada2D &B)
 	{
 		Pendiente m; //Pendiente de la recta
-		Punto inicio; //Punto de inicio de la recta
+		Coordenada2D inicio; //Coordenada2D de inicio de la recta
 
 		m.establecerPendiente(A, B);
 		inicio = this->moverAlInicio(A, m);
@@ -67,7 +67,7 @@ namespace algoritmia
 
 		if(!(this->esHorizontal()))
 		{
-			Punto inicio = this->getPuntoInicial();
+			Coordenada2D inicio = this->getCoordenada2DInicial();
 			Pendiente m = this->getPendiente();
 			double Y;
 
@@ -78,7 +78,7 @@ namespace algoritmia
 		}
 		else
 		{
-			return this->getPuntoInicial().getY();
+			return this->getCoordenada2DInicial().getY();
 		}
 	}
 
@@ -88,11 +88,11 @@ namespace algoritmia
 
 		if(this->esVertical())
 		{
-			return this->getPuntoInicial().getX();
+			return this->getCoordenada2DInicial().getX();
 		}
 		else
 		{
-			Punto inicio = this->getPuntoInicial();
+			Coordenada2D inicio = this->getCoordenada2DInicial();
 			Pendiente m = this->getPendiente();
 			double Iy = Y - inicio.getY();
 
@@ -101,7 +101,7 @@ namespace algoritmia
 		}
 	}
 
-	Punto Recta::getPuntoInicial() const
+	Coordenada2D Recta::getCoordenada2DInicial() const
 	{
 		return _inicio;
 	}
@@ -127,14 +127,14 @@ namespace algoritmia
 
 	void Recta::operator=(const Recta &r)
 	{
-		Punto rInicio;
+		Coordenada2D rInicio;
 		Pendiente rPendiente;
-		Punto final;
+		Coordenada2D final;
 
 		double xValue;
 		double yValue;
 
-		rInicio = r.getPuntoInicial();
+		rInicio = r.getCoordenada2DInicial();
 		rPendiente = r.getPendiente();
 
 		if(rPendiente.getType() != INF)
@@ -148,14 +148,14 @@ namespace algoritmia
 			yValue = rInicio.getY() + 1;
 		}
 
-		final.setPunto(xValue, yValue);
+		final.setCoordenada2D(xValue, yValue);
 
 		this->establecerRecta(rInicio, final);
 	}
 
 	bool Recta::operator==(const Recta &r)
 	{
-		return ((r.getPuntoInicial() == this->getPuntoInicial()) && (r.getPendiente() == this->getPendiente()));
+		return ((r.getCoordenada2DInicial() == this->getCoordenada2DInicial()) && (r.getPendiente() == this->getPendiente()));
 	}
 
 	bool Recta::operator!=(const Recta &r)
@@ -186,7 +186,7 @@ namespace algoritmia
 	ostream& operator<<(ostream& output, const Recta &r)
 	{
 		Pendiente m = r.getPendiente();
-		Punto inicio = r.getPuntoInicial();
+		Coordenada2D inicio = r.getCoordenada2DInicial();
 
 		if(r.esVertical())
 		{
@@ -225,14 +225,14 @@ namespace algoritmia
 
 	istream& operator>>(istream& input, Recta &r)
 	{
-		Punto A;
-		Punto B;
+		Coordenada2D A;
+		Coordenada2D B;
 
-		cout << "Primer punto por donde pasara la recta." << endl;
+		cout << "Primer Coordenada2D por donde pasara la recta." << endl;
 		input >> A;
 		cout << endl;
 
-		cout << "Segundo punto por donde pasara la recta." << endl;
+		cout << "Segundo Coordenada2D por donde pasara la recta." << endl;
 		input >> B;
 		cout << endl;
 

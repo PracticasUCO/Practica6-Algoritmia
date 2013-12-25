@@ -3,7 +3,7 @@
 
 #include <list>
 #include <string>
-#include "Punto.hpp"
+#include "Coordenada2D.hpp"
 #include "TableroAjedrez.hpp"
 #include "NReinas.hpp"
 
@@ -14,8 +14,8 @@ namespace algoritmia
 	/** @brief Muestra un menu con las opciones del programa **/
 	unsigned int menu();
 
-	/** @brief Muestra una lista de puntos por pantalla **/
-	void showPuntos(const list<Punto> &l, const string &nombre);
+	/** @brief Muestra una lista de Coordenada2Ds por pantalla **/
+	void showCoordenada2Ds(const list<Coordenada2D> &l, const string &nombre);
 
 	/** @brief Muestra una lista de tableros **/
 	void showTableros(const list<TableroAjedrez> &l);

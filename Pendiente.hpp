@@ -1,7 +1,7 @@
 #ifndef __PENDIENTE_HPP
 #define __PENDIENTE_HPP
 
-#include <Punto.hpp>
+#include <Coordenada2D.hpp>
 #include <iostream>
 
 using namespace std;
@@ -20,17 +20,17 @@ namespace algoritmia
 		Pendiente();
 
 		/** @brief Constructor de la pendiente en el que se la pasan los dos puntos implicados
-			@param A Primer punto de la pendiente
-			@param B Segundo punto de la pendiente **/
-		Pendiente(const Punto &A, const Punto &B);
+			@param A Primera coordenada de la pendiente
+			@param B Segunda Coordenada2D de la pendiente **/
+		Pendiente(const Coordenada2D &A, const Coordenada2D &B);
 
 		/** @brief Constructor de copia **/
 		Pendiente(const Pendiente &p);
 
-		/** @brief Establece la pendiente entre dos puntos
-			@param A Primer punto de la pendiente
-			@param B Segundo punto de la pendiente **/
-		void establecerPendiente(const Punto &A, const Punto &B);
+		/** @brief Establece la pendiente entre dos Coordenada2Ds
+			@param A Primera Coordenada2D de la pendiente
+			@param B Segunda Coordenada2D de la pendiente **/
+		void establecerPendiente(const Coordenada2D &A, const Coordenada2D &B);
 
 		/** @brief Devuelve el tipo de pendiente de la que estamos tratando
 			@return INF si se trata de una pendiente INF y REAL en cualquier otro caso **/

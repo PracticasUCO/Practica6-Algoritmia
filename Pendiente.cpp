@@ -8,16 +8,16 @@ namespace algoritmia
 {
 	Pendiente::Pendiente()
 	{
-		Punto x0;
-		Punto x1;
+		Coordenada2D x0;
+		Coordenada2D x1;
 
-		x0.setPunto(0, 0);
-		x1.setPunto(1, 0);
+		x0.setCoordenada2D(0, 0);
+		x1.setCoordenada2D(1, 0);
 
 		this->establecerPendiente(x0, x1);
 	}
 
-	Pendiente::Pendiente(const Punto &A, const Punto &B)
+	Pendiente::Pendiente(const Coordenada2D &A, const Coordenada2D &B)
 	{
 		this->establecerPendiente(A, B);
 	}
@@ -27,7 +27,7 @@ namespace algoritmia
 		*this = p;
 	}
 
-	void Pendiente::establecerPendiente(const Punto &A, const Punto &B)
+	void Pendiente::establecerPendiente(const Coordenada2D &A, const Coordenada2D &B)
 	{
 		// La pendiente sera Iy / Ix siendo:
 		// Iy --> El incremento de Y
@@ -64,19 +64,19 @@ namespace algoritmia
 
 	void Pendiente::operator=(const Pendiente &p)
 	{
-		Punto A;
-		Punto B;
+		Coordenada2D A;
+		Coordenada2D B;
 
 		if(p.getType() == INF)
 		{
-			A.setPunto(0, 0);
-			B.setPunto(0, 1);
+			A.setCoordenada2D(0, 0);
+			B.setCoordenada2D(0, 1);
 		}
 		else
 		{
 			double m = p.getValue(); //Pendiente de p
-			A.setPunto(0, 0);
-			B.setPunto(1, m);
+			A.setCoordenada2D(0, 0);
+			B.setCoordenada2D(1, m);
 		}
 
 		this->establecerPendiente(A, B);
@@ -194,14 +194,14 @@ namespace algoritmia
 
 	istream& operator>>(istream &input, Pendiente &p)
 	{
-		Punto A;
-		Punto B;
+		Coordenada2D A;
+		Coordenada2D B;
 
-		cout << "Estableciendo el punto A" << endl;
+		cout << "Estableciendo el Coordenada2D A" << endl;
 		input >> A;
 		cout << endl;
 
-		cout << "Estableciendo el punto B" << endl;
+		cout << "Estableciendo el Coordenada2D B" << endl;
 		input >> B;
 		cout << endl;
 

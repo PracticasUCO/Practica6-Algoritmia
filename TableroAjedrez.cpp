@@ -12,9 +12,9 @@ using namespace std;
 
 namespace algoritmia
 {
-	list<Punto> TableroAjedrez::listaMovimientos(const Punto &p) const
+	list<Coordenada2D> TableroAjedrez::listaMovimientos(const Coordenada2D &p) const
 	{
-		list<Punto> movimientos;
+		list<Coordenada2D> movimientos;
 
 		if(this->getEnumFicha(p) == REINA)
 		{
@@ -24,17 +24,17 @@ namespace algoritmia
 		return movimientos;
 	}
 
-	list<Punto> TableroAjedrez::listaMovimientosReina(const Punto &p) const
+	list<Coordenada2D> TableroAjedrez::listaMovimientosReina(const Coordenada2D &p) const
 	{
-		const Punto horizontal(1, 0);
-		const Punto vertical(0, 1);
-		const Punto diagonalSuperior(1, 1);
-		const Punto diagonalInferior(1, -1);
+		const Coordenada2D horizontal(1, 0);
+		const Coordenada2D vertical(0, 1);
+		const Coordenada2D diagonalSuperior(1, 1);
+		const Coordenada2D diagonalInferior(1, -1);
 
 		Recta direccion;
-		Punto pDos = p;
+		Coordenada2D pDos = p;
 
-		list<Punto> movReina;
+		list<Coordenada2D> movReina;
 
 		//Primero sacamos toda la recta horizontal
 		pDos = pDos + horizontal;
@@ -51,7 +51,7 @@ namespace algoritmia
 			// un numero muy grande
 			if(y < this->getDimension())
 			{
-				Punto mov(x, y);
+				Coordenada2D mov(x, y);
 				movReina.push_back(mov);
 			}
 		}
@@ -68,7 +68,7 @@ namespace algoritmia
 
 			if(x < this->getDimension())
 			{
-				Punto mov(x, y);
+				Coordenada2D mov(x, y);
 				movReina.push_back(mov);
 			}
 		}
@@ -85,7 +85,7 @@ namespace algoritmia
 
 			if(y < this->getDimension())
 			{
-				Punto mov(x, y);
+				Coordenada2D mov(x, y);
 				movReina.push_back(mov);
 			}
 		}
@@ -102,7 +102,7 @@ namespace algoritmia
 
 			if(y < this->getDimension())
 			{
-				Punto mov(x, y);
+				Coordenada2D mov(x, y);
 				movReina.push_back(mov);
 			}
 		}
@@ -151,7 +151,7 @@ namespace algoritmia
 		return this->getEnumFicha(row, col) != EMPTY;
 	}
 
-	bool TableroAjedrez::hayFicha(const Punto &p) const
+	bool TableroAjedrez::hayFicha(const Coordenada2D &p) const
 	{
 		return this->getEnumFicha(p) != EMPTY;
 	}
@@ -164,7 +164,7 @@ namespace algoritmia
 		return this->getFicha(row, col).getType();
 	}
 
-	enum CLASE_FICHA TableroAjedrez::getEnumFicha(const Punto &p) const
+	enum CLASE_FICHA TableroAjedrez::getEnumFicha(const Coordenada2D &p) const
 	{
 		return this->getFicha(p).getType();
 	}
@@ -177,7 +177,7 @@ namespace algoritmia
 		return _tablero[row][col];
 	}
 
-	FichaAjedrez TableroAjedrez::getFicha(const Punto &p) const
+	FichaAjedrez TableroAjedrez::getFicha(const Coordenada2D &p) const
 	{
 		unsigned int row = p.getX();
 		unsigned int col = p.getY();
@@ -190,11 +190,11 @@ namespace algoritmia
 
 	bool TableroAjedrez::amenaza(const unsigned int &row, const unsigned int &col) const
 	{
-		Punto p(row, col);
+		Coordenada2D p(row, col);
 		return this->amenaza(p);
 	}
 
-	bool TableroAjedrez::amenaza(const Punto &p) const
+	bool TableroAjedrez::amenaza(const Coordenada2D &p) const
 	{
 		assert(p.getX() < this->getDimension());
 		assert(p.getY() < this->getDimension());
@@ -204,14 +204,14 @@ namespace algoritmia
 		{
 			for(unsigned int j = 0; ((j < this->getDimension()) && (deteccion == false)); j++)
 			{
-				Punto busqueda(i, j);
+				Coordenada2D busqueda(i, j);
 
 				if(busqueda != p)
 				{
-					list<Punto> movimientos;
+					list<Coordenada2D> movimientos;
 					movimientos = this->listaMovimientos(busqueda);
 
-					for(list<Punto>::const_iterator it = movimientos.begin(); it != movimientos.end(); it++)
+					for(list<Coordenada2D>::const_iterator it = movimientos.begin(); it != movimientos.end(); it++)
 					{
 						if(*it == p)
 						{
@@ -234,10 +234,10 @@ namespace algoritmia
 			{
 				if(this->getEnumFicha(i, j) != EMPTY)
 				{
-					Punto posicion;
-					posicion.setPunto(static_cast<double>(i), static_cast<double>(j));
+					Coordenada2D posicion;
+					posicion.setCoordenada2D(static_cast<double>(i), static_cast<double>(j));
 
-					cout << "Ficha: " << this->getFicha(i, j) << " Punto: " << posicion << endl; 
+					cout << "Ficha: " << this->getFicha(i, j) << " Coordenada2D: " << posicion << endl; 
 				}
 			}
 		}
@@ -273,7 +273,7 @@ namespace algoritmia
 		}
 	}
 
-	void TableroAjedrez::setFicha(const Punto &p, const FichaAjedrez &f)
+	void TableroAjedrez::setFicha(const Coordenada2D &p, const FichaAjedrez &f)
 	{
 		unsigned int row = p.getX();
 		unsigned int col = p.getY();
@@ -291,7 +291,7 @@ namespace algoritmia
 		this->setFicha(row, col, f);
 	}
 
-	void TableroAjedrez::setFicha(const Punto &p, const enum CLASE_FICHA &e)
+	void TableroAjedrez::setFicha(const Coordenada2D &p, const enum CLASE_FICHA &e)
 	{
 		FichaAjedrez f(e);
 
@@ -301,20 +301,20 @@ namespace algoritmia
 	bool TableroAjedrez::moverFicha(const unsigned int &rowSource, const unsigned int &colSource, 
 						const unsigned int &rowDest, const unsigned int &colDest)
 	{
-		Punto source(rowSource, colSource);
-		Punto dest(rowDest, colDest);
+		Coordenada2D source(rowSource, colSource);
+		Coordenada2D dest(rowDest, colDest);
 		return this->moverFicha(source, dest);
 	}
 
-	bool TableroAjedrez::moverFicha(const Punto &source, const Punto &dest)
+	bool TableroAjedrez::moverFicha(const Coordenada2D &source, const Coordenada2D &dest)
 	{
 		bool resultado = false;
 
 		//Una posicion marcada como empty siempre dara una lista de movimientos
 		//vacia, por lo que si la posicion origen que tratamos de mover es EMPTY
 		//no afectara al algoritmo
-		list<Punto> movimientosPosibles = this->listaMovimientos(source);
-		list<Punto>::const_iterator it = find(movimientosPosibles.begin(), movimientosPosibles.end(), dest);
+		list<Coordenada2D> movimientosPosibles = this->listaMovimientos(source);
+		list<Coordenada2D>::const_iterator it = find(movimientosPosibles.begin(), movimientosPosibles.end(), dest);
 
 		if(it != movimientosPosibles.end())
 		{
@@ -342,7 +342,7 @@ namespace algoritmia
 		}
 	}
 
-	bool TableroAjedrez::borrarFicha(const Punto &p)
+	bool TableroAjedrez::borrarFicha(const Coordenada2D &p)
 	{
 		unsigned int row = p.getX();
 		unsigned int col = p.getY();
@@ -356,21 +356,21 @@ namespace algoritmia
 		{
 			for(unsigned int j = 0; j < this->getDimension(); j++)
 			{
-				Punto p(i, j);
+				Coordenada2D p(i, j);
 				this->borrarFicha(p);
 			}
 		}
 	}
 
-	list<Punto> TableroAjedrez::listarFichas() const
+	list<Coordenada2D> TableroAjedrez::listarFichas() const
 	{
-		list<Punto> lista;
+		list<Coordenada2D> lista;
 
 		for(unsigned int i = 0; i < this->getDimension(); i++)
 		{
 			for(unsigned int j = 0; j < this->getDimension(); j++)
 			{
-				Punto p(i, j);
+				Coordenada2D p(i, j);
 				if(this->hayFicha(p))
 				{
 					lista.push_back(p);
@@ -392,7 +392,7 @@ namespace algoritmia
 		{
 			for(unsigned int j = 0; j < this->getDimension(); j++)
 			{
-				Punto p(i, j);
+				Coordenada2D p(i, j);
 				if(t.getEnumFicha(p) != EMPTY)
 				{
 					enum CLASE_FICHA e = t.getEnumFicha(p);
@@ -411,8 +411,8 @@ namespace algoritmia
 		else
 		{
 			bool resultado;
-			list<Punto> listaFichasA;
-			list<Punto> listaFichasB;
+			list<Coordenada2D> listaFichasA;
+			list<Coordenada2D> listaFichasB;
 
 			listaFichasA = this->listarFichas();
 			listaFichasB = t.listarFichas();
@@ -425,8 +425,8 @@ namespace algoritmia
 			listaFichasA.sort();
 			listaFichasB.sort();
 
-			list<Punto>::const_iterator iteratorA;
-			list<Punto>::const_iterator iteratorB;
+			list<Coordenada2D>::const_iterator iteratorA;
+			list<Coordenada2D>::const_iterator iteratorB;
 
 			for(iteratorA = listaFichasA.begin(), iteratorB = listaFichasB.begin(); iteratorA != listaFichasA.end(); iteratorA++, iteratorB++)
 			{
@@ -450,8 +450,8 @@ namespace algoritmia
 	{
 		assert(this->getDimension() == t.getDimension());
 
-		list<Punto> fichasA = this->listarFichas();
-		list<Punto> fichasB = t.listarFichas();
+		list<Coordenada2D> fichasA = this->listarFichas();
+		list<Coordenada2D> fichasB = t.listarFichas();
 
 		if(fichasA.size() < fichasB.size())
 		{
@@ -467,8 +467,8 @@ namespace algoritmia
 			fichasA.sort();
 			fichasB.sort();
 
-			list<Punto>::const_iterator iteradorA = fichasA.begin();
-			list<Punto>::const_iterator iteradorB = fichasB.begin();
+			list<Coordenada2D>::const_iterator iteradorA = fichasA.begin();
+			list<Coordenada2D>::const_iterator iteradorB = fichasB.begin();
 
 			while(iteradorA != fichasA.end())
 			{
@@ -492,8 +492,8 @@ namespace algoritmia
 	{
 		assert(this->getDimension() == t.getDimension());
 
-		list<Punto> fichasA = this->listarFichas();
-		list<Punto> fichasB = t.listarFichas();
+		list<Coordenada2D> fichasA = this->listarFichas();
+		list<Coordenada2D> fichasB = t.listarFichas();
 
 		if(fichasA.size() < fichasB.size())
 		{
@@ -509,8 +509,8 @@ namespace algoritmia
 			fichasA.sort();
 			fichasB.sort();
 
-			list<Punto>::const_iterator iteradorA = fichasA.begin();
-			list<Punto>::const_iterator iteradorB = fichasB.begin();
+			list<Coordenada2D>::const_iterator iteradorA = fichasA.begin();
+			list<Coordenada2D>::const_iterator iteradorB = fichasB.begin();
 
 			while(iteradorA != fichasA.end())
 			{
