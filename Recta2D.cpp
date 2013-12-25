@@ -2,13 +2,13 @@
 #include <cassert>
 #include "Coordenada2D.hpp"
 #include "Pendiente.hpp"
-#include "Recta.hpp"
+#include "Recta2D.hpp"
 
 using namespace std;
 
 namespace algoritmia
 {
-	Coordenada2D Recta::moverAlInicio(const Coordenada2D &c, const Pendiente &pendiente) const
+	Coordenada2D Recta2D::moverAlInicio(const Coordenada2D &c, const Pendiente &pendiente) const
 	{
 		Coordenada2D solution;
 		if(pendiente.getType() == INF)
@@ -28,7 +28,7 @@ namespace algoritmia
 		return solution;
 	}
 
-	Recta::Recta()
+	Recta2D::Recta2D()
 	{
 		Coordenada2D A;
 		Coordenada2D B;
@@ -36,23 +36,23 @@ namespace algoritmia
 		A.setCoordenada2D(0, 0);
 		B.setCoordenada2D(1, 0);
 
-		this->establecerRecta(A, B);
+		this->establecerRecta2D(A, B);
 	}
 
-	Recta::Recta(const Coordenada2D &A, const Coordenada2D &B)
+	Recta2D::Recta2D(const Coordenada2D &A, const Coordenada2D &B)
 	{
-		this->establecerRecta(A, B);
+		this->establecerRecta2D(A, B);
 	}
 
-	Recta::Recta(const Recta &r)
+	Recta2D::Recta2D(const Recta2D &r)
 	{
 		*this = r;
 	}
 
-	void Recta::establecerRecta(const Coordenada2D &A, const Coordenada2D &B)
+	void Recta2D::establecerRecta2D(const Coordenada2D &A, const Coordenada2D &B)
 	{
-		Pendiente m; //Pendiente de la recta
-		Coordenada2D inicio; //Coordenada2D de inicio de la recta
+		Pendiente m; //Pendiente de la Recta2D
+		Coordenada2D inicio; //Coordenada2D de inicio de la Recta2D
 
 		m.establecerPendiente(A, B);
 		inicio = this->moverAlInicio(A, m);
@@ -61,7 +61,7 @@ namespace algoritmia
 		_pendiente = m;
 	}
 
-	double Recta::getY(const double &X) const
+	double Recta2D::getY(const double &X) const
 	{
 		assert(!(this->esVertical()));
 
@@ -82,7 +82,7 @@ namespace algoritmia
 		}
 	}
 
-	double Recta::getX(const double &Y) const
+	double Recta2D::getX(const double &Y) const
 	{
 		assert(!(this->esHorizontal()));
 
@@ -101,31 +101,31 @@ namespace algoritmia
 		}
 	}
 
-	Coordenada2D Recta::getCoordenada2DInicial() const
+	Coordenada2D Recta2D::getCoordenada2DInicial() const
 	{
 		return _inicio;
 	}
 
-	Pendiente Recta::getPendiente() const
+	Pendiente Recta2D::getPendiente() const
 	{
 		return _pendiente;
 	}
 
-	bool Recta::esVertical() const
+	bool Recta2D::esVertical() const
 	{
 		Pendiente m = this->getPendiente();
 
 		return m.getType() == INF;
 	}
 
-	bool Recta::esHorizontal() const
+	bool Recta2D::esHorizontal() const
 	{
 		Pendiente m = this->getPendiente();
 
 		return ((m.getType() != INF) && (m.getValue() == 0));
 	}
 
-	void Recta::operator=(const Recta &r)
+	void Recta2D::operator=(const Recta2D &r)
 	{
 		Coordenada2D rInicio;
 		Pendiente rPendiente;
@@ -150,40 +150,40 @@ namespace algoritmia
 
 		final.setCoordenada2D(xValue, yValue);
 
-		this->establecerRecta(rInicio, final);
+		this->establecerRecta2D(rInicio, final);
 	}
 
-	bool Recta::operator==(const Recta &r)
+	bool Recta2D::operator==(const Recta2D &r)
 	{
 		return ((r.getCoordenada2DInicial() == this->getCoordenada2DInicial()) && (r.getPendiente() == this->getPendiente()));
 	}
 
-	bool Recta::operator!=(const Recta &r)
+	bool Recta2D::operator!=(const Recta2D &r)
 	{
 		return !(*this == r);
 	}
 
-	bool Recta::operator<(const Recta &r)
+	bool Recta2D::operator<(const Recta2D &r)
 	{
 		return this->getPendiente() < r.getPendiente();
 	}
 
-	bool Recta::operator<=(const Recta &r)
+	bool Recta2D::operator<=(const Recta2D &r)
 	{
 		return this->getPendiente() <= r.getPendiente();
 	}
 
-	bool Recta::operator>(const Recta &r)
+	bool Recta2D::operator>(const Recta2D &r)
 	{
 		return this->getPendiente() > r.getPendiente();
 	}
 
-	bool Recta::operator>=(const Recta &r)
+	bool Recta2D::operator>=(const Recta2D &r)
 	{
 		return this->getPendiente() >= r.getPendiente();
 	}
 
-	ostream& operator<<(ostream& output, const Recta &r)
+	ostream& operator<<(ostream& output, const Recta2D &r)
 	{
 		Pendiente m = r.getPendiente();
 		Coordenada2D inicio = r.getCoordenada2DInicial();
@@ -223,25 +223,25 @@ namespace algoritmia
 		return output;
 	}
 
-	istream& operator>>(istream& input, Recta &r)
+	istream& operator>>(istream& input, Recta2D &r)
 	{
 		Coordenada2D A;
 		Coordenada2D B;
 
-		cout << "Primer Coordenada2D por donde pasara la recta." << endl;
+		cout << "Primer Coordenada2D por donde pasara la Recta2D." << endl;
 		input >> A;
 		cout << endl;
 
-		cout << "Segundo Coordenada2D por donde pasara la recta." << endl;
+		cout << "Segundo Coordenada2D por donde pasara la Recta2D." << endl;
 		input >> B;
 		cout << endl;
 
-		r.establecerRecta(A, B);
+		r.establecerRecta2D(A, B);
 
 		return input;
 	}
 
-	Recta::~Recta()
+	Recta2D::~Recta2D()
 	{
 		//Empty
 	}

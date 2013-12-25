@@ -4,7 +4,7 @@
 #include <algorithm>
 #include "TableroAjedrez.hpp"
 #include "FichaAjedrez.hpp"
-#include "Recta.hpp"
+#include "Recta2D.hpp"
 
 #define DIMENSION_DEFECTO_TABLERO_AJEDREZ 8
 
@@ -31,14 +31,14 @@ namespace algoritmia
 		const Coordenada2D diagonalSuperior(1, 1);
 		const Coordenada2D diagonalInferior(1, -1);
 
-		Recta direccion;
+		Recta2D direccion;
 		Coordenada2D pDos = p;
 
 		list<Coordenada2D> movReina;
 
-		//Primero sacamos toda la recta horizontal
+		//Primero sacamos toda la Recta2D horizontal
 		pDos = pDos + horizontal;
-		direccion.establecerRecta(p, pDos);
+		direccion.establecerRecta2D(p, pDos);
 
 		for(unsigned int i = 0; i < this->getDimension(); i++)
 		{
@@ -46,8 +46,8 @@ namespace algoritmia
 			unsigned int y = direccion.getY(x);
 
 			// No hace falta comprobar si y es mayor que cero, debido a que estamos
-			// trabajando con enteros sin signo. Si el metodo Recta::getY o el metodo
-			// Recta::getX devolviera un numero negativo, este desbordaria y devolveria
+			// trabajando con enteros sin signo. Si el metodo Recta2D::getY o el metodo
+			// Recta2D::getX devolviera un numero negativo, este desbordaria y devolveria
 			// un numero muy grande
 			if(y < this->getDimension())
 			{
@@ -59,7 +59,7 @@ namespace algoritmia
 
 		//Sacamos ahora el movimiento vertical
 		pDos = pDos + vertical;
-		direccion.establecerRecta(p, pDos);
+		direccion.establecerRecta2D(p, pDos);
 
 		for(unsigned int i = 0; i < this->getDimension(); i++)
 		{
@@ -76,7 +76,7 @@ namespace algoritmia
 
 		//Sacamos la direccion que sigue la primera diagonal
 		pDos = pDos + diagonalSuperior;
-		direccion.establecerRecta(p, pDos);
+		direccion.establecerRecta2D(p, pDos);
 
 		for(unsigned int i = 0; i < this->getDimension(); i++)
 		{
@@ -93,7 +93,7 @@ namespace algoritmia
 
 		//Sacamos la direccion de la ultima diagonal
 		pDos = pDos + diagonalInferior;
-		direccion.establecerRecta(p, pDos);
+		direccion.establecerRecta2D(p, pDos);
 
 		for(unsigned int i = 0; i < this->getDimension(); i++)
 		{
