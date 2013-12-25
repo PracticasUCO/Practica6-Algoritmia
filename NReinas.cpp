@@ -114,6 +114,11 @@ namespace algoritmia
 		}
 	}
 
+	void NReinas::setNSolutionsFlag(const bool &flag)
+	{
+		_nSolutionsCalculated = flag;
+	}
+
 	void NReinas::setIntentosVegas(const unsigned int &intentos)
 	{
 		_intentosVegas = intentos;
