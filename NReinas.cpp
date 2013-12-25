@@ -124,6 +124,15 @@ namespace algoritmia
 		return _nSolutionsCalculated;
 	}
 
+	void NReinas::setNSolutions(const unsigned int &nSolutions)
+	{
+		if(this->getNSolutionsFlag())
+		{
+			_nSolutions = nSolutions;
+			this->setNSolutionsFlag(false);
+		}
+	}
+
 	void NReinas::setIntentosVegas(const unsigned int &intentos)
 	{
 		_intentosVegas = intentos;
