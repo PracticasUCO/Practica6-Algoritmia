@@ -1,5 +1,6 @@
 #include <cassert>
 #include <random>
+#include <cmath>
 #include "TableroAjedrez.hpp"
 #include "FichaAjedrez.hpp"
 #include "Coordenada2D.hpp"
@@ -160,6 +161,19 @@ namespace algoritmia
 		{
 			return false;
 		}
+	}
+
+	double NReinas::probabilidadVegas() const
+	{
+		double resultado;
+		list<TableroAjedrez> lista = this->allSolutions(); //Contiene todas las soluciones
+
+		resultado = 1/this->getDimension();
+
+		resultado = pow(resultado, this->getDimension());
+		resultado *= lista.size();
+
+		return resultado;
 	}
 
 	bool NReinas::buscarReina(const TableroAjedrez &t, Coordenada2D &p) const
