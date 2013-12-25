@@ -13,13 +13,12 @@ namespace numbers
 		unsigned long long int _upper;
 		unsigned long long int _down;
 		long double _result; //!< Resultado de la operacion, para no tener que calcularlo varias veces
-		bool _needUpdate; //Comprueba si se necesita actualizar el numero
-
-		/** @brief Establece una valor a la bandera _needUpdate **/
-		void setUpdate(const bool &b);
 
 		/** @brief Devuelve el factorial del numero que le pases **/
 		long double factorial(const unsigned long long int &f);
+
+		/** @brief Actualiza el valor del resultado **/
+		void update();
 
 	public:
 		/** @brief Constructor vacio, que identifica el valor del numero combinatorio a 0 **/
@@ -45,14 +44,8 @@ namespace numbers
 			o el down del numero, asegurese de realizar antes un Combinatorio::update **/
 		long double getResult() const;
 
-		/** @brief Checkea si el numero necesita ser recalculado (por un cambio de parametros) **/
-		bool checkUpdate() const;
-
 		/** @brief Establece el upper y el down de un numero combinatorio, siendo estos C(upper under down) **/
 		void set(const unsigned long long int &upper, const unsigned long long &down);
-
-		/** @brief Actualiza el valor del resultado **/
-		void update();
 
 		/** @brief Hace una copia del numero combinatorio c a si mismo **/
 		void clone(const Combinatorio &c);

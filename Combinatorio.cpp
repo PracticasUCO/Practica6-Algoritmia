@@ -1,16 +1,10 @@
 #include <iostream>
-#include <cassert>
 #include "Combinatorio.hpp"
 
 using namespace std;
 
 namespace numbers
 {
-	void Combinatorio::setUpdate(const bool &b)
-	{
-		_needUpdate = b;
-	}
-
 	long double Combinatorio::factorial(const unsigned long long int &f)
 	{
 		long double resultado = 1;
@@ -32,7 +26,6 @@ namespace numbers
 	Combinatorio::Combinatorio(const unsigned long long int &upper, const unsigned long long int &down)
 	{
 		this->set(upper, down);
-		this->update();
 	}
 
 	Combinatorio::Combinatorio(const Combinatorio &c)
@@ -52,42 +45,30 @@ namespace numbers
 
 	long double Combinatorio::getResult() const
 	{
-		assert(!this->checkUpdate());
 		return _result;
-	}
-
-	bool Combinatorio::checkUpdate() const
-	{
-		return _needUpdate;
 	}
 
 	void Combinatorio::set(const unsigned long long int &upper, const unsigned long long &down)
 	{
-		assert(upper >= down);
-
 		if((upper != this->getUpper()) || (down != this->getDown()))
 		{
 			_upper = upper;
 			_down = down;
-			this->setUpdate(true);
+			this->update();
 		}
 	}
 
 	void Combinatorio::update()
 	{
-		if(this->checkUpdate())
-		{
-			long double resultado;
-			unsigned long long int upper;
-			unsigned long long int down;
+		long double resultado;
+		unsigned long long int upper;
+		unsigned long long int down;
 
-			upper = this->getUpper();
-			down = this->getDown();
+		upper = this->getUpper();
+		down = this->getDown();
 
-			resultado = this->factorial(upper) / (this->factorial(down) * this->factorial(upper - down));
-			_result = resultado;
-			this->setUpdate(false);
-		}
+		resultado = this->factorial(upper) / (this->factorial(down) * this->factorial(upper - down));
+		_result = resultado;
 	}
 
 	void Combinatorio::clone(const Combinatorio &c)
