@@ -84,6 +84,7 @@ namespace algoritmia
 
 		this->search(lista, tablero);
 
+		this->setNSolutions(lista.size());
 
 		return lista;
 	}
