@@ -16,6 +16,8 @@ namespace algoritmia
 	private:
 		unsigned int _dim; //!< Dimension de los tableros de la solucion NReinas
 		unsigned int _intentosVegas; //!< Numero de intentos en la ultima solucion de las vegas
+		unsigned int _nSolutions; //!< Numero de soluciones para la dimension _dim
+		bool _nSolutionsCalculated; //!< Indica si el numero nSolutions es correcto
 
 		/** @brief Devuelve la posicion donde se encuentra una Reina, dandole solo
 			la fila
@@ -36,6 +38,15 @@ namespace algoritmia
 			@param Tablero a ser evaluado (inicialmente debe de estar vacio)
 			@param k Numero inicial de las nreinas **/
 		void search(list<TableroAjedrez> &lista, TableroAjedrez &table, const unsigned int k = 0) const;
+
+		/** @brief Cambia el estado de nSolutionsCalculated **/
+		void setNSolutionsFlag(const bool &flag);
+
+		/** @brief Devuelve el estado de la bandera nSolutions **/
+		bool getNSolutionsFlag() const;
+
+		/** @brief Establece nSolutions a un parametro dado **/
+		void setNSolutions(const unsigned int &nSolutions);
 
 	public:
 		/** @brief Constructor por defecto del tablero de las N-Reinas, este tablero
@@ -84,6 +95,9 @@ namespace algoritmia
 
 		/** @brief Devuelve la dimension en la cual se establecio la clase **/
 		unsigned int getDimension() const;
+
+		/** @brief Devuelve el numero de soluciones que se tienen para un tablero de dimension M **/
+		unsigned int getNSolutions();
 
 		/** @brief Devuelve el numero de reinas presentes en un tablero **/
 		unsigned int countQueens(const TableroAjedrez &table) const;

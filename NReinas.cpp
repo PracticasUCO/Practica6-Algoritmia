@@ -176,6 +176,20 @@ namespace algoritmia
 		return resultado;
 	}
 
+	double NReinas::probabilidadVegasAll(const unsigned int &nIntentos) const
+	{
+		//Se sigue una distribucion binaria o de poison con probabilidad p
+		//La suma de n intentos es una distribuccion binomial
+		//El espacio de probabilidad es 0 1 2 3 4 5 ... S siendo S el numero de soluciones
+		//La idea es, calcular la probabilidad p(x = 0) + p(x = 1) etc, hasta llegar a S - 1
+		// y restarle eso a 1 De esa manera tendriamos la probabilidad
+		// En realidad sigue una distribucion hipergeometrica, pero se puede aproximar mediante
+		// una binomial
+		unsigned int x; // Valor de la distribucion en un momento dado
+		unsigned int xMaximo; //Valor maximo que me interesa de la distribucion
+		double p = this->probabilidadVegas(); //Probabilidad de acierto
+	}
+
 	bool NReinas::buscarReina(const TableroAjedrez &t, Coordenada2D &p) const
 	{
 		assert(p.getX() < t.getDimension());
