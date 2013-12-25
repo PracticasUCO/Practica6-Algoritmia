@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "Combinatorio.hpp"
 
 using namespace std;
@@ -50,6 +51,7 @@ namespace numbers
 
 	void Combinatorio::set(const unsigned long long int &upper, const unsigned long long &down)
 	{
+		assert(upper >= down);
 		if((upper != this->getUpper()) || (down != this->getDown()))
 		{
 			_upper = upper;
