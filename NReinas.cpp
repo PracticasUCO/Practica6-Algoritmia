@@ -251,7 +251,11 @@ namespace algoritmia
 	void NReinas::setDimension(const unsigned int &dim)
 	{
 		assert(dim > 3);
-		_dim = dim;
+		if(dim != this->getDimension())
+		{
+			_dim = dim;
+			this->setNSolutionsFlag(true);
+		}
 	}
 
 	unsigned int NReinas::getNSolutions()
