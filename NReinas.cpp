@@ -186,12 +186,11 @@ namespace algoritmia
 	double NReinas::probabilidadVegas() const
 	{
 		double resultado;
-		list<TableroAjedrez> lista = this->allSolutions(); //Contiene todas las soluciones
 
 		resultado = 1/this->getDimension();
 
 		resultado = pow(resultado, this->getDimension());
-		resultado *= lista.size();
+		resultado *= this->getNSolutions();
 
 		return resultado;
 	}
