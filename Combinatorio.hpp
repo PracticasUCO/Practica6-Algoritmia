@@ -100,6 +100,31 @@ namespace numbers
 		long double operator/(const long double &d) const;
 		long double operator/(const Combinatorio &d) const;
 
+		/** SOBRECARGAS INLINE **/
+		template <class T>
+		inline long double operator+(const T &n) const
+		{
+			return this->getResult() + static_cast<long double>(n);
+		}
+
+		template <class T>
+		inline long double operator-(const T &n) const
+		{
+			return this->getResult() - static_cast<long double>(n);
+		}
+
+		template <class T>
+		inline long double operator*(const T &n) const
+		{
+			return this->getResult() * static_cast<long double>(n);
+		}
+
+		template <class T>
+		inline long double operator/(const T &n) const
+		{
+			return this->getResult() / static_cast<long double>(n);
+		}
+
 		/** @brief Destructor de clase **/
 		~Combinatorio();
 	};
