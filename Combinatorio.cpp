@@ -195,46 +195,6 @@ namespace numbers
 		return this->getResult() + c.getResult();
 	}
 
-	long double Combinatorio::operator+(const int &i) const
-	{
-		return this->getResult() + static_cast<long double>(i);
-	}
-
-	long double Combinatorio::operator+(const long int &i) const
-	{
-		return this->getResult() + static_cast<long double>(i);
-	}
-
-	long double Combinatorio::operator+(const long long int &i) const
-	{
-		return this->getResult() + static_cast<long double>(i);
-	}
-
-	long double Combinatorio::operator+(const unsigned int &ui) const
-	{
-		return this->getResult() + static_cast<long double>(ui);
-	}
-
-	long double Combinatorio::operator+(const unsigned long int &ui) const
-	{
-		return this->getResult() + static_cast<long double>(ui);
-	}
-
-	long double Combinatorio::operator+(const unsigned long long int &ui) const
-	{
-		return this->getResult() + static_cast<long double>(ui);
-	}
-
-	long double Combinatorio::operator+(const float &f) const
-	{
-		return this->getResult() + static_cast<long double>(f);
-	}
-
-	long double Combinatorio::operator+(const double &d) const
-	{
-		return this->getResult() + static_cast<long double>(d); 
-	}
-
 	long double Combinatorio::operator-(const long double &d) const
 	{
 		return this->getResult() - d;
@@ -243,46 +203,6 @@ namespace numbers
 	long double Combinatorio::operator-(const Combinatorio &c) const
 	{
 		return this->getResult() - c.getResult();
-	}
-
-	long double Combinatorio::operator-(const int &i) const
-	{
-		return this->getResult() - static_cast<long double>(i);
-	}
-
-	long double Combinatorio::operator-(const long int &i) const
-	{
-		return this->getResult() - static_cast<long double>(i);
-	}
-
-	long double Combinatorio::operator-(const long long int &i) const
-	{
-		return this->getResult() - static_cast<long double>(i);
-	}
-
-	long double Combinatorio::operator-(const unsigned int &ui) const
-	{
-		return this->getResult() - static_cast<long double>(ui);
-	}
-
-	long double Combinatorio::operator-(const unsigned long int &ui) const
-	{
-		return this->getResult() - static_cast<long double>(ui);
-	}
-
-	long double Combinatorio::operator-(const unsigned long long int &ui) const
-	{
-		return this->getResult() - static_cast<long double>(ui);
-	}
-
-	long double Combinatorio::operator-(const float &f) const
-	{
-		return this->getResult() - static_cast<long double>(f);
-	}
-
-	long double Combinatorio::operator-(const double &f) const
-	{
-		return this->getResult() - static_cast<long double>(f);
 	}
 
 	long double Combinatorio::operator*(const long double &d) const
@@ -295,46 +215,6 @@ namespace numbers
 		return this->getResult() * d.getResult();
 	}
 
-	long double Combinatorio::operator*(const int &i) const
-	{
-		return this->getResult() * static_cast<long double>(i);
-	}
-
-	long double Combinatorio::operator*(const long int &i) const
-	{
-		return this->getResult() * static_cast<long double>(i);
-	}
-
-	long double Combinatorio::operator*(const long long int &i) const
-	{
-		return this->getResult() * static_cast<long double>(i);
-	}
-
-	long double Combinatorio::operator*(const unsigned int &ui) const
-	{
-		return this->getResult() * static_cast<long double>(ui);
-	}
-
-	long double Combinatorio::operator*(const unsigned long int &ui) const
-	{
-		return this->getResult() * static_cast<long double>(ui);
-	}
-
-	long double Combinatorio::operator*(const unsigned long long int &ui) const
-	{
-		return this->getResult() * static_cast<long double>(ui);
-	}
-
-	long double Combinatorio::operator*(const float &f) const
-	{
-		return this->getResult() * static_cast<long double>(f);
-	}
-
-	long double Combinatorio::operator*(const double &f) const
-	{
-		return this->getResult() * static_cast<long double>(f);
-	}
-
 	long double Combinatorio::operator/(const long double &d) const
 	{
 		return this->getResult() / d;
@@ -343,46 +223,6 @@ namespace numbers
 	long double Combinatorio::operator/(const Combinatorio &d) const
 	{
 		return this->getResult() / d.getResult();
-	}
-
-	long double Combinatorio::operator/(const int &n) const
-	{
-		return this->getResult() / static_cast<long double>(n);
-	}
-
-	long double Combinatorio::operator/(const long int &n) const
-	{
-		return this->getResult() / static_cast<long double>(n);
-	}
-
-	long double Combinatorio::operator/(const long long int &n) const
-	{
-		return this->getResult() / static_cast<long double>(n);
-	}
-
-	long double Combinatorio::operator/(const unsigned int &n) const
-	{
-		return this->getResult() / static_cast<long double>(n);
-	}
-
-	long double Combinatorio::operator/(const unsigned long int &n) const
-	{
-		return this->getResult() / static_cast<long double>(n);
-	}
-
-	long double Combinatorio::operator/(const unsigned long long int &n) const
-	{
-		return this->getResult() / static_cast<long double>(n);
-	}
-
-	long double Combinatorio::operator/(const float &n) const
-	{
-		return this->getResult() / static_cast<long double>(n);
-	}
-
-	long double Combinatorio::operator/(const double &n) const
-	{
-		return this->getResult() / static_cast<long double>(n);
 	}
 
 	Combinatorio::~Combinatorio()

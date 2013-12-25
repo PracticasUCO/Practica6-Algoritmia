@@ -87,50 +87,18 @@ namespace numbers
 		/** @brief Sobrecarga del operador + **/
 		long double operator+(const long double &d) const;
 		long double operator+(const Combinatorio &c) const;
-		long double operator+(const int &i) const;
-		long double operator+(const long int &i) const;
-		long double operator+(const long long int &i) const;
-		long double operator+(const unsigned int &ui) const;
-		long double operator+(const unsigned long int &ui) const;
-		long double operator+(const unsigned long long int &ui) const;
-		long double operator+(const float &f) const;
-		long double operator+(const double &d) const;
 
 		/** @brief Sobrecarga del operador - **/
 		long double operator-(const long double &d) const;
 		long double operator-(const Combinatorio &c) const;
-		long double operator-(const int &i) const;
-		long double operator-(const long int &i) const;
-		long double operator-(const long long int &i) const;
-		long double operator-(const unsigned int &ui) const;
-		long double operator-(const unsigned long int &ui) const;
-		long double operator-(const unsigned long long int &ui) const;
-		long double operator-(const float &f) const;
-		long double operator-(const double &f) const;
 
 		/** @brief Sobrecarga del operador * **/
 		long double operator*(const long double &d) const;
 		long double operator*(const Combinatorio &d) const;
-		long double operator*(const int &i) const;
-		long double operator*(const long int &i) const;
-		long double operator*(const long long int &i) const;
-		long double operator*(const unsigned int &ui) const;
-		long double operator*(const unsigned long int &ui) const;
-		long double operator*(const unsigned long long int &ui) const;
-		long double operator*(const float &f) const;
-		long double operator*(const double &f) const;
 
 		/** @brief Sobrecarga del operador / **/
 		long double operator/(const long double &d) const;
 		long double operator/(const Combinatorio &d) const;
-		long double operator/(const int &n) const;
-		long double operator/(const long int &n) const;
-		long double operator/(const long long int &n) const;
-		long double operator/(const unsigned int &n) const;
-		long double operator/(const unsigned long int &n) const;
-		long double operator/(const unsigned long long int &n) const;
-		long double operator/(const float &n) const;
-		long double operator/(const double &n) const;
 
 		/** @brief Destructor de clase **/
 		~Combinatorio();
