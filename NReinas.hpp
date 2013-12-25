@@ -68,6 +68,14 @@ namespace algoritmia
 			@return True si acerto en la solucion **/
 		bool vegas(TableroAjedrez &table, const unsigned int &nIntentos = numeric_limits<unsigned int>::max());
 
+		/** @brief Devuelve la probabilidad que hay de conseguir una solucion a traves del algoritmo de las
+			vegas por cada intento realizado **/
+		double probabilidadVegas() const;
+
+		/** @brief Devuelve la probabilidad que hay de conseguir todas las soluciones del problema de las
+			N reinas despues de hacer n intentos con el algoritmo de las vegas **/
+		double probabilidadVegasAll(const unsigned int &nIntentos = numeric_limits<unsigned int>::max()) const;
+
 		/** @brief Devuelve el numero de intentos que se necesitaron en la ultima resolucion por la vegas **/
 		unsigned int getIntentosVegas() const;
 
