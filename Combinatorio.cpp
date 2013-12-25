@@ -166,19 +166,9 @@ namespace numbers
 		return input;
 	}
 
-	long double Combinatorio::operator+(const long double &d) const
-	{
-		return this->getResult() + d;
-	}
-
 	long double Combinatorio::operator+(const Combinatorio &c) const
 	{
 		return this->getResult() + c.getResult();
-	}
-
-	long double Combinatorio::operator-(const long double &d) const
-	{
-		return this->getResult() - d;
 	}
 
 	long double Combinatorio::operator-(const Combinatorio &c) const
@@ -186,19 +176,9 @@ namespace numbers
 		return this->getResult() - c.getResult();
 	}
 
-	long double Combinatorio::operator*(const long double &d) const
-	{
-		return this->getResult() * d;
-	}
-
 	long double Combinatorio::operator*(const Combinatorio &d) const
 	{
 		return this->getResult() * d.getResult();
-	}
-
-	long double Combinatorio::operator/(const long double &d) const
-	{
-		return this->getResult() / d;
 	}
 
 	long double Combinatorio::operator/(const Combinatorio &d) const

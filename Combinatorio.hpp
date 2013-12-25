@@ -78,19 +78,15 @@ namespace numbers
 		friend istream& operator>>(istream &input, Combinatorio &c);
 
 		/** @brief Sobrecarga del operador + **/
-		long double operator+(const long double &d) const;
 		long double operator+(const Combinatorio &c) const;
 
 		/** @brief Sobrecarga del operador - **/
-		long double operator-(const long double &d) const;
 		long double operator-(const Combinatorio &c) const;
 
 		/** @brief Sobrecarga del operador * **/
-		long double operator*(const long double &d) const;
 		long double operator*(const Combinatorio &d) const;
 
 		/** @brief Sobrecarga del operador / **/
-		long double operator/(const long double &d) const;
 		long double operator/(const Combinatorio &d) const;
 
 		/** SOBRECARGAS INLINE **/
