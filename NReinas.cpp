@@ -254,6 +254,16 @@ namespace algoritmia
 		_dim = dim;
 	}
 
+	unsigned int NReinas::getNSolutions()
+	{
+		if(this->getNSolutionsFlag())
+		{
+			this->allSolutions();
+		}
+
+		return _nSolutions;
+	}
+
 	unsigned int NReinas::getDimension() const
 	{
 		return _dim;
