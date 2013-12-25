@@ -125,6 +125,42 @@ namespace numbers
 			return this->getResult() / static_cast<long double>(n);
 		}
 
+		template <class T>
+		inline bool operator==(const T &n) const
+		{
+			return this->getResult() == n;
+		}
+
+		template <class T>
+		inline bool operator!=(const T &n) const
+		{
+			return !(*this == n);
+		}
+
+		template <class T>
+		inline bool operator<(const T &n) const
+		{
+			return this->getResult() < static_cast<long double>(n);
+		}
+
+		template <class T>
+		inline bool operator<=(const T &n) const
+		{
+			return this->getResult() <= static_cast<long double>(n);
+		}
+
+		template <class T>
+		inline bool operator>(const T &n) const
+		{
+			return !(*this <= n);
+		}
+
+		template <class T>
+		inline bool operator>=(const T &n) const
+		{
+			return !(*this < n);
+		}
+
 		/** @brief Destructor de clase **/
 		~Combinatorio();
 	};
