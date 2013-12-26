@@ -106,8 +106,6 @@ namespace algoritmia
 				if((!table.amenaza(Coordenada2D(k, i))) && (!table.hayFicha(Coordenada2D(k, i))))
 				{
 					table.setFicha(Coordenada2D(k, i), REINA);
-				
-					cerr << endl;
 
 					search(lista, table, k+1);
 
