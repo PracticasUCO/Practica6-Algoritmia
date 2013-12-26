@@ -228,6 +228,11 @@ namespace algoritmia
 			resultado += Combinatorio(i-1, nSoluciones-1) * pow(p, nSoluciones - 1) * pow(1-p, i-nSoluciones) * p;
 		}
 
+		if((isnan(resultado)) || (isinf(resultado)))
+		{
+			resultado = 1;
+		}
+
 		return static_cast<double>(resultado);
 	}
 
