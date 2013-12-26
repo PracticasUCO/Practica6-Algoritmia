@@ -89,6 +89,10 @@ namespace algoritmia
 			N reinas despues de hacer n intentos con el algoritmo de las vegas **/
 		double probabilidadVegasAll(const unsigned int &nIntentos = numeric_limits<unsigned int>::max());
 
+		/** @brief Te devuelve cuantos intentos debes de realizar para obtener al menos una probabilidad
+			de exito del p % (expresado p en tanto por uno) **/
+		bool getIntentosMinimosVegas(const double &probabilidad, unsigned long long int &nIntentos);
+
 		/** @brief Devuelve el numero de intentos que se necesitaron en la ultima resolucion por la vegas **/
 		unsigned int getIntentosVegas() const;
 
