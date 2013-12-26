@@ -231,6 +231,31 @@ namespace algoritmia
 		return static_cast<double>(resultado);
 	}
 
+	bool NReinas::getIntentosMinimosVegas(const double &probabilidad, unsigned long long int &nIntentos)
+	{
+		assert(probabilidad >= 0);
+		assert(probabilidad <= 1);
+
+		long double sumaProbabilidades = 0;
+		unsigned int nSoluciones = this->getNSolutions();
+		double p = this->probabilidadVegas() / nSoluciones;
+		unsigned long long int k = nSoluciones;
+
+		do
+		{
+			sumaProbabilidades += Combinatorio(k - 1, nSoluciones - 1) * pow(p, nSoluciones - 1) * pow(1 - p, k - nSoluciones) * p;
+			k++;
+		} while((sumaProbabilidades < 1) || isnan(sumaProbabilidades) || (k == 0));
+
+		if(k != 0)
+		{
+			nIntentos = k;
+		}
+
+		return k != 0;
+
+	}
+
 	bool NReinas::buscarReina(const TableroAjedrez &t, Coordenada2D &p) const
 	{
 		assert(p.getX() < t.getDimension());
