@@ -195,25 +195,38 @@ namespace algoritmia
 		return resultado;
 	}
 
-	double NReinas::probabilidadVegasAll(const unsigned int &nIntentos)
+	long double factorial(const unsigned int &x)
 	{
-		//Se sigue una distribucion binaria o de poison con probabilidad p
-		//La suma de n intentos es una distribuccion binomial
-		//El espacio de probabilidad es 0 1 2 3 4 5 ... S siendo S el numero de soluciones
-		//La idea es, calcular la probabilidad p(x = 0) + p(x = 1) etc, hasta llegar a S - 1
-		// y restarle eso a 1 De esa manera tendriamos la probabilidad
-		// En realidad sigue una distribucion hipergeometrica, pero se puede aproximar mediante
-		// una binomial
-		double p = this->probabilidadVegas(); //Probabilidad de acierto
-		unsigned int nSoluciones = this->getNSolutions();
-		long double resultado = 0;
+		long double resultado = 1;
 
-		for(unsigned int i = 0; i < nSoluciones - 1; i++)
+		for(unsigned int i = 2; i <=x; i++)
 		{
-			resultado += (Combinatorio(nIntentos, i) * pow(p, i) * pow((1 - p), nIntentos-i));
+			resultado *= i;
 		}
 
-		resultado = 1 - resultado;
+		return resultado;
+	}
+
+	double NReinas::probabilidadVegasAll(const unsigned int &nIntentos)
+	{
+		//Se sigue una distribuccion binomial negativa, de manera que
+		//se suman las probabilidades de haber tenido nSoluciones
+		//(siendo nSoluciones el numero de soluciones totales obtenidas
+		// por backtraking) en el intento n. Estando n entre nSoluciones y
+		// nIntentos.
+		//
+		// Además, como la probabilidad de obtener una solucion cualquiera
+		// es equiprobable con respecto a las demas, se usa como probabilidad
+		// la probabilidad de obtener un numero cualquiera entre el numero
+		// de soluciones que hay
+		unsigned int nSoluciones = this->getNSolutions();
+		double p = this->probabilidadVegas() / nSoluciones; //Probabilidad de acierto
+		long double resultado = 0;
+
+		for(unsigned int i = nSoluciones; i <= nIntentos; i++)
+		{
+			resultado += Combinatorio(i-1, nSoluciones-1) * pow(p, nSoluciones - 1) * pow(1-p, i-nSoluciones) * p;
+		}
 
 		return static_cast<double>(resultado);
 	}

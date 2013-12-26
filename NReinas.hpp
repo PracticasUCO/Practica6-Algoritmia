@@ -7,6 +7,8 @@
 #include "TableroAjedrez.hpp"
 #include "FichaAjedrez.hpp"
 
+#define E 2.7182
+
 using namespace std;
 
 namespace algoritmia
