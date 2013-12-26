@@ -189,10 +189,10 @@ namespace algoritmia
 	{
 		double resultado;
 
-		resultado = 1/this->getDimension();
+		resultado = this->getDimension();
 
 		resultado = pow(resultado, this->getDimension());
-		resultado *= this->getNSolutions();
+		resultado = this->getNSolutions()/resultado;
 
 		return resultado;
 	}
