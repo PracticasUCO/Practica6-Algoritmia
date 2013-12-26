@@ -207,17 +207,8 @@ namespace algoritmia
 		// En realidad sigue una distribucion hipergeometrica, pero se puede aproximar mediante
 		// una binomial
 		double p = this->probabilidadVegas(); //Probabilidad de acierto
-		unsigned int nSoluciones = this->getNSolutions();
-		long double resultado = 0;
 
-		for(unsigned int i = 0; i < nSoluciones - 1; i++)
-		{
-			resultado += (Combinatorio(nIntentos, i) * pow(p, i) * pow((1 - p), nIntentos-i));
-		}
-
-		resultado = 1 - resultado;
-
-		return resultado;
+		return p;
 	}
 
 	bool NReinas::buscarReina(const TableroAjedrez &t, Coordenada2D &p) const
