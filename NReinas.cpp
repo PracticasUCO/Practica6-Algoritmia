@@ -5,8 +5,10 @@
 #include "FichaAjedrez.hpp"
 #include "Coordenada2D.hpp"
 #include "NReinas.hpp"
+#include "Combinatorio.hpp"
 
 using namespace std;
+using namespace numbers;
 
 namespace algoritmia
 {
@@ -75,7 +77,7 @@ namespace algoritmia
 		return tablero;
 	}
 
-	list<TableroAjedrez> NReinas::allSolutions() const
+	list<TableroAjedrez> NReinas::allSolutions()
 	{
 		list<TableroAjedrez> lista;
 		TableroAjedrez tablero;
@@ -183,7 +185,7 @@ namespace algoritmia
 		}
 	}
 
-	double NReinas::probabilidadVegas() const
+	double NReinas::probabilidadVegas()
 	{
 		double resultado;
 
@@ -195,7 +197,7 @@ namespace algoritmia
 		return resultado;
 	}
 
-	double NReinas::probabilidadVegasAll(const unsigned int &nIntentos) const
+	double NReinas::probabilidadVegasAll(const unsigned int &nIntentos)
 	{
 		//Se sigue una distribucion binaria o de poison con probabilidad p
 		//La suma de n intentos es una distribuccion binomial
@@ -204,9 +206,18 @@ namespace algoritmia
 		// y restarle eso a 1 De esa manera tendriamos la probabilidad
 		// En realidad sigue una distribucion hipergeometrica, pero se puede aproximar mediante
 		// una binomial
-		unsigned int x; // Valor de la distribucion en un momento dado
-		unsigned int xMaximo; //Valor maximo que me interesa de la distribucion
 		double p = this->probabilidadVegas(); //Probabilidad de acierto
+		unsigned int nSoluciones = this->getNSolutions();
+		long double resultado = 0;
+
+		for(unsigned int i = 0; i < nSoluciones - 1; i++)
+		{
+			resultado += (Combinatorio(nIntentos, i) * pow(p, i) * pow((1 - p), nIntentos-i));
+		}
+
+		resultado = 1 - resultado;
+
+		return resultado;
 	}
 
 	bool NReinas::buscarReina(const TableroAjedrez &t, Coordenada2D &p) const

@@ -69,7 +69,7 @@ namespace algoritmia
 		/** @brief Devuelve una lista con todos las soluciones posibles al problema de
 			las ocho reinas
 			@return Una lista con todas las soluciones encontradas **/
-		list<TableroAjedrez> allSolutions() const;
+		list<TableroAjedrez> allSolutions();
 
 		/** @brief Lista todas las posiciones de las reinas en el tablero **/
 		list<Coordenada2D> searchQueens(const TableroAjedrez &t) const;
@@ -81,11 +81,11 @@ namespace algoritmia
 
 		/** @brief Devuelve la probabilidad que hay de conseguir una solucion a traves del algoritmo de las
 			vegas por cada intento realizado **/
-		double probabilidadVegas() const;
+		double probabilidadVegas();
 
 		/** @brief Devuelve la probabilidad que hay de conseguir todas las soluciones del problema de las
 			N reinas despues de hacer n intentos con el algoritmo de las vegas **/
-		double probabilidadVegasAll(const unsigned int &nIntentos = numeric_limits<unsigned int>::max()) const;
+		double probabilidadVegasAll(const unsigned int &nIntentos = numeric_limits<unsigned int>::max());
 
 		/** @brief Devuelve el numero de intentos que se necesitaron en la ultima resolucion por la vegas **/
 		unsigned int getIntentosVegas() const;
