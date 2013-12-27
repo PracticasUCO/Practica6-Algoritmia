@@ -228,9 +228,13 @@ namespace algoritmia
 			resultado += Combinatorio(i-1, nSoluciones-1) * pow(p, nSoluciones - 1) * pow(1-p, i-nSoluciones) * p;
 		}
 
-		if((isnan(resultado)) || (isinf(resultado)))
+		if(isnan(resultado))
 		{
 			resultado = 1;
+		}
+		else if(isinf(resultado))
+		{
+			resultado = -1;
 		}
 
 		return static_cast<double>(resultado);
@@ -249,7 +253,6 @@ namespace algoritmia
 		do
 		{
 			sumaProbabilidades += Combinatorio(k - 1, nSoluciones - 1) * pow(p, nSoluciones - 1) * pow(1 - p, k - nSoluciones) * p;
-			k++;
 		} while((sumaProbabilidades < 1) || isnan(sumaProbabilidades) || (k == 0));
 
 		if(k != 0)
@@ -257,7 +260,7 @@ namespace algoritmia
 			nIntentos = k;
 		}
 
-		return k != 0;
+		return (k != 0) || !(isinf(sumaProbabilidades));
 
 	}
 
