@@ -7,6 +7,9 @@ using namespace std;
 
 namespace numbers
 {
+	/** @brief Elimina todos los decimales de una cadena de numeros **/
+	void eliminarDecimales(string &s);
+
 	class BigInteger
 	{
 	private:
