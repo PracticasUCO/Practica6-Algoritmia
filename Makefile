@@ -39,5 +39,5 @@ clean-all: clean-objects
 	-rm practica6
 
 ## For test only purpose
-test: test.cpp $(OBJECTS)
+test: test.o $(OBJECTS)
 	$(CXX) $(INCLUDE) $(LIBRARY) $(CXXFLAGS) -o $@ $^

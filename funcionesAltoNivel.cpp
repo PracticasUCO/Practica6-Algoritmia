@@ -20,12 +20,14 @@ namespace algoritmia
 			cout << "2- Encontrar la primera solucion (Backtraking)" << endl;
 			cout << "3- Encontrar todas las soluciones (Backtraking)" << endl;
 			cout << "4- Buscar una solucion por el algoritmo de las vegas" << endl;
+			cout << "5- Calcular probabilidad de exito con x intentos" << endl;
+			cout << "6- Calcular el numero de intentos necesarios para asegurar una probabilidad" << endl;
 			cout << "0- Salir" << endl << endl;
 
 			cout << "Introduzca una opcion: ";
 			cin >> opcion;
 			cout << endl;
-		}while(opcion > 4);
+		}while(opcion > 6);
 
 		return opcion;
 	}

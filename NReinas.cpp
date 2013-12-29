@@ -219,25 +219,29 @@ namespace algoritmia
 		// es equiprobable con respecto a las demas, se usa como probabilidad
 		// la probabilidad de obtener un numero cualquiera entre el numero
 		// de soluciones que hay
+		long double sumaProbabilidades = 0;
 		unsigned int nSoluciones = this->getNSolutions();
-		double p = this->probabilidadVegas() / nSoluciones; //Probabilidad de acierto
-		long double resultado = 0;
+		double p = this->probabilidadVegas() / nSoluciones;
+		unsigned int k = nSoluciones+1;
 
-		for(unsigned int i = nSoluciones; i <= nIntentos; i++)
+		do
 		{
-			resultado += Combinatorio(i-1, nSoluciones-1) * pow(p, nSoluciones - 1) * pow(1-p, i-nSoluciones) * p;
+			sumaProbabilidades += Combinatorio(k - 1, nSoluciones - 1) * pow(p, nSoluciones - 1) * pow(1 - p, k - nSoluciones) * p;
+			k++;
+
+			if((isnan(sumaProbabilidades)) || (isnan(sumaProbabilidades*-1)) || (k == nIntentos))
+			{
+				break;
+			}
+
+		} while(true);
+
+		if(k == nSoluciones + 1)
+		{
+			return -1;
 		}
 
-		if(isnan(resultado))
-		{
-			resultado = 1;
-		}
-		else if(isinf(resultado))
-		{
-			resultado = -1;
-		}
-
-		return static_cast<double>(resultado);
+		return static_cast<double>(sumaProbabilidades);
 	}
 
 	bool NReinas::getIntentosMinimosVegas(const double &probabilidad, unsigned long long int &nIntentos)
@@ -248,12 +252,19 @@ namespace algoritmia
 		long double sumaProbabilidades = 0;
 		unsigned int nSoluciones = this->getNSolutions();
 		double p = this->probabilidadVegas() / nSoluciones;
-		unsigned long long int k = nSoluciones;
+		unsigned long long int k = nSoluciones+1;
 
 		do
 		{
 			sumaProbabilidades += Combinatorio(k - 1, nSoluciones - 1) * pow(p, nSoluciones - 1) * pow(1 - p, k - nSoluciones) * p;
-		} while((sumaProbabilidades < 1) || isnan(sumaProbabilidades) || (k == 0));
+			k++;
+
+			if((isnan(sumaProbabilidades)) || (isnan(sumaProbabilidades*-1)) || (sumaProbabilidades >= probabilidad) || (k == 0))
+			{
+				break;
+			}
+
+		} while(true);
 
 		if(k != 0)
 		{
