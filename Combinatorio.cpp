@@ -20,11 +20,11 @@ namespace numbers
 
 	long double Combinatorio::limitedFactorial(const unsigned long long int &f, const unsigned long long &limit) const
 	{
-		assert(f >= limit);
+		assert(f > limit);
 
 		long double resultado = 1;
 
-		for(unsigned long long int i = f; i >= limit; i--)
+		for(unsigned long long int i = f; i > limit; i--)
 		{
 			resultado *= i;
 		}
@@ -85,7 +85,14 @@ namespace numbers
 		down = this->getDown();
 		limit = upper - down;
 
-		resultado = this->limitedFactorial(upper, limit) / this->factorial(down);
+		if(upper > down)
+		{
+			resultado = this->limitedFactorial(upper, limit) / this->factorial(down);
+		}
+		else
+		{
+			resultado = 1;
+		}
 		
 		_result = resultado;
 	}
