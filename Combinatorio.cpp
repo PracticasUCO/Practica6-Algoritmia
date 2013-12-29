@@ -83,11 +83,19 @@ namespace numbers
 
 		upper = this->getUpper();
 		down = this->getDown();
-		limit = upper - down;
 
 		if(upper > down)
 		{
-			resultado = this->limitedFactorial(upper, limit) / this->factorial(down);
+			if(upper - down > down)
+			{
+				limit = upper - down;
+				resultado = this->limitedFactorial(upper, limit) / this->factorial(down);
+			}
+			else
+			{
+				limit = down;
+				resultado = this->limitedFactorial(upper, limit) / this->factorial(upper - down);
+			}
 		}
 		else
 		{
