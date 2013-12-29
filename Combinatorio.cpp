@@ -32,7 +32,7 @@ namespace numbers
 		return resultado;
 	}
 
-	long double Combinatorio::mulLimitedFactorial(const unsigned long long int &f, const unsigned long long int &limite, const long long double &mul) const
+	long double Combinatorio::mulLimitedFactorial(const unsigned long long int &f, const unsigned long long int &limit, const long double &mul) const
 	{
 		assert(f > limit);
 
