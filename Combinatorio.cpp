@@ -98,7 +98,11 @@ namespace numbers
 		upper = this->getUpper();
 		down = this->getDown();
 
-		if(upper > down)
+		if((upper == down + 1) || (down == 1))
+		{
+			resultado = upper;
+		}
+		else if(upper > down)
 		{
 			if(upper - down > down)
 			{
