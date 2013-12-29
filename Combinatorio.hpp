@@ -23,6 +23,9 @@ namespace numbers
 		/** @brief Devuelve un factorial limitado multiplicado en cada paso por un numero **/
 		long double mulLimitedFactorial(const unsigned long long int &f, const unsigned long long int &limite, const long double &mul) const;
 
+		/** @brief Hace la multiplicacion y division del numero para conseguir el factorial, poco a poco **/
+		void twoPhasesFactorial(const unsigned long long int &upper,const unsigned long long int &down, const unsigned long long int &limit);
+
 		/** @brief Actualiza el valor del resultado **/
 		void update();
 

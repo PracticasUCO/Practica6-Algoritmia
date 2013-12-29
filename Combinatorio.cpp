@@ -46,6 +46,28 @@ namespace numbers
 		return resultado;
 	}
 
+	void Combinatorio::twoPhasesFactorial(const unsigned long long int &upper,const unsigned long long int &down, const unsigned long long int &limit)
+	{
+		long double resultado = 1;
+		
+		unsigned long long int newDown = upper - limit;
+		unsigned long long int upp = upper;
+
+		while(newDown > 1)
+		{
+			resultado *= (static_cast<long double>(upp) / static_cast<long double>(newDown));
+			newDown--;
+			upp--;
+		}
+
+		while(upp > limit)
+		{
+			resultado *= upp;
+			upp--;
+		}
+		_result = resultado;
+	}
+
 	Combinatorio::Combinatorio()
 	{
 		this->set(0 , 0);
@@ -90,7 +112,6 @@ namespace numbers
 
 	void Combinatorio::update()
 	{
-		long double resultado;
 		unsigned long long int upper;
 		unsigned long long int down;
 		unsigned long long int limit;
@@ -98,29 +119,19 @@ namespace numbers
 		upper = this->getUpper();
 		down = this->getDown();
 
-		if((upper == down + 1) || (down == 1))
-		{
-			resultado = upper;
-		}
-		else if(upper > down)
+		if(upper > down)
 		{
 			if(upper - down > down)
 			{
 				limit = upper - down;
-				resultado = this->limitedFactorial(upper, limit) / this->factorial(down);
+				this->twoPhasesFactorial(upper, down, limit);
 			}
 			else
 			{
 				limit = down;
-				resultado = this->limitedFactorial(upper, limit) / this->factorial(upper - down);
+				this->twoPhasesFactorial(upper, down, limit);
 			}
 		}
-		else
-		{
-			resultado = 1;
-		}
-		
-		_result = resultado;
 	}
 
 	void Combinatorio::clone(const Combinatorio &c)
