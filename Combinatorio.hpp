@@ -15,7 +15,10 @@ namespace numbers
 		long double _result; //!< Resultado de la operacion, para no tener que calcularlo varias veces
 
 		/** @brief Devuelve el factorial del numero que le pases **/
-		long double factorial(const unsigned long long int &f);
+		long double factorial(const unsigned long long int &f) const;
+
+		/** @brief Devuelve un factorial truncado su calculo **/
+		long double limitedFactorial(const unsigned long long int &f, const unsigned long long int &limite) const;
 
 		/** @brief Actualiza el valor del resultado **/
 		void update();

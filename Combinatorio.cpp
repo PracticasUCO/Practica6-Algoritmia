@@ -6,11 +6,25 @@ using namespace std;
 
 namespace numbers
 {
-	long double Combinatorio::factorial(const unsigned long long int &f)
+	long double Combinatorio::factorial(const unsigned long long int &f) const
 	{
 		long double resultado = 1;
 
 		for(unsigned long long int i = 2; i <= f; i++)
+		{
+			resultado *= i;
+		}
+
+		return resultado;
+	}
+
+	long double Combinatorio::limitedFactorial(const unsigned long long int &f, const unsigned long long &limit) const
+	{
+		assert(f >= limit);
+
+		long double resultado = 1;
+
+		for(unsigned long long int i = f; i >= limit; i--)
 		{
 			resultado *= i;
 		}
@@ -65,11 +79,14 @@ namespace numbers
 		long double resultado;
 		unsigned long long int upper;
 		unsigned long long int down;
+		unsigned long long int limit;
 
 		upper = this->getUpper();
 		down = this->getDown();
+		limit = upper - down;
 
-		resultado = this->factorial(upper) / (this->factorial(down) * this->factorial(upper - down));
+		resultado = this->limitedFactorial(upper, limit) / this->factorial(down);
+		
 		_result = resultado;
 	}
 
