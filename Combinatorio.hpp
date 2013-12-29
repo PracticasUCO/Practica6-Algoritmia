@@ -20,6 +20,9 @@ namespace numbers
 		/** @brief Devuelve un factorial truncado su calculo **/
 		long double limitedFactorial(const unsigned long long int &f, const unsigned long long int &limite) const;
 
+		/** @brief Devuelve un factorial limitado multiplicado en cada paso por un numero **/
+		long double mulLimitedFactorial(const unsigned long long int &f, const unsigned long long int &limite, const long long double &mul) const;
+
 		/** @brief Actualiza el valor del resultado **/
 		void update();
 

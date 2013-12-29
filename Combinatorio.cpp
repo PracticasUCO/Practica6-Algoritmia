@@ -32,6 +32,20 @@ namespace numbers
 		return resultado;
 	}
 
+	long double Combinatorio::mulLimitedFactorial(const unsigned long long int &f, const unsigned long long int &limite, const long long double &mul) const
+	{
+		assert(f > limit);
+
+		long double resultado = 1;
+
+		for(unsigned long long int i = f; i > limit; i--)
+		{
+			resultado *= (i * mul);
+		}
+
+		return resultado;
+	}
+
 	Combinatorio::Combinatorio()
 	{
 		this->set(0 , 0);
