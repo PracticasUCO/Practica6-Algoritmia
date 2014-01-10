@@ -1,6 +1,7 @@
 #include <cassert>
 #include <random>
 #include <cmath>
+#include <vector>
 #include "TableroAjedrez.hpp"
 #include "FichaAjedrez.hpp"
 #include "Coordenada2D.hpp"
@@ -150,28 +151,46 @@ namespace algoritmia
 		unsigned int reinas = 0;
 		table.clear();
 		unsigned int intentos = 0;
+		std::vector<unsigned int> posicionTablero;
 
-		for(unsigned int i = 0; i < table.getDimension(); i++)
+		for(unsigned int i = 0; ((i < table.getDimension()) && (intentos < nIntentos)); i++)
 		{
-			while(intentos < nIntentos)
-			{
-				unsigned int j = rd() % table.getDimension();
-				Coordenada2D p(i, j);
+			//Se borra el vector de posibilidades donde introduccir una reina
+			posicionTablero.clear();
 
-				if(table.amenaza(p))
+			//Se buscan todas los lugares donde puede entrar una reina
+			for(unsigned int j = 0; j < table.getDimension(); j++)
+			{
+				if(!table.amenaza(Coordenada2D(i, j)))
 				{
-					intentos++;
-				}
-				else
-				{
-					table.setFicha(p, REINA);
-					reinas++;
-					break;
+					posicionTablero.push_back(j);
 				}
 			}
+
+			//Si no hay ningun hueco donde introduccir la reina, hemos fracasado
+			if(posicionTablero.size() == 0)
+			{
+				//Tratamos de reiniciar el tablero, para volver a intentarlo
+				//Incrementamos el contador de intentos para asegurarnos de no
+				//pasarnos del numero maximo de intentos establecido
+				intentos++;
+				i = 0 - 1; //Es entero sin signo, se ajusta al entero más grande y al entrar en el bucle for volvera a cero
+				reinas = 0;
+				table.clear();
+				continue;
+			}
+
+			//Hemos encontrado un hueco, por lo que introduccimos la reina
+			unsigned int j = rd() % posicionTablero.size();
+			Coordenada2D p(i, posicionTablero[j]);
+
+			table.setFicha(p, REINA);
+			reinas++;
 		}
 
-		this->setIntentosVegas(intentos);
+		cout << endl << endl;
+
+		this->setIntentosVegas(intentos + 1);
 
 		if(reinas == table.getDimension())
 		{
