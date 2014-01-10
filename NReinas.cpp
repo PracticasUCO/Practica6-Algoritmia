@@ -188,8 +188,6 @@ namespace algoritmia
 			reinas++;
 		}
 
-		cout << endl << endl;
-
 		this->setIntentosVegas(intentos + 1);
 
 		if(reinas == table.getDimension())
